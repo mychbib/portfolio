@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal scientific portfolio of Manal Yassine, PhD.">
+  <title>Manal Yassine, PhD — Personal Website</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="light-page home-page">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell navbar">
+    <a class="brand" href="index.html">Manal Yassine, PhD<small>Personal website</small></a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Open navigation">Menu</button>
+    <nav class="nav-links" aria-label="Primary"><a href="index.html" aria-current="page">Home</a>
+<a href="work.html">Work</a>
+<a href="publications.html">Publications</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="hero-media media-frame">
+    <video autoplay muted loop playsinline data-media="swot_anim.mp4">
+      <source src="assets/media/swot_anim.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="shell hero-content">
+    <span class="eyebrow">High-energy astrophysics . Earth observation</span>
+    <h1>From gamma rays to ocean topography.</h1>
+    <p class="lead">
+      Manal Yassine, PhD - Data and scientific software engineer.
+      My work spans astrophysics and Earth observation, from gamma-ray bursts
+      and instrument calibration to satellite altimetry, hydrology,
+      scientific pipelines and large-scale data-quality monitoring.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="work.html">Explore my work →</a>
+      <a class="button ghost" href="about.html">About me</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-heading reveal">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2>Science, instruments and data.</h2>
+      </div>
+      <p>My work has moved across astrophysics and Earth observation while keeping a common thread: understanding instruments, processing scientific data, validating performance and extracting reliable physical information.</p>
+    </div>
+
+    <div class="cards">
+      <a class="project-card wide reveal" href="projects/devops.html">
+        <div class="media-frame">
+          <img
+            src="assets/media/devOps.png"
+            data-media="projects_2026.png"
+            alt="Overview of 2026 data engineering, CalVal and Sentinel-3 activities">
+        </div>
+      
+        <div class="project-card-body">
+          <h3>Data Engineering &amp; CalVal Operations</h3>
+      
+          <p>
+            Scientific software refactoring and CalVal-OIGDR/COPAS integration,
+            automated S3/Scality archiving and restoration workflows,
+            and large-scale Sentinel-3A/3B reprocessing and validation.
+          </p>
+      
+          <div class="meta">
+            <span class="tag">Python</span>
+            <span class="tag">CalVal</span>
+            <span class="tag">S3 / Scality</span>
+            <span class="tag">Sentinel-3</span>
+          </div>
+        </div>
+      </a>
+      <a class="project-card reveal" href="projects/hydro.html">
+        <div class="media-frame">
+          <img class="vt-hydro"
+               src="assets/media/geoid_egm08.png"
+               data-media="geoid_egm08.png"
+               alt="Mean lake surface and geoid analysis over Lake Geneva">
+        </div>
+      
+        <div class="project-card-body">
+          <h3>SWOT / Space Hydrology</h3>
+      
+          <p>
+            Mean lake surfaces from SWOT KaRIn, automated quality monitoring
+            over thousands of lakes, and advanced hydrological time-series
+            processing using Kalman filtering and predictive models.
+          </p>
+      
+          <div class="meta">
+            <span class="tag">SWOT</span>
+            <span class="tag">Hydrology</span>
+            <span class="tag">Python / Dask</span>
+          </div>
+        </div>
+      </a>
+               <!-- src='assets/media/PIA26091.jpg' -->
+      <a class="project-card reveal" href="projects/swot-s3ng.html">
+        <div class="media-frame">
+          <img class="vt-swot"
+               src="assets/media/SwotImg.jpg"
+
+               data-media="PIA26091.jpg"
+               alt="SWOT sea-surface-height visualization">
+        </div>
+      
+        <div class="project-card-body">
+          <h3>SWOT / KaRIn &amp; S3NG / SAOOH</h3>
+      
+          <p>
+            KaRIn data analysis and scientific visualisation, development of
+            altimetric processing chains, and performance simulations for
+            oceanic and hydrological observation modes.
+          </p>
+      
+          <div class="meta">
+            <span class="tag">CLS</span>
+            <span class="tag">Altimetry</span>
+            <span class="tag">Simulation</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card reveal" href="projects/svom.html">
+        <div class="media-frame contain"><img class="vt-svom" src="assets/media/Eclairs.jpg" data-media="Eclairs.jpg" alt="ECLAIRs telescope"></div>
+        <div class="project-card-body">
+          <h3>SVOM / ECLAIRs</h3>
+          <p>Calibration, response files, detector homogeneity and performance assessment.</p>
+          <div class="meta"><span class="tag">IRAP</span><span class="tag">CNES</span></div>
+        </div>
+      </a>
+
+      <a class="project-card reveal" href="projects/lsst.html">
+        <div class="media-frame contain"><img class="vt-lsst" src="assets/media/FocalPlane_calexp_32_vis1164.png" data-media="FocalPlane_calexp_32_vis1164.png" alt="HSC calibrated exposure focal plane"></div>
+        <div class="project-card-body">
+          <h3>LSST / HSC</h3>
+          <p>Supernova pipeline validation, difference imaging, astrometric and photometric calibration.</p>
+          <div class="meta"><span class="tag">CPPM</span><span class="tag">LSST DESC</span></div>
+        </div>
+      </a>
+
+      <a class="project-card reveal" href="projects/fermi-cta.html">
+        <div class="media-frame contain"><img class="vt-cta" src="assets/media/TSevolution_27Bursts_2.png" data-media="TSevolution_27Bursts_2.png" alt="CTA Test Statistic evolution for 27 gamma-ray bursts"></div>
+        <div class="project-card-body">
+          <h3>Fermi / CTA</h3>
+          <p>LAT data analysis, CTA simulations and spectral studies of gamma-ray bursts.</p>
+          <div class="meta"><span class="tag">INFN</span><span class="tag">Fermi / NASA</span><span class="tag">CTA</span></div>
+        </div>
+      </a>
+
+      <a class="project-card reveal" href="projects/phd-fermi.html">
+        <div class="media-frame contain">
+          <img
+            src="assets/media/Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png"
+            data-media="Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png"
+            alt="Fermi gamma-ray burst spectral modelling during PhD research">
+        </div>
+      
+        <div class="project-card-body">
+          <h3>PhD · Fermi GRB Spectral Modelling</h3>
+      
+          <p>
+            High-energy spectral analysis of gamma-ray bursts, physical modelling
+            of MeV emission and detailed study of GRB 090926A using Fermi GBM/LAT data.
+          </p>
+      
+          <div class="meta">
+            <span class="tag">LUPM</span>
+            <span class="tag">PhD</span>
+            <span class="tag">Fermi / NASA</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section journey">
+  <div class="shell">
+    <div class="section-heading reveal">
+      <div><span class="eyebrow">Trajectory</span><h2>A connected scientific path.</h2></div>
+      <p>The disciplines changed, but the working method remained closely related: physical modelling, simulations, instrument response, data validation and scientific software.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-row reveal">
+        <div class="date">2014–2017</div>
+        <div>
+          <h3>PhD · LUPM, Montpellier</h3>
+          <p>
+            High Energy Astrophysics, Fermi gamma-ray bursts,
+            joint GBM/LAT spectral analysis.
+          </p>
+        </div>
+      </div>
+    
+      <div class="timeline-row reveal">
+        <div class="date">2017–2018</div>
+        <div>
+          <h3>INFN · Fermi &amp; CTA, Trieste</h3>
+          <p>
+            GRB spectral analysis, CTA simulations and participation
+            in the LAT Burst Advocate monitoring service.
+          </p>
+        </div>
+      </div>
+    
+      <div class="timeline-row reveal">
+        <div class="date">2018–2020</div>
+        <div>
+          <h3>CPPM · LSST DESC, Marseille</h3>
+          <p>
+            Validation of the supernova detection pipeline and work with HSC data.
+          </p>
+        </div>
+      </div>
+    
+      <div class="timeline-row reveal">
+        <div class="date">2021–2022</div>
+        <div>
+          <h3>IRAP · SVOM / ECLAIRs, Toulouse</h3>
+          <p>
+            Calibration and performance assessment of the ECLAIRs instrument.
+          </p>
+        </div>
+      </div>
+    
+      <div class="timeline-row reveal">
+        <div class="date">2023–2024</div>
+        <div>
+          <h3>CLS · SWOT &amp; S3NG / SAOOH, Toulouse</h3>
+          <p>
+            Ocean topography, KaRIn data analysis, SAOOH onboard-processing-chain
+            development and simulations.
+          </p>
+        </div>
+      </div>
+    
+      <div class="timeline-row reveal">
+        <div class="date">2025</div>
+        <div>
+          <h3>CLS · SWOT Hydrology, Toulouse</h3>
+          <p>
+            Mean lake-surface estimation from high-resolution SWOT KaRIn data,
+            automated data-quality monitoring, CCI hydrology products and
+            advanced hydrological time-series processing.
+          </p>
+        </div>
+      </div>
+    
+      <div class="timeline-row reveal">
+        <div class="date">2026</div>
+        <div>
+          <h3>CLS · Data Engineering &amp; CalVal Operations, Toulouse</h3>
+          <p>
+            Refactoring and robustness improvements for CalVal-OIGDR/COPAS,
+            automated S3/Scality archiving workflows, and large-scale
+            Sentinel-3A/3B reprocessing, validation and quality monitoring.
+          </p>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</section>
+
+<section class="section compact">
+  <div class="shell">
+    <div class="gallery">
+      <figure class="figure reveal">
+        <div class="media-frame contain"><img src="assets/media/Instruments.png" data-media="Instruments.png" alt="Scientific instruments overview"></div>
+      </figure>
+      <figure class="figure reveal">
+        <div class="media-frame contain"><img src="assets/media/swot_S3NG.png" data-media="swot_S3NG.png" alt="SWOT and S3NG overview"></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-row">
+    <div>© <span data-year></span> Manal Yassine. Personal scientific portfolio.</div>
+    <div><a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
