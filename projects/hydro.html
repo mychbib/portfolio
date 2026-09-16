@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SWOT hydrology work in 2025: mean lake surfaces, CCI lake products, automated quality monitoring and hydrological time-series modelling.">
+  <title>SWOT Hydrology 2025 — Manal Yassine</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="light-page">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell navbar">
+    <a class="brand" href="../index.html">Manal Yassine, PhD<small>Personal website</small></a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Open navigation">Menu</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../index.html">Home</a>
+      <a href="../work.html" aria-current="page">Work</a>
+      <a href="../publications.html">Publications</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="section compact">
+  <div class="shell project-hero-grid">
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../work.html">Work</a> / SWOT Hydrology 2025</div>
+      <span class="eyebrow">CLS · CNES · Hydrology · 2025</span>
+      <h1>SWOT hydrology: lake surfaces, quality monitoring &amp; time-series modelling</h1>
+      <p class="lede">Since April 2025, my work at CLS has focused on extracting reliable hydrological information from SWOT and Sentinel altimetry through scientific algorithms, automated data-quality monitoring and validated time-series methods.</p>
+      <div class="project-facts">
+        <span class="tag">SWOT KaRIn</span>
+        <span class="tag">Python</span>
+        <span class="tag">Dask</span>
+        <span class="tag">NetCDF / CCI</span>
+        <span class="tag">Time series</span>
+        <span class="tag">Quality control</span>
+      </div>
+    </div>
+    <figure class="figure reveal">
+      <div class="media-frame contain">
+        <img class="vt-hydro2025" src="../assets/media/geoid_egm08.png" data-media="geoid_egm08.png" alt="EGM2008 geoid values over the Lake Geneva region">
+      </div>
+      <figcaption>Spatial variability of the EGM2008 geoid over the Lake Geneva region, used to investigate the reference surface and its local limitations for lake-altimetry applications.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section compact">
+  <div class="shell prose-grid">
+    <aside class="reveal">
+      <span class="eyebrow">01 · Mean lake surfaces</span>
+    </aside>
+    <div class="prose reveal">
+      <h2>From SWOT KaRIn measurements to a mean lake surface</h2>
+      <p>I develop a method to estimate mean lake surfaces from high-resolution SWOT KaRIn observations. The objective is to reconstruct a stable two-dimensional water surface, approximately parallel to the geoid, in order to better characterise inter-track biases in nadir radar altimetry and reduce the impact of local limitations in existing geoid models.</p>
+      <p>The processing uses SWOT high-resolution raster data, aggregates repeated observations to kilometre-scale cells, filters anomalous measurements and derives quality indicators and statistical diagnostics. The resulting surfaces can then be compared with independent references such as ICESat-2 profiles, GNSS measurements and Hydroweb products to assess their consistency and their potential contribution to more stable lake-level time series.</p>
+
+      <div class="gallery">
+        <!-- <figure class="figure">
+          <div class="media-frame contain"><img src="../assets/media/geoid_swot_520.png" data-media="geoid_swot_520.png" alt="SWOT-sampled geoid field over Lake Geneva"></div>
+          <figcaption>Example of the geoid field sampled over the SWOT-observed portion of Lake Geneva, with the spatial distribution and associated statistics shown together.</figcaption>
+        </figure> -->
+        <figure class="figure">
+          <div class="media-frame contain"><img src="../assets/media/Leman_027_542_037F_20250202_wo_casys.png" data-media="Leman_027_542_037F_20250202_wo_casys.png" alt="SWOT water surface height map over Lake Geneva"></div>
+          <figcaption>Example SWOT water-surface-height field over Lake Geneva for a selected cycle/pass, used to study the spatial structure and dispersion of the observed elevations.</figcaption>
+        </figure>
+      </div>
+
+      <h2>CCI lake products: LWL / LWE NetCDF generation</h2>
+      <p>In parallel, I contribute to a complete processing pipeline for the generation of CCI-format NetCDF products containing Lake Water Level (LWL) and Lake Water Extent (LWE) information. The workflow produces one two-dimensional latitude/longitude file per day and integrates Hydroweb information into the required CCI structure.</p>
+      <p>The pipeline handles specific cases such as the North, South, East and West Aral Sea components, inserts non-observed lakes with the agreed default value, and includes validation routines for file counts, variable names, time-series consistency and CF compliance. Post-processing tools can correct metadata and structural issues detected by CF-checker without requiring the full production chain to be rerun.</p>
+
+      <div class="notice"><strong>Scientific-data engineering</strong> This activity combines data transformation, NetCDF production, metadata handling, automated validation and reproducibility checks to deliver lake products suitable for downstream scientific use.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section compact">
+  <div class="shell prose-grid">
+    <aside class="reveal">
+      <span class="eyebrow">02 · Automated monitoring</span>
+    </aside>
+    <div class="prose reveal">
+      <h2>Monitoring SWOT lake observations at scale</h2>
+      <p>I developed an automated monitoring workflow to evaluate the quality and completeness of SWOT lake-altimetry observations. The first large-scale configuration targets approximately 10,000 stable lakes selected using ICESat-2 information, latitude constraints and lake area, and processes the observations efficiently with Python and Dask.</p>
+      <p>The monitoring compares nominal lake/pass visibility from the Prior Lake Database with actual SWOT observations, identifies missing measurements and expected-but-absent passes, applies quality flags, and detects outliers from spatial and temporal signatures. Diagnostics are generated by lake, pass and cycle so that recent observations can be reviewed quickly and systematically.</p>
+
+      <figure class="figure">
+        <div class="media-frame contain"><img src="../assets/media/all_passes_nominal_vs_observed_1D.png" data-media="all_passes_nominal_vs_observed_1D.png" alt="Nominal versus observed lake counts by SWOT pass"></div>
+        <figcaption>Number of nominal lakes expected from the PLD versus actually observed lakes, with an additional series after applying the selected quality flags.</figcaption>
+      </figure>
+
+      <h2>Lake- and pass-level diagnostics</h2>
+      <div class="gallery">
+        <figure class="figure">
+          <div class="media-frame contain"><img src="../assets/media/lake_1220049452_map_timeseries_1220049452_208.png" data-media="lake_1220049452_map_timeseries_1220049452_208.png" alt="Map and water-surface-height time series for lake 1220049452 pass 208"></div>
+          <figcaption>Spatial distribution of water-surface-height observations and the corresponding time series for lake 1220049452, pass 208. A strong isolated deviation is immediately visible in the temporal diagnostic.</figcaption>
+        </figure>
+        <figure class="figure">
+          <div class="media-frame contain"><img src="../assets/media/lake_1220049452_map_timeseries_1220049452_583.png" data-media="lake_1220049452_map_timeseries_1220049452_583.png" alt="Map and water-surface-height time series for lake 1220049452 pass 583"></div>
+          <figcaption>The same lake viewed by pass 583, illustrating how pass-dependent time series can reveal different missing-data and outlier patterns.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Statistical quality indicators</h2>
+      <div class="gallery">
+        <figure class="figure">
+          <div class="media-frame contain"><img src="../assets/media/std_comparison.png" data-media="std_comparison.png" alt="Bar chart comparing water-surface-height standard deviations over 35 cycles"></div>
+          <figcaption>Cycle-by-cycle comparison of water-surface-height variability, geoid variability and the standard deviation of their difference over 35 Lake Geneva observations.</figcaption>
+        </figure>
+        <figure class="figure">
+          <div class="media-frame contain"><img src="../assets/media/std_scatter_comparison.png" data-media="std_scatter_comparison.png" alt="Point chart comparing standard deviations over 35 cycles"></div>
+          <figcaption>The same indicators displayed as a cycle sequence, making changes in relative variability easier to identify.</figcaption>
+        </figure>
+      </div>
+
+      <figure class="figure">
+        <div class="media-frame contain"><img src="../assets/media/trace_1220049452_heatmap.png" data-media="trace_1220049452_heatmap.png" alt="Cycle by pass state heatmap with validated, outlier and missing observations"></div>
+        <figcaption>Cycle × pass status matrix for one lake. Each expected observation is classified as validated, outlier or missing, providing a compact operational view of data quality through time.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section compact">
+  <div class="shell prose-grid">
+    <aside class="reveal">
+      <span class="eyebrow">03 · Time-series methods</span>
+    </aside>
+    <div class="prose reveal">
+      <h2>Improving hydrological time series with Kalman filtering</h2>
+      <p>I also work on improving hydrological lake and river time series by implementing and validating advanced filtering methods. A central part of this study is the Kalman-filter approach used in DAHITI, which serves as a reference method for measuring the gain obtained by alternative modelling strategies.</p>
+      <p>The work includes automatic optimisation of noise parameters and the evaluation of predictive components based on STL, ARIMA and SARIMA. The resulting series are compared against Hydroweb and DAHITI references and, where available, validated with in-situ measurements. Performance is assessed using quantitative indicators such as RMSE and MAE, together with a detailed examination of periods where the methods diverge.</p>
+
+      <div class="gallery">
+        <!-- <figure class="figure">
+          <div class="media-frame contain"><img src="../assets/media/kalman_task_excerpt.png" data-media="kalman_task_excerpt.png" alt="Excerpt of the project task defining implementation and performance analysis of the selected filtering method"></div>
+          <figcaption>Project task defining the implementation, performance analysis, addition of predictive models and comparison with in-situ references.</figcaption>
+        </figure> -->
+        <figure class="figure">
+          <div class="media-frame contain"><img src="../assets/media/kalman_compare_wo_arimafix_different_noise0.21_R_RHONE_RHONE_KM0327_interpolated_RMSE5days.png" data-media="kalman_model_comparison.png" alt="Comparison of Kalman based hydrological time-series models against HydroProd"></div>
+          <figcaption>Example comparison on a Rhône target between HydroProd and several Kalman-based configurations using STL, SARIMA and ARIMA, with RMSE/MAE indicators and residuals.</figcaption>
+        </figure>
+      </div>
+
+      <div class="notice"><strong>Validation objective</strong> The goal is not only to obtain smoother series, but to determine which method produces the most reliable hydrological reconstruction when compared with independent reference and in-situ observations.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-row">
+    <div>© <span data-year></span> Manal Yassine. Personal scientific portfolio.</div>
+    <div><a href="../contact.html">Contact</a></div>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

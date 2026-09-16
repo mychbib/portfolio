@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Scientific software engineering, data operations, automated archiving and Sentinel-3 processing work by Manal Yassine, PhD.">
+  <title>Data Engineering &amp; CalVal Operations — Manal Yassine</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="light-page">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell navbar">
+    <a class="brand" href="../index.html">
+      Manal Yassine, PhD
+      <small>Personal website</small>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-label="Open navigation">Menu</button>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../index.html">Home</a>
+      <a href="../work.html" aria-current="page">Work</a>
+      <a href="../publications.html">Publications</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="section compact">
+  <div class="shell project-hero-grid">
+
+    <div class="page-hero">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> /
+        <a href="../work.html">Work</a> /
+        Data Engineering &amp; CalVal Operations
+      </div>
+
+      <span class="eyebrow">CLS · Scientific software · Data operations</span>
+
+      <h1>Data Engineering &amp; CalVal Operations</h1>
+
+      <p class="lede">
+        Scientific-software engineering and operational data work covering
+        CalVal-OIGDR / COPAS code factorization, automated archival workflows,
+        and Sentinel-3A / Sentinel-3B processing and data-completeness validation.
+      </p>
+
+      <div class="project-facts">
+        <span class="tag">Python</span>
+        <span class="tag">CalVal-OIGDR</span>
+        <span class="tag">COPAS</span>
+        <span class="tag">S3 / Scality</span>
+        <span class="tag">Sentinel-3</span>
+      </div>
+    </div>
+
+    <figure class="figure reveal">
+      <div class="media-frame contain">
+        <img
+          src="../assets/media/devOps.png"
+          data-media="devOps.png"
+          alt="Overview of scientific software engineering, automated archiving and Sentinel-3 processing activities">
+      </div>
+      <figcaption>
+        Three complementary engineering workstreams: software modularization,
+        secure data archiving, and Sentinel-3 processing and validation.
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+
+<section class="section compact">
+  <div class="shell prose-grid">
+
+    <aside class="reveal">
+      <span class="eyebrow">Overview</span>
+    </aside>
+
+    <div class="prose reveal">
+      <p>
+        In parallel with scientific analysis activities, I work on the software
+        and operational infrastructure required to make satellite-altimetry
+        processing more maintainable, traceable and reliable.
+      </p>
+
+      <p>
+        This work is organized around three independent but complementary areas:
+        software factorization and migration between CalVal-OIGDR and COPAS,
+        automation of the data-archiving lifecycle, and processing and
+        completeness monitoring for Sentinel-3A and Sentinel-3B.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section compact">
+  <div class="shell prose-grid">
+
+    <aside class="reveal">
+      <span class="eyebrow">Software engineering</span>
+    </aside>
+
+    <div class="prose reveal">
+
+      <h2>CalVal-OIGDR / COPAS factorization and migration</h2>
+
+      <p>
+        A major part of this work consists in refactoring the Daily Status
+        notification chain used for CalVal-OIGDR reporting. The objective is to
+        separate orchestration, business logic, data access, diagnostics and
+        presentation so that each component can evolve independently.
+      </p>
+
+      <p>
+        The reporting architecture was reorganized around dedicated modules for
+        data models, statistical calculations, data-source access and reporting.
+        Additional tools were introduced for pass-level diagnostics and concise
+        console summaries, making it easier to identify threshold exceedances
+        and operational anomalies.
+      </p>
+
+      <p>
+        The same factorization also supports the transition toward COPAS. A CSV
+        access layer makes it possible to consume COPAS outputs while preserving
+        the existing reporting logic, and mission-specific behavior can be
+        isolated through dedicated plugins rather than added directly to the
+        generic statistics code.
+      </p>
+
+      <h3>Main contributions</h3>
+
+      <ul>
+        <li>Refactoring of the Daily Status workflow into clear software layers.</li>
+        <li>Separation of orchestration, calculations, data access and presentation.</li>
+        <li>Pass-level diagnostics for identifying out-of-threshold observations.</li>
+        <li>Console summaries for faster operational monitoring.</li>
+        <li>COPAS-compatible data access and reusable mission-specific plugins.</li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section compact">
+  <div class="shell prose-grid">
+
+    <aside class="reveal">
+      <span class="eyebrow">Data lifecycle</span>
+    </aside>
+
+    <div class="prose reveal">
+
+      <h2>Automated data archiving</h2>
+
+      <p>
+        I also worked on an automated archiving chain designed to secure the
+        lifecycle of scientific datasets from local storage to S3 / Scality
+        object storage.
+      </p>
+
+      <p>
+        The workflow detects new data incrementally, transfers the relevant
+        files, verifies remote integrity using file size and SHA256 checks, and
+        prepares controlled purge manifests. Local files are removed only after
+        the archived copy has been validated.
+      </p>
+
+      <p>
+        The same organization improves traceability and makes the archive easier
+        to maintain and restore, while reducing manual handling of large data
+        volumes.
+      </p>
+
+      <h3>Workflow</h3>
+
+      <ul>
+        <li>Detection of new or not-yet-archived datasets.</li>
+        <li>Transfer to S3 / Scality storage.</li>
+        <li>Integrity verification using metadata and SHA256 checks.</li>
+        <li>Manifest generation and validation before deletion.</li>
+        <li>Controlled cleanup of validated local copies.</li>
+        <li>Traceable logs and restore support.</li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section compact">
+  <div class="shell prose-grid">
+
+    <aside class="reveal">
+      <span class="eyebrow">Altimetry operations</span>
+    </aside>
+
+    <div class="prose reveal">
+
+      <h2>Sentinel-3A / Sentinel-3B processing and validation</h2>
+
+      <p>
+        Another workstream focuses on Sentinel-3A and Sentinel-3B altimetry
+        processing, with particular attention to data completeness, missing
+        tracks and configuration consistency.
+      </p>
+
+      <p>
+        The processing chains are analyzed cycle by cycle and pass by pass to
+        detect missing or incomplete records. Field availability, especially
+        latitude coverage, is used to identify gaps and compare them with
+        previously known anomalies.
+      </p>
+
+      <p>
+        This work also includes configuration updates and harmonization between
+        Sentinel-3A and Sentinel-3B processing chains, together with reprocessing
+        and table updates when missing or inconsistent data are identified.
+      </p>
+
+      <h3>Main objectives</h3>
+
+      <ul>
+        <li>Identify missing cycle/pass combinations and incomplete tracks.</li>
+        <li>Monitor field completeness across long processing periods.</li>
+        <li>Compare detected gaps with existing reference inventories.</li>
+        <li>Update and harmonize Sentinel-3A / Sentinel-3B configurations.</li>
+        <li>Support reprocessing and table updates when required.</li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section compact">
+  <div class="shell prose-grid">
+
+    <aside class="reveal">
+      <span class="eyebrow">Common objective</span>
+    </aside>
+
+    <div class="prose reveal">
+      <h2>Reliable and maintainable scientific data systems</h2>
+
+      <p>
+        Although these activities address different parts of the operational
+        chain, they share the same engineering objective: reduce duplicated
+        logic, improve traceability, automate repetitive operations and make
+        scientific data products easier to validate, maintain and reuse.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="shell footer-row">
+    <div>© <span data-year></span> Manal Yassine. Personal scientific portfolio.</div>
+    <div><a href="../contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>
