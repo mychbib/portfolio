@@ -83,8 +83,7 @@ button, input, textarea { font: inherit; }
   min-height: min(850px, 92vh); position: relative; overflow: hidden; display: grid; align-items: end;
   border-bottom: 1px solid var(--line);
 }
-.hero-media { position: absolute; inset: 0; }
-.hero-media video { width: 100%; height: 100%; object-fit: cover; opacity: .92; }
+
 .hero-media::after {
   content: "";
   position: absolute;
@@ -297,4 +296,237 @@ button, input, textarea { font: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+.hero-intro {
+  padding: 3.5rem 0 2.5rem;
+  min-height: auto;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 700px;
+}
+
+.hero-name {
+  font-size: clamp(3.8rem, 6vw, 6.5rem);
+  line-height: 0.98;
+  margin: 0.2rem 0 0.8rem;
+}
+
+.hero-mini-intro {
+  font-size: 1.05rem;
+  color: var(--muted-text, #4f6478);
+  margin-bottom: 1rem;
+  max-width: 60ch;
+}
+
+.hero-title {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.hero-video-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+
+.hero-media {
+  width: 100%;
+  max-width: 520px;
+  max-height: 360px;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-video-wrap {
+    order: 2;
+  }
+
+  .hero-copy {
+    order: 1;
+  }
+
+  .hero-media {
+    max-width: 100%;
+    max-height: 260px;
+  }
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-video-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .hero-video-card {
+  width: 82%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(20, 45, 60, 0.13);
+}
+
+.hero-video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+} */
+.hero-video-card {
+  width: 88%;
+  overflow: visible;
+}
+
+.hero-video-card video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(20, 45, 60, 0.13);
+}
+
+/* première vidéo : plus haute, côté gauche */
+.video-top {
+  align-self: flex-start;
+}
+
+/* deuxième : légèrement plus basse et à droite */
+.video-bottom {
+  align-self: flex-end;
+  margin-top: 50px;
+}
+
+.video-caption {
+  margin: 10px 6px 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.video-caption strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.project-video {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.project-video video {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-video .video-caption {
+  margin: 10px 4px 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.grb-video-frame {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.grb-video-frame video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.grb-intro-video {
+  margin: 10px 0 0;
+}
+
+.grb-video-frame {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #000;
+  box-shadow: var(--shadow);
+}
+
+.grb-video-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000;
+}
+
+.grb-video-explanation {
+  max-width: 850px;
+  margin: 28px auto 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.grb-video-explanation h2 {
+  margin: 10px 0 18px;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.grb-video-explanation p {
+  margin: 0 0 15px;
+}
+
+.scientific-reference {
+  margin-top: 22px !important;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+
+.scientific-reference a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.scientific-reference a:hover {
+  text-decoration: underline;
 }

@@ -42,71 +42,118 @@
 
 <main id="main">
 
-  <!-- =========================================================
-       HERO
-       ========================================================= -->
+<!-- =========================================================
+     HERO
+     ========================================================= -->
 
-  <section class="section compact">
+     <section class="section compact">
 
-    <div class="shell project-hero-grid">
-
-      <div class="page-hero">
-
-        <div class="breadcrumb">
-          <a href="../index.html">Home</a> /
-          <a href="../work.html">Work</a> /
-          PhD · Fermi GRBs
+      <div class="shell">
+    
+        <div class="page-hero">
+    
+          <div class="breadcrumb">
+            <a href="../index.html">Home</a> /
+            <a href="../work.html">Work</a> /
+            PhD · Fermi GRBs
+          </div>
+    
+          <span class="eyebrow">
+            PhD · LUPM · Fermi / NASA
+          </span>
+    
+          <h1>
+            GRB spectral modelling with Fermi.
+          </h1>
+    
+          <p class="lede">
+            My PhD research focused on the spectral properties of gamma-ray bursts
+            observed by the Fermi satellite, combining physical modelling,
+            simulations and joint GBM/LAT spectral analysis.
+          </p>
+    
         </div>
-
-        <span class="eyebrow">
-          PhD · LUPM · Fermi / NASA
-        </span>
-
-        <h1>
-          From GRB spectral modelling to the high-energy emission of GRB 090926A.
-        </h1>
-
-        <p class="lede">
-          My PhD research focused on the spectral properties of gamma-ray bursts
-          observed by the Fermi satellite, combining physical modelling,
-          simulations and joint GBM/LAT spectral analysis.
-        </p>
-
+    
+    
+        <!-- GRB OUTFLOW VIDEO -->
+    
+        <figure class="grb-intro-video reveal">
+    
+          <div class="grb-video-frame">
+    
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto">
+    
+              <source
+                src="../assets/media/GRBmodel_web.mp4"
+                type="video/mp4">
+    
+            </video>
+    
+          </div>
+    
+    
+          <figcaption class="grb-video-explanation">
+    
+            <span class="eyebrow">
+              Internal-shock scenario
+            </span>
+    
+            <h2>
+              From a relativistic outflow to gamma-ray emission
+            </h2>
+    
+            <p>
+              This animation illustrates the evolution of a relativistic GRB
+              outflow in the internal-shock scenario. The central engine ejects
+              successive shells with different Lorentz factors. Faster material
+              catches up with slower material, producing internal shocks within
+              the outflow.
+            </p>
+    
+            <p>
+              These shocks dissipate part of the kinetic energy of the relativistic
+              flow, accelerating particles and generating the conditions for
+              non-thermal radiation. In this framework, synchrotron emission and
+              inverse Compton scattering can contribute to the observed prompt
+              gamma-ray spectrum.
+            </p>
+    
+            <p class="scientific-reference">
+              Model context:
+              Daigne, F. &amp; Mochkovitch, R. (1998),
+              <em>Gamma-ray bursts from internal shocks in a relativistic wind:
+              temporal and spectral properties</em>,
+              MNRAS, 296, 275–286.
+              <a
+                href="https://doi.org/10.1046/j.1365-8711.1998.01305.x"
+                target="_blank"
+                rel="noreferrer">
+                Reference ↗
+              </a>
+            </p>
+    
+          </figcaption>
+    
+        </figure>
+    
+    
         <div class="project-facts">
           <span class="tag">Fermi</span>
           <span class="tag">GBM / LAT</span>
           <span class="tag">Spectral analysis</span>
+          <span class="tag">Internal shocks</span>
           <span class="tag">Modelling</span>
           <span class="tag">Monte Carlo</span>
         </div>
-
+    
       </div>
-
-
-      <figure class="figure reveal">
-
-        <div class="media-frame contain">
-
-          <img
-            class="vt-model"
-            src="../assets/media/Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png"
-            data-media="Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png"
-            alt="Comparison of spectral models for a sample of gamma-ray bursts">
-
-        </div>
-
-        <figcaption>
-          Difference in PGstat for five spectral models across the GRB sample.
-          Figure from M. Yassine et al., 2020, A&amp;A.
-        </figcaption>
-
-      </figure>
-
-    </div>
-
-  </section>
-
-
+    
+    </section>
 
   <!-- =========================================================
        PART 1 — PHYSICAL SPECTRAL MODELLING
@@ -152,6 +199,26 @@
           spectral models.
         </p>
 
+
+        <figure class="figure reveal">
+
+          <div class="media-frame contain">
+  
+            <img
+              class="vt-model"
+              src="../assets/media/Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png"
+              data-media="Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png"
+              alt="Comparison of spectral models for a sample of gamma-ray bursts">
+  
+          </div>
+  
+          <figcaption>
+            Difference in PGstat for five spectral models across the GRB sample.
+            Figure from M. Yassine et al., 2020, A&amp;A.
+          </figcaption>
+  
+        </figure>
+  
         <div class="notice">
           <strong>Scientific objective.</strong>
           Connect observational GRB spectra with a physical emission scenario
