@@ -1,0 +1,6 @@
+WRMCB=function(e){var c=console;if(c&&c.log&&c.error){c.log('Error running batched script.');c.error(e);}}
+;
+try {
+/* module-key = 'jira.webresources:auto-theme-handler', location = '/includes/jira/common/autoThemeHandler.js' */
+!function(){"use strict";var t=document.documentElement;if(null!==t?.getAttribute("data-color-mode-auto")){var e=t?.getAttribute("data-color-mode");["dark","light"].forEach(function(o){e!==o&&window?.matchMedia?.("(prefers-color-scheme: ".concat(o,")")).matches&&t?.setAttribute("data-color-mode",o)})}}();
+}catch(e){WRMCB(e)};

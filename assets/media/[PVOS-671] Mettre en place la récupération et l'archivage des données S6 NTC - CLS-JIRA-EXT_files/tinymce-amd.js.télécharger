@@ -1,0 +1,1 @@
+define("jira/editor/tinymce",[],function(){"use strict";return window.tinymce});

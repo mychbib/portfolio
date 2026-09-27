@@ -1,0 +1,1071 @@
+WRMCB=function(e){var c=console;if(c&&c.log&&c.error){c.log('Error running batched script.');c.error(e);}}
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:project-page', location = '/sidebar/navigation/items.js' */
+require(["jquery"],function(i){"use strict";i(document).on("click",'.aui-nav > [aria-expanded] > a.aui-nav-item[href="#"]',function(n){n.preventDefault();AJS.navigation(i(this).siblings(".aui-nav")).toggle()})});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'jira.webresources:change-project-type-dialog', location = '/includes/jira/dialog/changeProjectTypeDialog.soy' */
+// This file was automatically generated from changeProjectTypeDialog.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace JIRA.Templates.project.ChangeType.
+ */
+
+if (typeof JIRA == 'undefined') { var JIRA = {}; }
+if (typeof JIRA.Templates == 'undefined') { JIRA.Templates = {}; }
+if (typeof JIRA.Templates.project == 'undefined') { JIRA.Templates.project = {}; }
+if (typeof JIRA.Templates.project.ChangeType == 'undefined') { JIRA.Templates.project.ChangeType = {}; }
+
+
+JIRA.Templates.project.ChangeType.changeProjectTypeDialog = function(opt_data, opt_ignored) {
+  return '<section role="dialog" id="change-project-type-dialog-' + soy.$$escapeHtml(opt_data.projectId) + '" class="aui-layer aui-dialog2 aui-dialog2-medium" hidden><header class="aui-dialog2-header"><h2 class="aui-dialog2-header-main">' + soy.$$escapeHtml('Change project type') + '</h2></header><div class="aui-dialog2-content"></div><footer class="aui-dialog2-footer"><div class="aui-dialog2-footer-actions form-footer"><div class="icon throbber"></div><button class="aui-button aui-button-primary dialog-change-button hidden">' + soy.$$escapeHtml('Change') + '</button><button class="aui-button aui-button-link dialog-close-button">' + soy.$$escapeHtml('Cancel') + '</button></div></footer></section>';
+};
+if (goog.DEBUG) {
+  JIRA.Templates.project.ChangeType.changeProjectTypeDialog.soyTemplateName = 'JIRA.Templates.project.ChangeType.changeProjectTypeDialog';
+}
+
+
+JIRA.Templates.project.ChangeType.changeProjectTypeForm = function(opt_data, opt_ignored) {
+  var output = '<form class="aui change-project-type-form"><div class="form-body"><div class="aui-group project-type-change-group"><div class="aui-item">' + JIRA.Templates.project.ChangeType.projectAvatar(opt_data) + '</div><div class="aui-item project-type-select-group">' + JIRA.Templates.project.ChangeType.projectTypeDropdown({projectTypeKey: opt_data.project.projectTypeKey, projectTypes: opt_data.projectTypes}) + '</div></div></div></form><p>';
+  var helpLinkAnchor__soy21 = '<a href=' + soy.$$escapeHtml(opt_data.helpLink) + ' target="_blank">';
+  output += soy.$$filterNoAutoescape(AJS.format('If you change the project type, you\x27\x27ll also change what your users can see and do with the project. {0}Check the differences here{1}',helpLinkAnchor__soy21,'</a>')) + '</p>';
+  return output;
+};
+if (goog.DEBUG) {
+  JIRA.Templates.project.ChangeType.changeProjectTypeForm.soyTemplateName = 'JIRA.Templates.project.ChangeType.changeProjectTypeForm';
+}
+
+
+JIRA.Templates.project.ChangeType.projectTypeDropdown = function(opt_data, opt_ignored) {
+  var output = '<select class="project-type-select select" name="project-type">';
+  var projectTypeList30 = opt_data.projectTypes;
+  var projectTypeListLen30 = projectTypeList30.length;
+  for (var projectTypeIndex30 = 0; projectTypeIndex30 < projectTypeListLen30; projectTypeIndex30++) {
+    var projectTypeData30 = projectTypeList30[projectTypeIndex30];
+    output += '<option class="imagebacked" data-icon="data:image/svg+xml;base64, ' + soy.$$escapeHtml(projectTypeData30.icon) + '" value="' + soy.$$escapeHtml(projectTypeData30.key) + '" ' + ((projectTypeData30.key == opt_data.projectTypeKey) ? ' selected ' : '') + '>' + soy.$$escapeHtml(projectTypeData30.formattedKey) + '</option>';
+  }
+  output += '</select>';
+  return output;
+};
+if (goog.DEBUG) {
+  JIRA.Templates.project.ChangeType.projectTypeDropdown.soyTemplateName = 'JIRA.Templates.project.ChangeType.projectTypeDropdown';
+}
+
+
+JIRA.Templates.project.ChangeType.updateTargetElement = function(opt_data, opt_ignored) {
+  return '<img src="data:image/svg+xml;base64,' + soy.$$escapeHtml(opt_data.icon) + '" class="project-type-icon" /><span>' + soy.$$escapeHtml(opt_data.formattedKey) + '</span>';
+};
+if (goog.DEBUG) {
+  JIRA.Templates.project.ChangeType.updateTargetElement.soyTemplateName = 'JIRA.Templates.project.ChangeType.updateTargetElement';
+}
+
+
+JIRA.Templates.project.ChangeType.projectAvatar = function(opt_data, opt_ignored) {
+  return '<div class="project-avatar-header"><span class="aui-avatar aui-avatar-large aui-avatar-project"><span class="aui-avatar-inner"><img src="' + soy.$$escapeHtml(opt_data.project.avatarUrls['48x48']) + '" alt="' + soy.$$escapeHtml(opt_data.project.name) + '"></span></span><div class="project-header" title="' + soy.$$escapeHtml(opt_data.project.name) + '">' + soy.$$escapeHtml(opt_data.project.name) + '</div></div>';
+};
+if (goog.DEBUG) {
+  JIRA.Templates.project.ChangeType.projectAvatar.soyTemplateName = 'JIRA.Templates.project.ChangeType.projectAvatar';
+}
+
+
+JIRA.Templates.project.ChangeType.dialogSpinner = function(opt_data, opt_ignored) {
+  return '<div class="dialog-spinner"></div>';
+};
+if (goog.DEBUG) {
+  JIRA.Templates.project.ChangeType.dialogSpinner.soyTemplateName = 'JIRA.Templates.project.ChangeType.dialogSpinner';
+}
+
+
+JIRA.Templates.project.ChangeType.successMsg = function(opt_data, opt_ignored) {
+  return '' + soy.$$escapeHtml(AJS.format('You have just changed {0} to a {1} project type.',opt_data.projectName,opt_data.projectTypeName));
+};
+if (goog.DEBUG) {
+  JIRA.Templates.project.ChangeType.successMsg.soyTemplateName = 'JIRA.Templates.project.ChangeType.successMsg';
+}
+
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'jira.webresources:change-project-type-dialog', location = '/includes/jira/dialog/changeProjectTypeDialog.js' */
+define("jira/project/admin/change-project-type-dialog",["jira/util/formatter","jquery","underscore","jira/analytics","jira/message","jira/ajs/select/single-select","wrm/context-path"],function(e,t,o,n,a,r,c){"use strict";function p(r){var p=t(".project-type-select",r.dialogBody).val()[0],d=o.findWhere(r.projectTypes,{key:p});t(".dialog-change-button",r.dialogBody).prop("disabled",!0);t(t.ajax({url:c()+"/rest/api/2/project/"+r.projectId+"/type/"+p,dataType:"json",contentType:"application/json",type:"PUT"}).done(function(){r.changeProjectTypeDialog.hide();r.onProjectTypeChanged&&r.onProjectTypeChanged(r.trigger,d);a.showSuccessMsg(JIRA.Templates.project.ChangeType.successMsg({projectName:r.projectName,projectTypeName:d.formattedKey}));n.send({name:"administration.projecttype.change",properties:{projectId:r.projectId,sourceProjectType:i(r.sourceProjectType),destinationProjectType:i(p)}})}).fail(function(){t(".aui-dialog2-content",r.dialogBody).prepend(aui.message.error({content:e.format("We haven\u0027\u0027t been able to complete the project conversion. You could refresh the page and try again. If this doesn\u0027\u0027t work, contact {0}Support{1}.",'<a href="https://support.atlassian.com/">',"</a>")}))})).throbber({target:t(".throbber",r.dialogBody)})}function i(e){return e&&e.replace("_","")}function d(e,t,o){e==t?o.find(".dialog-change-button").prop("disabled",!0):o.find(".dialog-change-button").prop("disabled",!1)}function s(o){var n=t(JIRA.Templates.project.ChangeType.changeProjectTypeDialog({projectId:o.projectId})),a=AJS.dialog2(n);a.on("show",function(){t(".aui-dialog2-content",n).html(JIRA.Templates.project.ChangeType.dialogSpinner());t(".dialog-spinner",n).spin();t(".dialog-change-button",n).unbind("click").addClass("hidden")});t(o.trigger).click(function(i){i.preventDefault();a.show();(s=o.projectId,t.ajax({url:c()+"/rest/internal/2/projects/"+s+"/changetypedata",dataType:"json",contentType:"application/json",type:"GET"})).done(function(e){n.find(".aui-dialog2-content").html(JIRA.Templates.project.ChangeType.changeProjectTypeForm(e));new r({element:t(".project-type-select",n),revertOnInvalid:!0,width:165});n.find(".dialog-change-button").removeClass("hidden");d(t(".project-type-select",n).val(),e.project.projectTypeKey,n);var c={dialogBody:n,changeProjectTypeDialog:a,projectName:e.project.name,projectTypes:e.projectTypes,trigger:o.trigger,projectId:o.projectId,onProjectTypeChanged:o.onProjectTypeChanged,sourceProjectType:e.project.projectTypeKey};t(".dialog-change-button",n).click(function(e){e.preventDefault();p(c)});t(".change-project-type-form",n).on("submit",function(e){e.preventDefault();p(c)});t(".project-type-select",n).on("change",function(){d(t(this).val(),e.project.projectTypeKey,n)})}).fail(function(){t(".aui-dialog2-content",n).html(aui.message.error({content:e.format("We were unable to load data required for the project type change. You could refresh the page and try again. If this doesn\u0027\u0027t work, contact {0}Support{1}.",'<a href="https://support.atlassian.com/">',"</a>")}))});var s});t(".dialog-close-button",n).click(function(e){e.preventDefault();a.hide()})}return function(e){s(e)}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'jira.webresources:project-type-warning', location = '/static/projecttypes/warning/dialog/project-type-warning-dialog.js' */
+define("jira/project/types/warning/dialog",["require"],function(e){"use strict";var t=e("jquery"),a=e("wrm/data"),n=e("aui/inline-dialog");var r=a.claim("project.type.warning.dialogs.data");return{init:function(a){(a=a||{}).sectionElement=a.sectionElement||t("body");!function(a,r,i){var o=t(".project-type-warning-icon",i);n(o,"uninstalled-warning-dialog",function(n,i,o){n.html(JIRA.Project.Types.Warning.dialog({title:a.title,firstParagraph:a.firstParagraph,secondParagraph:a.secondParagraph,callToActionText:a.callToActionText}));e("jira/project/admin/change-project-type-dialog")({trigger:t(".warning-dialog-change-project-type"),projectId:a.projectId,onProjectTypeChanged:r});o();return!1},{width:375,gravity:"w"})}(r||a.data,a.onProjectTypeChanged,a.sectionElement)}}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'jira.webresources:project-type-warning', location = '/static/projecttypes/warning/dialog/templates/templates.soy' */
+// This file was automatically generated from templates.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace JIRA.Project.Types.Warning.
+ */
+
+if (typeof JIRA == 'undefined') { var JIRA = {}; }
+if (typeof JIRA.Project == 'undefined') { JIRA.Project = {}; }
+if (typeof JIRA.Project.Types == 'undefined') { JIRA.Project.Types = {}; }
+if (typeof JIRA.Project.Types.Warning == 'undefined') { JIRA.Project.Types.Warning = {}; }
+
+
+JIRA.Project.Types.Warning.dialog = function(opt_data, opt_ignored) {
+  return '<div class="project-type-warning-dialog"><p class="header"><span>' + soy.$$escapeHtml(opt_data.title) + '</span></p><p class="type-not-accessible-message">' + soy.$$escapeHtml(opt_data.firstParagraph) + '</p><p class="available-functionality-message">' + soy.$$escapeHtml(opt_data.secondParagraph) + '</p><div class="actions"><a class="warning-dialog-change-project-type" href="#">' + soy.$$escapeHtml(opt_data.callToActionText) + '</a></div></div>';
+};
+if (goog.DEBUG) {
+  JIRA.Project.Types.Warning.dialog.soyTemplateName = 'JIRA.Project.Types.Warning.dialog';
+}
+
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-component', location = '/sidebar/component/navigation-item.js' */
+define("jira/projects/sidebar/component/navigation-item",["jira/util/browser","jira/projects/libs/marionette"],function(e,t){"use strict";return t.CompositeView.extend({ui:{link:"a.aui-nav-item"},events:{'simpleClick @ui.link:not([target="_blank"])':function(e){e.preventDefault();this.navigate()}},initialize:function(){this.id=this.$el.find(">a").attr("data-link-id");this.bindUIElements()},onDestroy:function(){this.unbind()},getElement:function(){return this.el},navigate:function(){if(this.select()){if(this.triggerPreventable("before:navigate").isPrevented)return!1;var t=this.ui.link.attr("href");t&&e.reloadViaWindowLocation(t);return!0}},select:function(){var e=this.triggerPreventable("before:select");if(e.isPrevented)return!1;this.$el.addClass("aui-nav-selected");this.$el.find("a").attr("aria-current","page");this.trigger("select",e);return!0},deselect:function(){if(!this.isSelected())return!0;var e=this.triggerPreventable("before:deselect");if(e.isPrevented)return!1;this.$el.removeClass("aui-nav-selected");this.$el.find("a").removeAttr("aria-current").blur();this.trigger("deselect",e);return!0},isSelected:function(){return this.$el.hasClass("aui-nav-selected")},removeBadge:function(){this.$el.find(".aui-badge").remove()},getId:function(){return this.id},getSelectedNavigationItem:function(){if(this.isSelected())return this},hasASelectedItem:function(){return this.isSelected()}})});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-component', location = '/sidebar/component/navigation-group.js' */
+define("jira/projects/sidebar/component/navigation-group",["jira/projects/sidebar/component/navigation-group-factory","jira/projects/libs/marionette","jira/util/logger"],function(e,t,i){"use strict";return t.CompositeView.extend({childEvents:{"before:select":function(e,t){this.retriggerPreventable("before:select",t);if(!t.isPrevented){this.deselect()||t.preventDefault()}},select:function(e,t){this.trigger("select",t)},"before:deselect":function(e,t){this.retriggerPreventable("before:deselect",t)},deselect:function(e,t){this.trigger("deselect",t)},"before:navigate":function(e,t){this.retriggerPreventable("before:navigate",t)},"before:navigate:prevented":function(e,t){this.trigger("before:navigate:prevented",t)}},initialize:function(){this.id=this.$el.attr("data-id");this.$(">ul>li").each(function(t,n){var r=e.build(n);!!this.getItem(r.id)&&i.warn("Duplicated IDs detected. There are more than one NavigationItem with id data-link-id='"+r.id+"'");this.proxyChildEvents(r);this.children.add(r,r.id)}.bind(this))},onDestroy:function(){this.unbind()},getElement:function(){return this.el},deselect:function(){if(this.triggerPreventable("before:deselect").isPrevented)return!1;var e=!0;this.children.each(function(t){e=t.deselect()&&e});return e},getItem:function(e){return this.children.findByCustom(e)},getItemAt:function(e){return this.children.findByIndex(e)},getSelectedNavigationItem:function(){var e=this.children.find(function(e){return e.hasASelectedItem()});if(e)return e.getSelectedNavigationItem()},hasASelectedItem:function(){return this.children.any(function(e){return e.hasASelectedItem()})}})});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-component', location = '/sidebar/component/navigation-subgroup.js' */
+define("jira/projects/sidebar/component/navigation-subgroup",["jira/projects/sidebar/component/navigation-group","underscore"],function(e,t){"use strict";return e.extend({childEvents:{"before:select":function(t,i){e.prototype.childEvents["before:select"].apply(this,arguments);i.isPrevented||this.expand()}},initialize:function(){this.childEvents=t.extend({},e.prototype.childEvents,this.childEvents);e.prototype.initialize.apply(this,arguments);this.id=this.$el.find(">a[data-link-id]").attr("data-link-id")},expand:function(){this.$el.attr("aria-expanded","true")},collapse:function(){this.$el.attr("aria-expanded","false")},isExpanded:function(){return"true"===this.$el.attr("aria-expanded")},isSelected:function(){return this.$el.hasClass("aui-nav-selected")},getId:function(){return this.id},getSelectedNavigationItem:function(){if(this.isSelected())return this;var e=this.children.find(function(e){return e.hasASelectedItem()});return e?e.getSelectedNavigationItem():void 0},hasASelectedItem:function(){return!!this.isSelected()||this.children.any(function(e){return e.hasASelectedItem()})}})});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-component', location = '/sidebar/component/navigation-group-factory.js' */
+define("jira/projects/sidebar/component/navigation-group-factory",["exports","jira/projects/sidebar/component/navigation-item","jira/projects/sidebar/component/navigation-subgroup","jquery"],function(n,e,i,o){"use strict";n.build=function(n){return o(n).find("ul").length?new i({el:n}):new e({el:n})}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-component', location = '/sidebar/component/component.js' */
+define("jira/projects/sidebar/component",["jira/projects/sidebar/component/navigation-group","jira/projects/libs/marionette","jira/util/logger","wrm/data","jquery","underscore"],function(e,t,i,r,n,a){"use strict";return t.CompositeView.extend({childEvents:{"before:select":function(e,t){this.hasASelectedItem()||(t.isInitial=!0);this.retriggerPreventable("before:select",t);t.isPrevented||this.deselectAllGroups()},select:function(e,t){this.trigger("select",t)},"before:deselect":function(e,t){this.retriggerPreventable("before:deselect",t)},deselect:function(e,t){this.trigger("deselect",t)},"before:navigate":function(e,t){this.retriggerPreventable("before:navigate",t)},"before:navigate:prevented":function(e,t){this.trigger("before:navigate:prevented",t)}},initialize:function(e){var t=e&&e.isGlobalSidebar;this.isGlobalSidebar=void 0===t?!0===r.claim("is-global-sidebar"):t;this.render({force:!0})},render:function(t){var r="el"in(t=a.defaults({},t,{force:!1})),o=r||!0===t.force,s=this.children.length>0;if(!o)return this;if(this.triggerPreventable("before:render").isPrevented)return this;if(s){if(this.triggerPreventable("before:detach").isPrevented)return this;this.destroyChildren({checkEmpty:!1});this.trigger("detach")}if(r){var d=n(t.el);this.$el.replaceWith(d);this.setElement(d)}this.$(".aui-sidebar-group").each(a.bind(function(t,r){var n=new e({el:r});!!this.getGroup(n.id)&&i.warn('Duplicated IDs detected. There are more than one NavigationGroup with id data-id="'+n.id+'"');this.proxyChildEvents(n);this.children.add(n,n.id)},this));this.trigger("render");return this},deselectAllGroups:function(){this.children.call("deselect")},replaceGroup:function(e,t){var i=this.getGroup(e);i.$el.replaceWith(t.$el);t.cid=i.cid;this.children.remove(i);this.children.add(t,t.id)},getGroup:function(e){return this.children.findByCustom(e)},getGroupAt:function(e){return this.children.findByIndex(e)},getItem:function(e){return this.getDefaultGroup().getItem(e)},getElement:function(){return this.el},getDefaultGroup:function(){return this.getGroup("sidebar-navigation-panel")},isProjectSidebar:function(){return!this.isGlobalSidebar},getSelectedScopeFilterId:function(){return this.$(".scope-filter a.scope-filter-trigger").attr("data-scope-filter-id")},setReportsItemLink:function(e){var t=this.getGroup("sidebar-navigation-panel"),i=t.getItem("com.atlassian.jira.jira-projects-plugin:report-page");void 0===i&&(i=t.getItem("com.pyxis.greenhopper.jira:global-sidebar-report"));i&&i.ui.link.attr("href",e)},getAUISidebar:function(){return AJS.sidebar(".aui-sidebar")},getContentContainer:function(){return this.$(".aui-sidebar-body .sidebar-content-container")},getSelectedNavigationItem:function(){return this.getDefaultGroup().getSelectedNavigationItem()},hasASelectedItem:function(){return this.getDefaultGroup().hasASelectedItem()},dim:function(){this.$el.attr({dimmed:"","aria-hidden":"true"})},undim:function(){this.$el.removeAttr("dimmed");this.$el.removeAttr("aria-hidden")}})});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-component', location = '/sidebar/component/component-namespaces.js' */
+!function(){"use strict";var e=require("jira/projects/sidebar/component/navigation-group-factory"),o=require("jira/projects/sidebar/component");AJS.namespace("JIRA.Projects.Sidebar.Component",null,o);AJS.namespace("JIRA.Projects.Sidebar.Component.NavigationItem",null,require("jira/projects/sidebar/component/navigation-item"));AJS.namespace("JIRA.Projects.Sidebar.Component.NavigationSubgroup",null,require("jira/projects/sidebar/component/navigation-subgroup"));AJS.namespace("JIRA.Projects.Sidebar.Component.NavigationGroup",null,require("jira/projects/sidebar/component/navigation-group"));AJS.namespace("JIRA.Projects.Sidebar.Component.NavigationGroup.build",null,e.build)}();
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-analytics', location = '/sidebar/analytics/hash.js' */
+define("jira/projects/sidebar/analytics/hash",["underscore"],function(n){"use strict";var r=[];function e(n,r){return 0===n.indexOf(r)}function t(n,r){return n.substring(e(n,r)?r.length:0)}function i(n){var r=0;if(!n)return"";for(var e=0;e<n.length;e+=1){r=32*r-r+n.charCodeAt(e);r|=0}return r}return{prefixedHash:function(a){var u=n.find(r,n.partial(e,a))||"";return{prefix:u,hash:u+i(t(a,u))}},addPrefix:function(e){e&&!n.contains(r,e)&&r.push(e)},clearPrefixes:function(){r.length=0}}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-analytics', location = '/sidebar/analytics/analytics.js' */
+define("jira/projects/sidebar/analytics/analytics",["jira/api/projects/sidebar","jira/projects/sidebar/analytics/hash","jira/util/data/meta","jira/analytics","jquery"],function(e,i,r,o,a){"use strict";function t(e,i){o.send({name:"jira.project.centric.navigation.sidebar."+e,data:i})}var c="proj.config",s=["search-el","fullscreen-el","search","fullscreen","rapid-board","service-desk","proj.config","proj.config.view_project_summary","proj.config.view_project_issuetypes","proj.config.project-issuetypes-expand","proj.config.view_project_workflows","proj.config.view_project_screens","proj.config.view_project_fields","proj.config.view_project_versions","proj.config.view_project_components","proj.config.view_project_roles","proj.config.view_project_permissions","proj.config.view_project_issuesecurity","proj.config.view_project_notifications","proj.config.devstatus-admin-page-link","proj.config.hipchat-project-admin-page-link","proj.config.view_issue_collectors","proj.config.sd-project-request-types-item","proj.config.sd-project-request-security-item","proj.config.sd-project-portal-settings-item","proj.config.sd-project-feedback-settings-item","proj.config.sd-project-email-settings-item","proj.config.sd-project-confluence-kb-item","proj.config.sd-project-sidebar-sla","proj.config.sd-project-automation-item"];function n(e){var o=e.getAUISidebar(),n=a();(n=(n=n.add(o.$el)).add(o.submenus.inlineDialog)).on("click","a",function(){var e,o=(e=a(this).attr("data-link-id"),i.prefixedHash(e||"NONE")),n={id:o.hash,prefix:o.prefix},p=r.get("sidebar-source-page");if(p)n.sidebarSourcePage=p;else if(a(".issue-tools button.expand").length>0)n.sidebarSourcePage="search-el";else if(a(".navigation-tools button.collapse").length>0)n.sidebarSourcePage="fullscreen-el";else if("atl.jira.proj.config"===a('meta[name="admin.active.section"]').attr("content")){var j=a('meta[name="admin.active.tab"]').attr("content");!function(e){return-1!==s.indexOf([c,e].join("."))}(j=j.replace("com.atlassian.servicedesk.project-ui:",""))?n.sidebarSourcePage=c:n.sidebarSourcePage=[c,j].join(".")}-1===s.indexOf(n.sidebarSourcePage)&&(n.sidebarSourcePage="unknown");t("click.link",n)})}return{register:function(){e.getSidebar().done(function(e){e.isProjectSidebar()?t("load.project"):t("load.global");n(e)})}}});AJS.namespace("JIRA.Projects.Sidebar.Analytics",null,require("jira/projects/sidebar/analytics/analytics"));AJS.namespace("JIRA.Projects.Sidebar.Analytics.Hash",null,require("jira/projects/sidebar/analytics/hash"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-expansion-manager', location = '/sidebar/expansion-manager.js' */
+define("jira/projects/sidebar/expansion-manager",["wrm/data","jquery","jira/util/formatter"],function(e,t,a){"use strict";var i="jira-sidebar-collapsed",r=Boolean(e.claim("sidebar-collapsed-by-default"));return function(e,o){var n=t(".aui-sidebar-toggle");o||(o=window.localStorage);!function(){if(e.reflow()&&e.isViewportNarrow()){l();return}r&&void 0===o[i]||"true"===o[i]?e.collapse():e.expand();l()}();e.on("expand-start",function(e){e.isResponsive&&"true"===o[i]&&e.preventDefault()});e.on("expand-end collapse-end",function(t){t.isResponsive||e.isViewportNarrow()||(o[i]=e.isCollapsed().toString());l()});function l(){n.attr("aria-expanded",!e.isCollapsed());n.tooltip({title:a.I18n.getText("project.sidebar.toggle.button.ariaLabel")});setTimeout(function(){n.attr("aria-label",a.I18n.getText("project.sidebar.toggle.button.ariaLabel"))},0)}}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:scope-filter', location = '/sidebar/scopefilter/templates.soy' */
+// This file was automatically generated from templates.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace JIRA.Projects.Sidebar.ScopeFilter.Templates.
+ */
+
+if (typeof JIRA == 'undefined') { var JIRA = {}; }
+if (typeof JIRA.Projects == 'undefined') { JIRA.Projects = {}; }
+if (typeof JIRA.Projects.Sidebar == 'undefined') { JIRA.Projects.Sidebar = {}; }
+if (typeof JIRA.Projects.Sidebar.ScopeFilter == 'undefined') { JIRA.Projects.Sidebar.ScopeFilter = {}; }
+if (typeof JIRA.Projects.Sidebar.ScopeFilter.Templates == 'undefined') { JIRA.Projects.Sidebar.ScopeFilter.Templates = {}; }
+
+
+JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedContainer = function(opt_data, opt_ignored) {
+  return '<div role="button" class="aui-sidebar-group aui-sidebar-group-actions collapsed-scope-filter-container" tabindex="0" aria-label="' + soy.$$escapeHtml('Boards in this project') + '"><!-- AUI sidebar does a if (!hasSubmenu) check while initializing submenu hence we need aui-nav element even if it is empty, so that our sidebar group gets properly initialized --><ul class="aui-nav"><!-- On first hover, while we are waiting for data, this content will be displayed in submenu inline dialog. Once we have data we will replace this with the actual data in DOM. Any further hover will clone the new DOM structure (actual data without progress indicator) and display in the submenu dialog. This is the only way I could find to pass a progress indicator to submenu inside dialog, because AUI does a destructive `submenuInlineDialog.innerHTML=` AFTER `sidebarSubmenuBeforeShow` event handler is executed, hence losing anything injected from it--><li><aui-spinner size="small" style="margin: auto"/></li></ul></div>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedContainer.soyTemplateName = 'JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedContainer';
+}
+
+
+JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedScopeList = function(opt_data, opt_ignored) {
+  opt_data = opt_data || {};
+  var output = '';
+  if (opt_data.selectableScopes || opt_data.createActions) {
+    output += '<div class="aui-nav-heading" title="' + soy.$$escapeHtml('Boards in this project') + '"><strong class="collapsed-scope-header">' + soy.$$escapeHtml('Boards in this project') + '</strong></div><ul class="aui-nav collapsed-scope-list">';
+    if (opt_data.selectedScope) {
+      output += '<li class="scope-filter selected-scope-filter">' + soy.$$escapeHtml(opt_data.selectedScope.label) + '</li>';
+      var scopeFilterList19 = opt_data.selectableScopes;
+      var scopeFilterListLen19 = scopeFilterList19.length;
+      for (var scopeFilterIndex19 = 0; scopeFilterIndex19 < scopeFilterListLen19; scopeFilterIndex19++) {
+        var scopeFilterData19 = scopeFilterList19[scopeFilterIndex19];
+        output += JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedSelectableItem({itemClass: 'scope-filter', anchorClass: scopeFilterData19.styleClass, label: scopeFilterData19.label, link: scopeFilterData19.link, ariaLabel: AJS.format('Select a board: {0}',scopeFilterData19.label)});
+      }
+    }
+    if (opt_data.createActions && opt_data.createActions[0]) {
+      output += '<hr/>';
+      var createActionList30 = opt_data.createActions;
+      var createActionListLen30 = createActionList30.length;
+      for (var createActionIndex30 = 0; createActionIndex30 < createActionListLen30; createActionIndex30++) {
+        var createActionData30 = createActionList30[createActionIndex30];
+        output += JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedSelectableItem({itemClass: 'create-scope-action', anchorClass: createActionData30.styleClass, label: createActionData30.label, link: createActionData30.link});
+      }
+    }
+    output += '</ul>';
+  }
+  return output;
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedScopeList.soyTemplateName = 'JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedScopeList';
+}
+
+
+JIRA.Projects.Sidebar.ScopeFilter.Templates.scopeListError = function(opt_data, opt_ignored) {
+  return '<div class="scope-filter-error-message-container"><div class="scope-filter-error-message">' + soy.$$escapeHtml('We\x27re having trouble retrieving the list of boards') + '</div><div class="aui-button aui-button-compact">' + soy.$$escapeHtml('Try again') + '</div></div>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ScopeFilter.Templates.scopeListError.soyTemplateName = 'JIRA.Projects.Sidebar.ScopeFilter.Templates.scopeListError';
+}
+
+
+JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedSelectableItem = function(opt_data, opt_ignored) {
+  return '<li class="' + soy.$$escapeHtml(opt_data.itemClass) + '"><a href="' + soy.$$escapeHtml(opt_data.link) + '" ' + ((opt_data.anchorClass) ? ' class="' + soy.$$escapeHtml(opt_data.anchorClass) + '"' : '') + ((opt_data.ariaLabel) ? ' aria-label="' + soy.$$escapeHtml(opt_data.ariaLabel) + '" ' : '') + '>' + soy.$$escapeHtml(opt_data.label) + '</a></li>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedSelectableItem.soyTemplateName = 'JIRA.Projects.Sidebar.ScopeFilter.Templates.collapsedSelectableItem';
+}
+
+
+JIRA.Projects.Sidebar.ScopeFilter.Templates.renderScopefilterItems = function(opt_data, opt_ignored) {
+  opt_data = opt_data || {};
+  var output = '';
+  if (opt_data.scopeFilterItems.length > 0) {
+    output += '<div class="aui-dropdown2-section"><strong>' + soy.$$escapeHtml('Boards in this project') + '</strong><ul class="aui-list-truncate">';
+    var itemList69 = opt_data.scopeFilterItems;
+    var itemListLen69 = itemList69.length;
+    for (var itemIndex69 = 0; itemIndex69 < itemListLen69; itemIndex69++) {
+      var itemData69 = itemList69[itemIndex69];
+      output += '<li><a href="' + soy.$$escapeHtml(itemData69.link) + '" data-scope-filter-id="' + soy.$$escapeHtml(itemData69.id) + '" aria-label="' + soy.$$escapeHtml(AJS.format('Select a board: {0}',itemData69.label)) + '">' + soy.$$escapeHtml(itemData69.label) + '</a></li>';
+    }
+    output += '</ul></div>';
+  } else if (! opt_data.canCreateScope) {
+    output += '<div class="aui-dropdown2-section"><strong>' + soy.$$escapeHtml('Boards in this project') + '</strong><div class="empty-boards-list">' + soy.$$escapeHtml('No boards to display') + '</div></div>';
+  }
+  return output;
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ScopeFilter.Templates.renderScopefilterItems.soyTemplateName = 'JIRA.Projects.Sidebar.ScopeFilter.Templates.renderScopefilterItems';
+}
+
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:scope-filter', location = '/sidebar/scopefilter/templates.js' */
+define("jira/projects/sidebar/scopefilter/templates",function(){"use strict";return JIRA.Projects.Sidebar.ScopeFilter.Templates});AJS.namespace("JIRA.Projects.Sidebar.ScopeFilter.Templates",null,require("jira/projects/sidebar/scopefilter/templates"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:scope-filter', location = '/sidebar/scopefilter/model.js' */
+define("jira/projects/sidebar/scopefilter/model",["underscore","jira/api/projects"],function(e,t){"use strict";var c=function(e){this.selectedScope=null;this.createScopeActions=[];this.selectableScopes=[];this.setData(e)};c.prototype.setData=function(t){if(t){t.selectedScope&&(this.selectedScope=t.selectedScope);t.createScopeActions.length&&(this.createScopeActions=t.createScopeActions);t.scopes.length&&(t.selectedScope?this.selectableScopes=e.reject(t.scopes,function(e){return e.label===this.selectedScope.label&&e.link===this.selectedScope.link},this):this.selectableScopes=t.scopes)}};c.prototype.getSelectedScope=function(){return this.selectedScope};c.prototype.getSelectableScopes=function(){return this.selectableScopes};c.prototype.getCreateScopeActions=function(){return this.createScopeActions};c.prototype.shouldDisplayWhenSidebarIsCollapsed=function(){var e=t.getCurrentProjectType();return"service_desk"!==e&&"business"!==e};return c});AJS.namespace("JIRA.Projects.Sidebar.ScopeFilter.Model",null,require("jira/projects/sidebar/scopefilter/model"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:scope-filter', location = '/sidebar/scopefilter/scopeFilterDropdownView.js' */
+define("jira/projects/sidebar/scopefilter/scopefilter-view",["jquery","jira/projects/libs/marionette","jira/projects/sidebar/scopefilter/templates"],function(e,t,i){"use strict";return t.ItemView.extend({template:i.renderScopefilterItems,events:{"aui-dropdown2-show":"show"},initialize:function(e){this.controller=e.controller;this.rendered=!1},show:function(){if(!this.rendered){var t=e('<aui-spinner size="small"/>').css("margin","auto");this.$el.prepend(t);this.$el.addClass("data-load-in-progress");this.controller.fetchScopeFilterList().then(this.onFetchSuccess.bind(this)).fail(this.onFetchFail.bind(this)).always(function(){this.$el.addClass("data-load-finished").removeClass("data-load-in-progress");t.remove()}.bind(this))}},onFetchSuccess:function(){this.$el.addClass("data-load-success");var e=this.model.getSelectableScopes(),t=!!this.model.getCreateScopeActions().length;if(e){var i=this.template({scopeFilterItems:e,canCreateScope:t});this.$el.prepend(i);this.rendered=!0}},onFetchFail:function(){this.$el.addClass("data-load-fail");var e=i.scopeListError();this.$el.prepend(e);this.rendered=!0;this.$el.find(".scope-filter-error-message-container .aui-button").on("click",this.onRetryClick.bind(this))},onRetryClick:function(e){e.stopPropagation();var t=this.$el.find(".scope-filter-error-message-container");t.length&&t.remove();this.rendered=!1;return this.show()}})});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:scope-filter', location = '/sidebar/scopefilter/collapsed-view.js' */
+define("jira/projects/sidebar/scopefilter/collapsed-view",["jquery","jira/projects/libs/marionette","jira/projects/sidebar/scopefilter/templates"],function(e,t,i){"use strict";return t.ItemView.extend({template:i.collapsedContainer,ui:{trigger:".aui-sidebar-group-actions"},events:{"aui-sidebar-submenu-before-show @ui.trigger":"show"},initialize:function(e){this.controller=e.controller;this.rendered=!1},serializeData:function(){return{selectedScope:this.model.getSelectedScope(),selectableScopes:this.model.getSelectableScopes(),createActions:this.model.getCreateScopeActions()}},show:function(e,t){if(!this.rendered){this.$el.addClass("data-load-in-progress");this.controller.fetchScopeFilterList().then(this.onFetchSuccess.bind(this,t)).fail(this.onFetchFail.bind(this,t)).always(function(){this.$el.addClass("data-load-finished").removeClass("data-load-in-progress")}.bind(this))}},onFetchSuccess:function(e){this.$el.addClass("data-load-success");var t=i.collapsedScopeList(this.serializeData());this.renderPreparedTemplate(e,t);this.rendered=!0},onFetchFail:function(t){this.$el.addClass("data-load-fail");var s=i.scopeListError();this.renderPreparedTemplate(t,s);e(t).find(".scope-filter-error-message-container .aui-button").click(this.onRetryClick.bind(this,t))},renderPreparedTemplate:function(t,i){this.ui.trigger.html(i);e(t).find(".aui-navgroup-inner").html(i)},onRetryClick:function(e){return this.show(null,e)}})});AJS.namespace("JIRA.Projects.Sidebar.ScopeFilter.CollapsedView",null,require("jira/projects/sidebar/scopefilter/collapsed-view"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:scope-filter', location = '/sidebar/scopefilter/scopeFilterController.js' */
+define("jira/projects/sidebar/scopefilter/controller",["jquery","wrm/data","jira/api/projects","wrm/context-path","jira/util/logger","jira/projects/libs/marionette","jira/projects/sidebar/scopefilter/model","jira/projects/sidebar/scopefilter/scopefilter-view","jira/projects/sidebar/scopefilter/collapsed-view"],function(e,i,t,s,r,o,l,a,c){"use strict";return o.Controller.extend({initialize:function(e){this.sidebarAPI=e.sidebarAPI;this.sidebar=this.sidebarAPI.getAUISidebar();this.$sidebarContentContainer=this.sidebarAPI.getContentContainer();if(this.sidebarAPI.isProjectSidebar()){var t=e.data||i.claim("scope-filter-data");this.scopeFilterModel=new l(t);this.dataFetched=!1;this.shouldRenderScopeFilterView=!this.scopeFilterModel.getSelectableScopes().length;this.sidebar.isCollapsed()?this.createCollapsedScopeFilterView():this.createScopeFilterView();this.listenToSidebarEvents()}},createCollapsedScopeFilterView:function(){if(this.scopeFilterModel.shouldDisplayWhenSidebarIsCollapsed()){this.collapsedView=new c({model:this.scopeFilterModel,controller:this});this.collapsedView.render();this.$sidebarContentContainer.prepend(this.collapsedView.el);r.trace("sidebar.scopefilter.collapsed")}},createScopeFilterView:function(){this.shouldRenderScopeFilterView&&(this.scopeFilterDropdownView=new a({el:"#sidebar-scope-filter-list",model:this.scopeFilterModel,controller:this}))},fetchScopeFilterList:function(){var i=e.Deferred();if(this.dataFetched||this.scopeFilterModel.getSelectableScopes().length)return i.resolve();var r=s()+"/rest/projects/1.0/project/"+t.getCurrentProjectKey()+"/rapidviews";return e.ajax({contentType:"application/json",type:"GET",url:r}).done(function(e){this.dataFetched=!0;this.scopeFilterModel.setData(e)}.bind(this))},listenToSidebarEvents:function(){this.sidebar.on("collapse-start",function(){this.collapsedView||this.createCollapsedScopeFilterView()}.bind(this));this.sidebar.on("expand-end",function(){if(this.collapsedView){this.collapsedView.destroy();this.collapsedView=null}this.scopeFilterDropdownView||this.createScopeFilterView()}.bind(this))}})});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:scope-filter', location = '/sidebar/scopefilter/scopeFilter-init.js' */
+define("jira/projects/sidebar/scopefilter/init",["jira/api/projects/sidebar","jira/projects/sidebar/scopefilter/controller"],function(e,i){"use strict";return{init:function(r){e.getSidebar().done(function(e){new i({sidebarAPI:e,data:r})})}}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:feature-discovery', location = '/sidebar/feature-discovery/feature-discovery.js' */
+define("jira/projects/sidebar/feature-discovery",["jira/api/projects","jira/api/projects/sidebar","wrm/context-path","underscore","jquery"],function(e,r,t,o,n){"use strict";function a(e){r.getSidebar().done(function(r){!function(e,r){o.each(r,function(r){var t=e.getItem(r);t&&t.removeBadge()})}(r,e)})}return{updateBadges:function(){void 0!==e.getCurrentProjectKey()&&n.ajax({url:t()+"/rest/projects/1.0/project/"+encodeURIComponent(e.getCurrentProjectKey())+"/badges",type:"PUT",contentType:"application/json"}).done(function(e){a(e.badgesToRemove||[])})}}});AJS.namespace("JIRA.Projects.Sidebar.FeatureDiscovery",null,require("jira/projects/sidebar/feature-discovery"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-last-visited', location = '/sidebar/lastvisited/last-visited-updater.js' */
+define("jira/projects/sidebar/lastvisited/updater",["jira/api/projects","jira/util/logger","wrm/context-path","jquery"],function(e,t,i,r){"use strict";function a(e,a,n){if(e){n=n||function(){t.trace("last.visited.item.saved")};r.ajax({url:i()+"/rest/projects/1.0/project/"+encodeURIComponent(e)+"/lastVisited",type:"PUT",contentType:"application/json",data:JSON.stringify({id:a})}).done(n)}}return{start:function(t,i){var r=e.getCurrentProjectKey(),n=t.getSelectedNavigationItem();n&&a(r,n.getId(),i);t.on("before:navigate:prevented",function(e){a(r,e.emitter.id,i)});t.on("before:select",function(e){e.isInitial&&a(r,e.emitter.id,i)})}}});AJS.namespace("JIRA.Projects.Sidebar.LastVisited.Updater",null,require("jira/projects/sidebar/lastvisited/updater"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/templates.soy' */
+// This file was automatically generated from templates.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace JIRA.Projects.Sidebar.ProjectShortcuts.Templates.
+ */
+
+if (typeof JIRA == 'undefined') { var JIRA = {}; }
+if (typeof JIRA.Projects == 'undefined') { JIRA.Projects = {}; }
+if (typeof JIRA.Projects.Sidebar == 'undefined') { JIRA.Projects.Sidebar = {}; }
+if (typeof JIRA.Projects.Sidebar.ProjectShortcuts == 'undefined') { JIRA.Projects.Sidebar.ProjectShortcuts = {}; }
+if (typeof JIRA.Projects.Sidebar.ProjectShortcuts.Templates == 'undefined') { JIRA.Projects.Sidebar.ProjectShortcuts.Templates = {}; }
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.content = function(opt_data, opt_ignored) {
+  var output = '';
+  if (opt_data.canManage || opt_data.numberOfShortcuts > 0) {
+    output += '<div id="project-shortcuts-list-align-container" class="aui-sidebar-group jira-sidebar-group-with-divider project-shortcuts-group' + ((opt_data.numberOfShortcuts == 0) ? ' project-shortcuts-group_empty' : '') + '" ' + ((opt_data.isSidebarCollapsed) ? 'tabindex="0"' : '') + ' data-id="project-shortcuts-group"><span class="aui-icon aui-icon-small aui-iconfont-link">' + soy.$$escapeHtml('Project shortcuts') + '</span><div role="heading" aria-level="3" class="aui-nav-heading">' + soy.$$escapeHtml('Project shortcuts') + '</div>' + ((opt_data.canManage) ? '<p class="project-shortcuts-group__description' + ((opt_data.numberOfShortcuts > 0) ? ' hidden' : '') + '">' + soy.$$escapeHtml('Add a link to useful information for your whole team to see.') + '</p>' : '') + '<ul class="aui-nav project-shortcuts-list">';
+    if (opt_data.shortcuts) {
+      var shortcutList30 = opt_data.shortcuts;
+      var shortcutListLen30 = shortcutList30.length;
+      for (var shortcutIndex30 = 0; shortcutIndex30 < shortcutListLen30; shortcutIndex30++) {
+        var shortcutData30 = shortcutList30[shortcutIndex30];
+        output += JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcut({id: shortcutData30.id, name: shortcutData30.name, url: shortcutData30.url, icon: shortcutData30.icon, sequence: shortcutData30.sequence, canManage: opt_data.canManage, iconsMap: opt_data.iconsMap, isWithIcon: opt_data.isWithIcons, orderingEnabled: opt_data.orderingEnabled});
+      }
+    }
+    output += ((opt_data.canManage) ? '<li><a class="aui-nav-item project-shortcuts-group__add" href="#" data-link-id="project-shortcut-add"><span class="aui-icon aui-icon-large aui-iconfont-add-small" aria-hidden="true"></span><span class="aui-nav-item-label">' + soy.$$escapeHtml('Add shortcut') + '</span></a></li>' : '') + '</ul></div>';
+  }
+  return output;
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.content.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.content';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcut = function(opt_data, opt_ignored) {
+  return '<li class="project-shortcut"><a class="aui-nav-item project-shortcuts-group__link" href="' + soy.$$escapeHtml(opt_data.url) + '" title="' + soy.$$escapeHtml(opt_data.name) + '" target="_blank" rel="nofollow noopener noreferrer" data-shortcut-id="' + soy.$$escapeHtml(opt_data.id) + '" data-link-id="project-shortcut-' + soy.$$escapeHtml(opt_data.id) + '">' + ((opt_data.isWithIcon) ? '<span class="aui-icon aui-icon-large ' + JIRA.Projects.Sidebar.ProjectShortcuts.Templates.icon({iconId: opt_data.icon, iconsMap: opt_data.iconsMap}) + '" data-project-shortcuts-icon-id="' + soy.$$escapeHtml(opt_data.icon) + '">' + soy.$$escapeHtml('Project shortcut icon') + '</span>' : '') + '<span id="project-shortcut-label-' + soy.$$escapeHtml(opt_data.id) + '" class="aui-nav-item-label">' + soy.$$escapeHtml(opt_data.name) + '</span></a>' + ((opt_data.canManage) ? '<button id="project-shortcuts-action-button-' + soy.$$escapeHtml(opt_data.id) + '" class="aui-button aui-button-subtle aui-dropdown2-trigger aui-dropdown2-trigger-arrowless project-shortcuts-group__actions" aria-controls="project-shortcuts-dropdown_' + soy.$$escapeHtml(opt_data.id) + '" aria-haspopup="true" aria-labelledby="project-shortcuts-action-button-' + soy.$$escapeHtml(opt_data.id) + ' project-shortcut-label-' + soy.$$escapeHtml(opt_data.id) + '" data-aui-alignment-container="#project-shortcuts-list-align-container"><span class="aui-icon aui-icon-small aui-iconfont-more">' + soy.$$escapeHtml('Filter Actions') + '</span></button><div role="menu" id="project-shortcuts-dropdown_' + soy.$$escapeHtml(opt_data.id) + '" class="aui-dropdown2 aui-style-default project-shortcuts-group__dropdown"><ul class="aui-list-truncate"><li><a role="menuitem" class="project-shortcuts-group__actions__edit" href="#">' + soy.$$escapeHtml('Edit') + '</a></li>' + ((opt_data.orderingEnabled) ? '<li><a role="menuitem" class="project-shortcuts-group__actions__move-up" href="#">' + soy.$$escapeHtml('Move up') + '</a></li><li><a role="menuitem" class="project-shortcuts-group__actions__move-down" href="#">' + soy.$$escapeHtml('Move down') + '</a></li>' : '') + '<li><a role="menuitem" class="project-shortcuts-group__actions__delete  " href="#">' + soy.$$escapeHtml('Delete') + '</a></li></ul></div>' : '') + '</li>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcut.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcut';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.icon = function(opt_data, opt_ignored) {
+  opt_data = opt_data || {};
+  var output = '';
+  if (opt_data.iconsMap) {
+    var id__soy105 = opt_data.iconId && opt_data.iconsMap[opt_data.iconId] ? opt_data.iconId : '1';
+    output += (opt_data.iconsMap[id__soy105]) ? soy.$$escapeHtml(opt_data.iconsMap[id__soy105].className) : '';
+  }
+  return output;
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.icon.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.icon';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcutFormFields = function(opt_data, opt_ignored) {
+  return '<div class="project-shortcuts-field-group">' + aui.form.textField({name: 'project-shortcuts-url-' + opt_data.action, isRequired: true, id: 'project-shortcuts-url-' + opt_data.action, labelContent: 'Web address', placeholderText: 'e.g. https://www.atlassian.com', extraClasses: 'project-shortcuts-url', value: opt_data.url ? opt_data.url : '', errorTexts: opt_data.errors.urlError ? [opt_data.errors.urlError] : []}) + ((opt_data.isWithIcon) ? '<div class="field-group project-shortcuts-name">' + aui.form.label({isRequired: true, forField: 'project-shortcuts-name-' + opt_data.action, content: 'Label'}) + '<div class="project-shortcuts-name-icon-block"><div class="project-shortcuts-icon-picker-block"></div>' + aui.form.input({name: 'project-shortcuts-name-' + opt_data.action, id: 'project-shortcuts-name-' + opt_data.action, placeholderText: 'e.g. Atlassian website', extraClasses: 'project-shortcuts-name-input project-shortcuts-name-input-with-icon', value: opt_data.name ? opt_data.name : '', type: 'text'}) + '</div>' + ((opt_data.errors.iconError) ? aui.form.fieldError({message: opt_data.errors.iconError}) : '') + ((opt_data.errors.nameError) ? aui.form.fieldError({message: opt_data.errors.nameError}) : '') + '</div>' : aui.form.textField({name: 'project-shortcuts-name-' + opt_data.action, isRequired: true, id: 'project-shortcuts-name-' + opt_data.action, labelContent: 'Label', placeholderText: 'e.g. Atlassian website', extraClasses: 'project-shortcuts-name', value: opt_data.name ? opt_data.name : '', type: 'text', errorTexts: opt_data.errors.iconError ? [opt_data.errors.iconError] : opt_data.errors.nameError ? [opt_data.errors.nameError] : []})) + '</div>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcutFormFields.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcutFormFields';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.iconsPicker = function(opt_data, opt_ignored) {
+  return '<span>' + JIRA.Projects.Sidebar.ProjectShortcuts.Templates.iconsList(opt_data) + '</span>' + aui.dropdown2.trigger({menu: {id: 'project-shortcuts-icons-list-' + opt_data.cid}, extraClasses: 'aui-button project-shortcuts-icons-picker', iconClasses: 'aui-icon aui-icon-large  ' + soy.$$escapeHtml(opt_data.icon.className), extraAttributes: {href: '#'}});
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.iconsPicker.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.iconsPicker';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.iconsList = function(opt_data, opt_ignored) {
+  var output = '<div id="project-shortcuts-icons-list-' + soy.$$escapeHtml(opt_data.cid) + '" hidden class="aui-style-default aui-dropdown2 project-shortcuts-icons-list aui-dropdown2-section"><ul>';
+  var iconList174 = opt_data.iconsList;
+  var iconListLen174 = iconList174.length;
+  for (var iconIndex174 = 0; iconIndex174 < iconListLen174; iconIndex174++) {
+    var iconData174 = iconList174[iconIndex174];
+    output += '<li><a class="project-shortcuts-icons-icon" data-project-shortcuts-icons-id="' + soy.$$escapeHtml(iconData174.name) + '"><span class="aui-icon aui-icon-large ' + soy.$$escapeHtml(iconData174.className) + '">' + soy.$$escapeHtml('Project shortcut icon') + '</span></a></li>';
+  }
+  output += '</ul></div>';
+  return output;
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.iconsList.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.iconsList';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.addDialog = function(opt_data, opt_ignored) {
+  return '<form action="" method="post" class="aui"><h2>' + soy.$$escapeHtml('Add shortcut') + '</h2><fieldset>' + JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcutFormFields(soy.$$augmentMap(opt_data, {action: 'add'})) + '<div class="buttons-container"><div class="buttons"><button class="aui-button project-shortcuts-submit aui-button-primary">' + soy.$$escapeHtml('Add') + '</button><button class="aui-button aui-button-link project-shortcuts-cancel">' + soy.$$escapeHtml('Cancel') + '</button></div></div></fieldset></form>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.addDialog.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.addDialog';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.editDialogChrome = function(opt_data, opt_ignored) {
+  return '<section role="dialog" id="edit-project-shortcut-dialog" class="aui-layer aui-dialog2 aui-dialog2-small" hidden data-aui-remove-on-hide="true"><header class="aui-dialog2-header"><h1 class="aui-dialog2-header-main edit-shortcut-modal-header">' + soy.$$escapeHtml('Edit shortcut') + '</h1></header></section>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.editDialogChrome.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.editDialogChrome';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.editDialog = function(opt_data, opt_ignored) {
+  return '<form class="aui" method="post"><div class="aui-dialog2-content">' + JIRA.Projects.Sidebar.ProjectShortcuts.Templates.shortcutFormFields(soy.$$augmentMap(opt_data, {action: 'edit'})) + '</div><div class="aui-dialog2-footer"><div class="aui-dialog2-footer-actions"><button type="submit" class="aui-button aui-button-primary project-shortcuts-submit">' + soy.$$escapeHtml('Save') + '</button><button class="aui-button aui-button-link project-shortcuts-cancel">' + soy.$$escapeHtml('Cancel') + '</button></div></div></form>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.editDialog.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.editDialog';
+}
+
+
+JIRA.Projects.Sidebar.ProjectShortcuts.Templates.deleteDialog = function(opt_data, opt_ignored) {
+  return '<section role="dialog" id="delete-project-shortcut-dialog" class="aui-layer aui-dialog2 aui-dialog2-small" hidden data-aui-remove-on-hide="true"><header class="aui-dialog2-header"><h1 class="aui-dialog2-header-main delete-shortcut-modal-header">' + soy.$$escapeHtml('Remove this shortcut?') + '</h1></header><div class="aui-dialog2-content"><p>' + soy.$$escapeHtml('The link will no longer appear in the project sidebar. You can add the link again later.') + '</p></div><footer class="aui-dialog2-footer"><div class="aui-dialog2-footer-actions"><button class="aui-button aui-button-primary project-shortcuts-submit">' + soy.$$escapeHtml('Delete') + '</button><button class="aui-button aui-button-link project-shortcuts-cancel">' + soy.$$escapeHtml('Cancel') + '</button></div></footer></section>';
+};
+if (goog.DEBUG) {
+  JIRA.Projects.Sidebar.ProjectShortcuts.Templates.deleteDialog.soyTemplateName = 'JIRA.Projects.Sidebar.ProjectShortcuts.Templates.deleteDialog';
+}
+
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/templates.js' */
+define("jira/projects/sidebar/project-shortcuts/templates",function(){"use strict";return JIRA.Projects.Sidebar.ProjectShortcuts.Templates});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Templates",null,require("jira/projects/sidebar/project-shortcuts/templates"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/project-shortcuts-analytics.js' */
+define("jira/projects/sidebar/project-shortcuts/analytics",["jira/ajs/dark-features","jira/analytics","jquery"],function(t,i,o){"use strict";var c="a.project-shortcuts-group__link",e=t.isEnabled("com.atlassian.jira.projects.ProjectCentricNavigation.ProjectShortcutIcons");return{initialize:function(t){this.projectId=t},initShortcutClick:function(t,s){var n=s.getAUISidebar(),r=o(t),d=this;r.on("click",c,function(){var t=r.find(c),s=o(this);i.send({name:"jira.projects.shortcut.clicked",data:{shortcutId:s.data("shortcutId"),shortcutPosition:s.closest("li").index()+1,shortcutIconName:e?s.find(".aui-icon").data("projectShortcutsIconId"):"",shortcutCount:t.length,isWithIcons:e,isSidebarCollapsed:n.isCollapsed(),projectId:d.projectId}})})},initDialogActions:function(t){var o=this;t.on("childview:edit:open",function(t,c){var s=c.collection.indexOf(c)+1;i.send({name:"jira.projects.shortcut.edit.dialog.opened",data:{isWithIcons:e,shortcutId:c.get("id"),shortcutPosition:s,shortcutCount:c.collection.size(),projectId:o.projectId}})});t.on("childview:edit:close",function(t,c,s){var n=c.collection.indexOf(c)+1;i.send({name:"jira.projects.shortcut.edit.dialog.closed",data:{isWithIcons:e,isSave:s,shortcutId:c.get("id"),shortcutPosition:n,shortcutCount:c.collection.size(),projectId:o.projectId}})});t.on("add:open",function(){i.send({name:"jira.projects.shortcut.add.dialog.opened",data:{isWithIcons:e,projectId:o.projectId}})});t.on("add:close",function(t){i.send({name:"jira.projects.shortcut.add.dialog.closed",data:{isWithIcons:e,isSave:t,projectId:o.projectId}})})},iconChanged:function(t,o,c){i.send({name:"jira.projects.shortcut.icon.changed",data:{iconName:o,oldIconName:c,shortcutId:t.isNew()?"":t.get("id"),isNew:t.isNew(),cid:t.cid,projectId:this.projectId}})},iconChangeConfirmed:function(t,o){i.send({name:"jira.projects.shortcut.icon.confirmed",data:{oldIconName:t.get("icon"),iconName:o,shortcutId:t.isNew()?"":t.get("id"),isNew:t.isNew(),cid:t.cid,projectId:this.projectId}})},iconPickerOpened:function(t){i.send({name:"jira.projects.shortcut.icon.picker.opened",data:{shortcutId:t.isNew()?"":t.get("id"),isNew:t.isNew(),cid:t.cid,projectId:this.projectId}})},iconPickerClosed:function(t,o){i.send({name:"jira.projects.shortcut.icon.picker.closed",data:{shortcutId:t.isNew()?"":t.get("id"),isNew:t.isNew(),cid:t.cid,isSave:o,projectId:this.projectId}})}}});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Analytics",null,require("jira/projects/sidebar/project-shortcuts/analytics"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/services/AvailableIcons.js' */
+define("jira/projects/sidebar/project-shortcuts/services/available-icons",["underscore"],function(e){"use strict";var t=[],n={},s=!1;return{initialize:function(s){t=s||t;n={};e.each(s,function(e){n[e.name]=e})},getIconsList:function(){return t},getIconsMap:function(){return n},getAllIconsClasses:function(){return e.reduce(t,function(e,t){return e+t.className+" "},"")},getIconFromName:function(e){return this.getIconsMap()[e]?this.getIconsMap()[e]:this.getIconsList()[0]?this.getIconsList()[0]:{}},setWithIcons:function(e){s=e},isWithIcons:function(){return s}}});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Services.AvailableIcons",null,require("jira/projects/sidebar/project-shortcuts/services/available-icons"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/entities/Shortcut.js' */
+(k=>{k.set('project.shortcuts.communication.error','We couldn\u0027\u0027t complete the action as there seems to be a communication issue.');})(WRM.I18n.km);
+define("jira/projects/sidebar/project-shortcuts/entities/shortcut",["jira/util/formatter","jira/util/logger","jira-projects-backbone","wrm/context-path","underscore"],function(t,e,r,s,i){"use strict";function n(e){var r;try{r=JSON.parse(e.responseText)}catch(e){r={message:t.I18n.getText("project.shortcuts.communication.error")}}return r}return r.Model.extend({defaults:{url:"",name:"",icon:"",sequence:null},initialize:function(t,e){if(!e||!e.projectKey)throw"Project key is required";this.projectKey=e.projectKey},urlRoot:function(){return s()+"/rest/projects/1.0/project/"+encodeURIComponent(this.projectKey)+"/shortcut"},clear:function(){this.unset("id");this.set("url",this.defaults.url);this.set("name",this.defaults.name);this.set("icon",this.defaults.icon);this.set("sequence",this.defaults.sequence)},save:function(t){if(!0!==this.saving){this.saving=!0;var r=this;r.trigger("save:start");var s=this.isNew()?"create":"update",o=r.toJSON();t&&(o=i.omit(o,"sequence"));return this.sync(s,r,{attrs:o}).always(function(){r.saving=!1;r.trigger("save:finish")}).done(function(t){r.set(t,{silent:!0});e.trace("jira.projects.shortcuts."+s+".success");r.trigger("save:success")}).fail(function(t){var i=n(t);e.trace("jira.projects.shortcuts."+s+".fail");r.trigger("save:failure",i)})}},destroy:function(){if(!0!==this.saving){this.saving=!0;var t=this;t.trigger("remove:start");var e=r.Model.prototype.destroy.apply(this,arguments);e.always(function(){t.saving=!1;t.trigger("remove:finish")}).done(function(){t.trigger("remove:success")}).fail(function(e){var r=n(e);t.trigger("remove:failure",r)});return e}}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Entities.Shortcut",null,require("jira/projects/sidebar/project-shortcuts/entities/shortcut"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/entities/ShortcutErrors.js' */
+define("jira/projects/sidebar/project-shortcuts/entities/shortcut-errors",["jira-projects-backbone"],function(r){"use strict";return r.Model.extend({defaults:{urlError:"",nameError:"",iconError:"",generalError:""},initialize:function(r,e){var s=e.model;this.listenTo(s,"save:failure remove:failure",function(r){this.set({urlError:r.errors&&r.errors.url,nameError:r.errors&&r.errors.name,iconError:r.errors&&r.errors.icon,generalError:r.message||r.errorMessages&&r.errorMessages.length>0?r.message||r.errorMessages[0]:void 0})});this.listenTo(s,"save:success remove:success",this.clear)}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Entities.ShortcutErrors",null,require("jira/projects/sidebar/project-shortcuts/entities/shortcut-errors"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/entities/Shortcuts.js' */
+define("jira/projects/sidebar/project-shortcuts/entities/shortcuts",["jira/projects/sidebar/project-shortcuts/entities/shortcut","jira-projects-backbone","wrm/context-path"],function(t,e,r){"use strict";return e.Collection.extend({model:function(e,r){var o=Object.assign({},r,{projectKey:r.collection.projectKey});return new t(e,o)},url:function(){return r()+"/rest/projects/1.0/project/"+encodeURIComponent(this.projectKey)+"/shortcut"},initialize:function(t,e){this.projectKey=e.projectKey}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Entities.Shortcuts",null,require("jira/projects/sidebar/project-shortcuts/entities/shortcuts"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/views/IconPickerContent.js' */
+define("jira/projects/sidebar/project-shortcuts/views/icon-picker-content",["jira/projects/sidebar/project-shortcuts/templates","jira/projects/sidebar/project-shortcuts/analytics","jira/projects/sidebar/project-shortcuts/services/available-icons","jira/projects/libs/marionette","jquery"],function(i,e,c,t,o){"use strict";var n="projectShortcutsIconsId",s="active aui-dropdown2-active";return t.ItemView.extend({template:i.iconsPicker,ui:{icon:".project-shortcuts-icons-icon",iconList:".project-shortcuts-icons-list",iconPicker:".project-shortcuts-icons-picker"},modelEvents:{"change:icon":function(){var i=this._modelIcon(),e=this.ui.iconPicker.children();e.removeClass(this.iconFactory.getAllIconsClasses());e.addClass(i.className);this.ui.iconPicker.data(n,i.name)},"save:start":function(){this.ui.iconPicker.attr("aria-disabled",!0)},"save:finish":function(){this.ui.iconPicker.attr("aria-disabled",!1)}},events:{"keydown @ui.iconPicker":function(i){if(this.isPickerActive())switch(i.keyCode){case AJS.keyCode.LEFT:case AJS.keyCode.RIGHT:case AJS.keyCode.DOWN:case AJS.keyCode.UP:!function(i,e){var c,t=i.ui.iconList.find(".active"),o=i.ui.iconList.find("li").length;switch(e.keyCode){case AJS.keyCode.LEFT:c=-1;break;case AJS.keyCode.RIGHT:c=1;break;case AJS.keyCode.DOWN:c=5;break;case AJS.keyCode.UP:c=-5;break;default:c=0}var n=t.closest("li").index()+c;if(n<0||n>=o){n+=o;n%=o}t.removeClass(s);i.ui.icon.eq(n).addClass(s)}(this,i);i.stopPropagation();i.preventDefault();this.ui.iconList.trigger("aui-dropdown2-item-selected");break;case AJS.keyCode.ESCAPE:this.hideIconPicker();i.stopPropagation();i.preventDefault()}}},initialize:function(){this.iconFactory=c;this.analytics=e},onRender:function(){var i=this;this.ui.icon.on("click",function(){var e=o(this).data(n);i.analytics.iconChangeConfirmed(i.model,e);i.analyticsOldIconId="";i.analyticsIconClicked=!0;i.model.set("icon",e);i.ui.iconPicker.focus()});this.ui.iconList.on("aui-dropdown2-show",function(){i.ui.iconPicker.focus();i.analyticsIconClicked=!1;i.analytics.iconPickerOpened(i.model)});this.ui.iconList.on("aui-dropdown2-hide",function(){i.analytics.iconPickerClosed(i.model,i.analyticsIconClicked)});this.analyticsOldIconId="";this.ui.iconList.on("aui-dropdown2-item-selected",function(){var e=o(this).find(".active").data(n);i.analyticsOldIconId&&i.analyticsOldIconId!==e&&i.analytics.iconChanged(i.model,e,i.analyticsOldIconId);i.analyticsOldIconId=e});this.ui.iconPicker.data(n,this.model.get("icon"))},hideIconPicker:function(){this.isPickerActive()&&this.ui.iconPicker.trigger("aui-button-invoke")},isPickerActive:function(){return this.ui.iconPicker.hasClass("active")},_modelIcon:function(){return this.iconFactory.getIconFromName(this.model.get("icon"))},onFormSubmit:function(){this.model.set("icon",this.ui.iconPicker.data(n)||"")},focus:function(){this.ui.iconPicker.focus()},serializeData:function(){return{iconsList:this.iconFactory.getIconsList(),icon:this._modelIcon(),cid:this.cid}}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Views.IconPickerContent",null,require("jira/projects/sidebar/project-shortcuts/views/icon-picker-content"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/views/DialogContent.js' */
+(k=>{k.set('project.shortcuts.dialog.error.general.save','We\u0027\u0027re unable to save the shortcut. If this keeps happening, contact your System administrator.');})(WRM.I18n.km);
+define("jira/projects/sidebar/project-shortcuts/views/dialog-content",["jira/util/formatter","jira/flag","jira/projects/sidebar/project-shortcuts/views/icon-picker-content","jira/projects/sidebar/project-shortcuts/services/available-icons","jira/projects/libs/marionette","underscore"],function(t,e,i,r,o,s){"use strict";function n(t){t.preventDefault();this.ensureProtocolPrefix();this.tryToAutomagicallyDeriveNameFromUrl();this.iconPickerContent&&this.iconPickerContent.onFormSubmit();this.model.set("url",this.ui.url.val());this.model.set("name",this.ui.name.val());this.model.save(!0)}function a(t,e,i,r){void 0===r&&(r=!0);t.preventDefault();e.clear();this.setNameAutomagically=!0;i.clear();this.trigger("cancel");if(r){var o=document.getElementsByClassName("project-shortcuts-group__add")[0];o&&o.focus()}}var c=o.LayoutView.extend({ui:{form:"form",inputs:"input, button",submit:".project-shortcuts-submit",cancel:".project-shortcuts-cancel",url:".project-shortcuts-url input",name:".project-shortcuts-name input"},regions:{iconPicker:".project-shortcuts-icon-picker-block"},events:{"click @ui.cancel":function(t){a.call(this,t,this.model,this.errorModel,!1)},"click @ui.submit":n,"submit @ui.form":n,"blur @ui.url":function(){this.ensureProtocolPrefix();this.tryToAutomagicallyDeriveNameFromUrl()},"input @ui.url":function(){this.model.set("url",this.ui.url.val());this.tryToAutomagicallyDeriveNameFromUrl()},"input @ui.name":function(){this.setNameAutomagically=!1;this.model.set("name",this.ui.name.val())},"keydown @ui.name":function(t){if(this.iconPickerContent&&t.shiftKey&&t.keyCode===AJS.keyCode.TAB){t.preventDefault();this.iconPickerContent.focus()}},"keydown @ui.url":function(t){if(this.iconPickerContent&&!t.shiftKey&&t.keyCode===AJS.keyCode.TAB){t.preventDefault();this.iconPickerContent.focus()}},"keydown @ui.cancel":function(t){t.keyCode!==AJS.keyCode.ENTER&&t.keyCode!==AJS.keyCode.SPACE||a.call(this,t,this.model,this.errorModel)},"keydown @ui.form":function(t){t.keyCode===AJS.keyCode.ESCAPE&&a.call(this,t,this.model,this.errorModel)}},modelEvents:{"save:start":function(){this.ui.inputs.prop("disabled",!0);this.ui.submit.addClass("loading");this.ui.submit[0].busy()},"save:finish":function(){this.ui.inputs.prop("disabled",!1);this.ui.submit.removeClass("loading");this.ui.submit[0].idle()},"save:failure":function(){this.render();this.errorModel.get("generalError")&&e({type:"error",title:t.I18n.getText("project.shortcuts.dialog.error.general.save"),close:"auto",body:this.errorModel.get("generalError")});this.errorModel.get("nameError")&&this.ui.name.focus();this.errorModel.get("urlError")&&this.ui.url.focus();return this},"save:success":function(){this.setNameAutomagically=!0}},initialize:function(t){this.errorModel=t.errorModel;var e=this.model.get("name");this.setNameAutomagically=0===e.length;this.iconFactory=r},serializeData:function(){return s.extend(this.model.toJSON(),{errors:this.errorModel.toJSON(),action:this.action,isWithIcon:this.iconFactory.isWithIcons()})},onRender:function(){if(this.iconFactory.isWithIcons()){this.iconPickerContent=new i({model:this.model,action:this.action,observable:this});this.getRegion("iconPicker").show(this.iconPickerContent)}else delete this.iconPickerContent;this.requiredField()},requiredField:function(){this.ui.url.prop("required",!0);var t=this.ui.url.attr("id");if(t){var e=this.$('label[for="'+t+'"]');if(e.length){var i=e.find("span.icon-required");if(i.length){i.attr("role","presentation");i.attr("aria-hidden","true")}}}this.ui.name.prop("required",!0);var r=this.ui.name.attr("id");if(r){var o=this.$('label[for="'+r+'"]');if(o.length){var s=o.find("span.icon-required");if(s.length){s.attr("role","presentation");s.attr("aria-hidden","true")}}}},hideIconPicker:function(){this.iconPickerContent&&this.iconPickerContent.hideIconPicker()},setName:function(t){this.ui.name.val(t);this.model.set("name",t)},setUrl:function(t){this.ui.url.val(t);this.model.set("url",t)},ensureProtocolPrefix:function(){var t=this.ui.url.val().trim();t.length>0&&!c.urlPattern.test(t)&&this.setUrl("http://"+t)},tryToAutomagicallyDeriveNameFromUrl:function(){var t=this.ui.url.val().trim();if(this.setNameAutomagically)if(c.urlOptionalProtocolPattern.test(t)){var e=c.urlOptionalProtocolPattern.exec(t);this.setName(e[3])}else this.setName(t)}},{urlPattern:/^[a-zA-Z0-9]+:(\/\/)?([^\/]*).*/,urlOptionalProtocolPattern:/^([a-zA-Z0-9]+:(\/\/)?)?([^\/]*).*/});return c});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Views.DialogContent",null,require("jira/projects/sidebar/project-shortcuts/views/dialog-content"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/views/AddDialogContent.js' */
+define("jira/projects/sidebar/project-shortcuts/views/add-dialog-content",["jira/projects/sidebar/project-shortcuts/templates","jira/projects/sidebar/project-shortcuts/views/dialog-content"],function(e,t){"use strict";return t.extend({template:e.addDialog})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Views.AddDialogContent",null,require("jira/projects/sidebar/project-shortcuts/views/add-dialog-content"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/views/EditDialogContent.js' */
+define("jira/projects/sidebar/project-shortcuts/views/edit-dialog-content",["jira/projects/sidebar/project-shortcuts/templates","jira/projects/sidebar/project-shortcuts/views/dialog-content"],function(t,e){"use strict";return e.extend({template:t.editDialog})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Views.EditDialogContent",null,require("jira/projects/sidebar/project-shortcuts/views/edit-dialog-content"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/dialogs/Delete.js' */
+(k=>{k.set('project.shortcuts.dialog.error.general.delete','We\u0027\u0027re unable to delete the shortcut. If this keeps happening, contact your System administrator.');})(WRM.I18n.km);
+define("jira/projects/sidebar/project-shortcuts/dialogs/delete",["jira/projects/sidebar/project-shortcuts/templates","jira/util/formatter","jira/util/logger","jira/flag","jira/projects/libs/marionette","underscore"],function(e,t,i,s,r,o){"use strict";return r.ItemView.extend({template:e.deleteDialog,ui:{inputs:"input, button",submit:".project-shortcuts-submit",cancel:".project-shortcuts-cancel"},events:{"click @ui.cancel":function(e){e.preventDefault();this.dialog.hide()},"click @ui.submit":function(e){e.preventDefault();this.model.destroy({wait:!0})}},modelEvents:{"remove:start":function(){this.ui.inputs.prop("disabled",!0);this.ui.submit.addClass("loading");this.ui.submit[0].busy()},"remove:finish":function(){this.ui.inputs.prop("disabled",!1);this.ui.submit.removeClass("loading");this.ui.submit[0].idle();this.dialog.hide();i.trace("jira.projects.shortcuts.deleted")},"remove:failure":function(e){(e.message||e.errorMessages&&e.errorMessages.length>0)&&s({type:"error",title:t.I18n.getText("project.shortcuts.dialog.error.general.delete"),close:"auto",body:e.message||e.errorMessages[0]})}},initialize:function(){this.render();this.$el.appendTo("body");this.dialog=AJS.dialog2(this.$el);this.dialog.show();var e=this;this.dialog.on("hide",function(){o.defer(function(){e.destroy()})})},onRender:function(){this.unwrapTemplate()}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Dialogs.Delete",null,require("jira/projects/sidebar/project-shortcuts/dialogs/delete"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/dialogs/Edit.js' */
+define("jira/projects/sidebar/project-shortcuts/dialogs/edit",["jira/projects/sidebar/project-shortcuts/templates","jira/projects/sidebar/project-shortcuts/views/edit-dialog-content","jira/projects/sidebar/project-shortcuts/entities/shortcut","jira/projects/sidebar/project-shortcuts/entities/shortcut-errors","jira/projects/libs/marionette","underscore","jquery"],function(e,i,t,o,s,r,d){"use strict";return s.Controller.extend({initialize:function(s){var c=this;r.bindAll(this,"hide");this.model=new t(s.model.toJSON(),{projectKey:s.model.projectKey||s.model.collection.projectKey});this.errorModel=new o(void 0,{model:this.model});this.view=new i({model:this.model,errorModel:this.errorModel});this.analyticsSave=!1;this.view.render();var n=d(e.editDialogChrome({}));this.view.$el.appendTo(n);this.dialog=AJS.dialog2(n);this.dialog.show();this.view.ui.url.focus();this._onResizeWindow=function(){c.hideIconPicker()};d(window).on("resize",this._onResizeWindow);this.listenTo(this.view,"cancel",this.hide);this.listenTo(this.model,"save:success",function(){this.analyticsSave=!0;this.hide();s.model.set(c.model.toJSON())});this.dialog.on("hide",function(){c.trigger("dialog:close",c.analyticsSave)})},hideIconPicker:function(){this.view.hideIconPicker()},hide:function(){this.dialog.hide();d(window).off("resize",this._onResizeWindow)}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Dialogs.Edit",null,require("jira/projects/sidebar/project-shortcuts/dialogs/edit"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/dialogs/Add.js' */
+define("jira/projects/sidebar/project-shortcuts/dialogs/add",["aui/inline-dialog","jira/projects/sidebar/project-shortcuts/views/add-dialog-content","jira/projects/sidebar/project-shortcuts/entities/shortcut","jira/projects/sidebar/project-shortcuts/entities/shortcut-errors","jira/projects/libs/marionette","underscore","jquery"],function(e,t,i,o,r,s,n){"use strict";return r.Controller.extend({initialize:function(r){s.bindAll(this,"hide","refresh","focusForm");var c=this;this.analyticsSave=!1;this.sidebarItem=r.sidebarItem;this.projectKey=r.projectKey;this.collection=r.collection;this.model=new i(null,{projectKey:this.projectKey});this.errorModel=new o(null,{model:this.model});this.view=new t({model:this.model,errorModel:this.errorModel});this.view.render();var a=n(window),d=n(document),l=n(".aui-sidebar-body"),h=n(".aui-sidebar-wrapper");this.dialog=new e(this.sidebarItem.ui.link,"project-shortcuts-group__add-dialog",function(e,t,i){c.sidebarItem.$el.addClass("aui-nav-selected");h.addClass("add-shortcut-active");c.view.render();c.view.$el.appendTo(e);c.view.ui.url.focus();a.on("scroll.project-shortcuts",function(){c.refresh()});l.on("scroll.project-shortcuts",function(){c.hide()});d.on("showLayer",c.focusForm);a.on("resize",c.refresh);i();return!1},{autoWidth:!0,initCallback:function(){c.trigger("dialog:open");c.analyticsSave=!1},hideCallback:function(){c.sidebarItem.$el.removeClass("aui-nav-selected");h.removeClass("add-shortcut-active");a.off("scroll.project-shortcuts");l.off("scroll.project-shortcuts");d.off("showLayer",c.focusForm);c.trigger("dialog:close",c.analyticsSave)},persistent:!0,closeOnTriggerClick:!0,container:".project-shortcuts-list",calculatePositions:function(e,t){var i=t.target.outerWidth(),o=t.target.outerHeight(),r=t.target[0].getBoundingClientRect().top,s=document.getElementById("header").getBoundingClientRect(),n=Math.max(s.height+s.top,0),c=e.height(),a=r-n-10,d=o/2+10;if(r+c>window.innerHeight){a=r-c+o-n+20;d=c-o/2-20}return{gravity:"w",popupCss:{marginLeft:i+10,top:a},arrowCss:{marginLeft:0,marginTop:d}}}});var u=this.dialog.find(".contents");u.off("mouseenter");u.off("mouseleave");this.listenTo(this.view,"render",this.refresh);this.listenTo(this.view,"cancel",this.hideAndRender);this.listenTo(this.model,"save:success",function(){var e=new i(this.model.toJSON(),{projectKey:this.projectKey});this.model.clear();this.collection.add(e);this.collection.fetch();this.analyticsSave=!0;this.hide()});this.listenTo(this.sidebarItem,"before:select",function(e){e.preventDefault()});this.sidebarItem.ui.link.on("keydown",function(e){if(" "===e.key||"Enter"===e.key){e.preventDefault();c.dialog.show()}});AJS.sidebar(".aui-sidebar").on("collapse-start",this.hide);n(".project-shortcuts-group").on("click","li",this.hide)},hide:function(){this.view.hideIconPicker();this.dialog.hide()},refresh:function(){this.view.hideIconPicker();this.dialog.refresh()},hideAndRender:function(){this.hide()},focusForm:function(){this.view.ui.url.focus()}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Dialogs.Add",null,require("jira/projects/sidebar/project-shortcuts/dialogs/add"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/views/Shortcut.js' */
+define("jira/projects/sidebar/project-shortcuts/views/shortcut",["jira/projects/sidebar/project-shortcuts/templates","jira/projects/sidebar/project-shortcuts/services/available-icons","jira/projects/sidebar/project-shortcuts/dialogs/edit","jira/projects/sidebar/project-shortcuts/dialogs/delete","jira/projects/libs/marionette","underscore"],function(e,t,i,o,r,n){"use strict";return r.ItemView.extend({template:e.shortcut,initialize:function(){n.bindAll(this,"toggleDropdown");this.iconFactory=t;this.orderingEnabled=this.options.orderingEnabled;this.listView=this.options.listView},ui:{del:".project-shortcuts-group__actions__delete",edit:".project-shortcuts-group__actions__edit",moveUp:".project-shortcuts-group__actions__move-up",moveDown:".project-shortcuts-group__actions__move-down",trigger:".project-shortcuts-group__actions",dropdown:".project-shortcuts-group__dropdown",link:".project-shortcuts-group__link"},modelEvents:{change:"render"},events:{"click @ui.link":function(){this.trigger("click:link",this.model)}},setSequence:function(e){var t=e(this.model.collection.indexOf(this.model));this.model.set("sequence",t);this.model.save().always(function(){return this.model.collection.fetch()}.bind(this))},onRender:function(){var e=this;this.unwrapTemplate();if(e.listView.getLastDroppedId()===this.model.id){e.$el.addClass("project-shortcut-dropped");e.$el.one("focusout",function(){e.$el.removeClass("project-shortcut-dropped")});n.defer(function(){this.ui.trigger.focus();e.listView.setLastDroppedId(null)}.bind(this))}this.ui.edit.on("click keydown",function(t){if("click"===t.type||"keydown"===t.type&&(" "===t.key||"Enter"===t.key)){t.preventDefault();e.ui.trigger.blur();var o=new i({model:e.model});e.trigger("edit:open",e.model);e.listenToOnce(o,"dialog:close",function(t){e.trigger("edit:close",e.model,t)})}});this.ui.del.on("click keydown",function(t){if("click"===t.type||"keydown"===t.type&&(" "===t.key||"Enter"===t.key)){t.preventDefault();e.ui.trigger.blur();new o({model:e.model})}});this.ui.moveUp.on("click keydown",function(t){if("click"===t.type||"keydown"===t.type&&(" "===t.key||"Enter"===t.key)){t.preventDefault();e.setSequence(function(e){return e-1});e.listView.setLastDroppedId(e.model.id)}});this.ui.moveDown.on("click keydown",function(t){if("click"===t.type||"keydown"===t.type&&(" "===t.key||"Enter"===t.key)){t.preventDefault();e.setSequence(function(e){return e+1});e.listView.setLastDroppedId(e.model.id)}});this.ui.dropdown.on({"aui-dropdown2-show":function(){e.$el.addClass("aui-nav-selected")},"aui-dropdown2-hide":function(){e.$el.removeClass("aui-nav-selected")}});this.ui.link.on("keydown",function(e){" "!==e.key&&"Enter"!==e.key||e.currentTarget.click()})},serializeData:function(){var e=n.extend(this.model.toJSON(),{canManage:!0,isWithIcon:this.iconFactory.isWithIcons(),orderingEnabled:this.orderingEnabled});this.iconFactory.isWithIcons()&&(e=n.extend(e,{iconsMap:t.getIconsMap()}));return e},toggleDropdown:function(){this.ui.trigger.trigger("aui-button-invoke")}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Views.Shortcut",null,require("jira/projects/sidebar/project-shortcuts/views/shortcut"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts', location = '/sidebar/project-shortcuts/views/ShortcutsList.js' */
+define("jira/projects/sidebar/project-shortcuts/views/list",["jira/api/projects/sidebar","jira/projects/sidebar/project-shortcuts/templates","jira/projects/sidebar/project-shortcuts/views/shortcut","jira/projects/sidebar/project-shortcuts/dialogs/add","jira/projects/sidebar/component/navigation-group","jira/projects/libs/marionette","jquery"],function(t,e,i,o,r,n,s){"use strict";return n.CompositeView.extend({template:e.content,childView:i,childViewOptions:function(){return{orderingEnabled:this.orderingEnabled,listView:this}},ui:{itemsContainer:".aui-nav",description:".project-shortcuts-group__description",add:".project-shortcuts-group__add"},collectionEvents:{"add remove":function(){if(0===this.collection.length&&0!==this.lastCollectionLength||0!==this.collection.length&&0===this.lastCollectionLength){this.lastCollectionLength=this.collection.length;this.ui.description.toggleClass("hidden",this.collection.length>0);this.$el.toggleClass("project-shortcuts-group_empty",0===this.collection.length)}}},_lastDroppedId:null,getLastDroppedId:function(){return this._lastDroppedId},setLastDroppedId:function(t){this._lastDroppedId=t},initialize:function(){var e=this;t.getSidebar().done(function(t){var i=t.getAUISidebar();i.on("expand-end",function(){s(".aui-sidebar-submenu-dialog .project-shortcuts-group__dropdown").remove()});i.on("collapse-start",function(){e.$(".project-shortcuts-group__actions.aui-dropdown2-active").trigger("aui-button-invoke")})});this.orderingEnabled=this.options.orderingEnabled;this.lastCollectionLength=this.collection.length},attachElContent:function(e){var i=new r({el:e});this.$el=s(i.getElement());t.getSidebar().done(function(t){t.replaceGroup(this.options.targetGroup,i)}.bind(this));return this},moveItem:function(t,e){var i=this.collection.at(t);i.set("sequence",e);i.save().always(function(){return this.collection.fetch()}.bind(this))},onRender:function(){t.getSidebar().done(function(t){var e=new o({sidebarItem:t.getGroup("project-shortcuts-group").getItem("project-shortcut-add"),projectKey:this.collection.projectKey,collection:this.collection});this.listenTo(e,"dialog:open",function(){this.trigger("add:open")});this.listenTo(e,"dialog:close",function(t){this.trigger("add:close",t)});this.orderingEnabled&&this.$(".aui-nav.project-shortcuts-list").sortable({revert:!1,items:".project-shortcut",placeholder:"ui-sortable-placeholder",cancel:".project-shortcuts-group__dropdown",update:function(t,e){var i=s(e.item).data("dragFromIdx"),o=this.collection.at(i);this.moveItem(i,e.item.index());this.setLastDroppedId(o.id)}.bind(this),start:function(t,e){this.setLastDroppedId(null);s(e.item).data("dragFromIdx",e.item.index())}.bind(this)})}.bind(this))},serializeData:function(){var t="false"===s(".aui-sidebar").attr("aria-expanded");return{canManage:!0,numberOfShortcuts:this.collection.length,orderingEnabled:this.orderingEnabled,isSidebarCollapsed:t}},attachBuffer:function(t,e){this.ui.itemsContainer.prepend(e)},onAddChild:function(t){this.ui.add.parent().before(t.$el)}})});AJS.namespace("JIRA.Projects.Sidebar.ProjectShortcuts.Views.List",null,require("jira/projects/sidebar/project-shortcuts/views/list"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar-project-shortcuts-init', location = '/sidebar/project-shortcuts/project-shortcuts-init.js' */
+define("jira/projects/sidebar/project-shortcuts/init",["jira/projects/sidebar/project-shortcuts/analytics","jira/projects/sidebar/project-shortcuts/views/list","jira/projects/sidebar/project-shortcuts/services/available-icons","jira/projects/sidebar/project-shortcuts/entities/shortcuts","jira/api/projects/sidebar","jira/api/projects","wrm/data"],function(t,i,r,s,c,a,e){"use strict";return{init:function(){c.getSidebar().done(function(c){t.initialize(e.claim("com.atlassian.jira.projects.shortcuts:project-id"));if(e.claim("com.atlassian.jira.projects.shortcuts:can-manage")){var o=e.claim("com.atlassian.jira.projects.shortcuts:with-icons");o&&r.initialize(e.claim("com.atlassian.jira.projects.shortcuts:icons-list"));r.setWithIcons(o);var n=e.claim("com.atlassian.jira.projects.shortcuts:ordering-enabled"),j=a.getCurrentProjectKey(),l=new s(e.claim("com.atlassian.jira.projects.shortcuts:shortcuts"),{projectKey:j}),p=new i({collection:l,targetGroup:"project-shortcuts-group",orderingEnabled:n});p.render();t.initDialogActions(p)}t.initShortcutClick(".project-shortcuts-list",c)})}}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar', location = '/sidebar/sidebar-component-init.js' */
+(k=>{k.set('project.sidebar.label','Sidebar');k.set('project.sidebar.of','{0} of {1}');k.set('project.sidebar.toggle.button.ariaLabel','Sidebar');})(WRM.I18n.km);
+define("jira/projects/sidebar/sidebar-component-initializer",["require"],function(a){"use strict";var e=a("jira/util/logger"),r=a("wrm/data"),i=a("jira/api/projects"),t=a("jira/api/projects/sidebar"),s=a("jira/project/types/warning/dialog"),o=a("jira/projects/sidebar/lastvisited/updater"),n=a("jira/projects/sidebar/component"),c=a("jira/projects/sidebar/analytics/analytics"),p=a("jira/projects/sidebar/analytics/hash"),l=a("jira/projects/sidebar/scopefilter/init"),j=a("wrm/context-path"),g=a("jquery"),u=a("underscore"),d=a("jira/util/formatter"),b=a("jira/projects/sidebar/project-shortcuts/init"),m=["NONE","com.atlassian.jira.jira-projects-plugin:project-issue-search-link","com.atlassian.jira.jira-projects-plugin:components-page","com.atlassian.jira.jira-projects-plugin:reports-panel","com.atlassian.jira.jira-projects-plugin:summary-panel","com.atlassian.jira.jira-projects-plugin:summary-page","com.atlassian.jira.jira-projects-plugin:components-page","com.atlassian.jira.jira-projects-plugin:release-page","com.atlassian.jira.jira-projects-plugin:release-sidebar-version-","com.atlassian.jira.jira-projects-plugin:report-page","com.pyxis.greenhopper.jira:global-sidebar-report","com.pyxis.greenhopper.jira:global-sidebar-plan-scrum","com.pyxis.greenhopper.jira:global-sidebar-work-scrum","com.pyxis.greenhopper.jira:global-sidebar-work-kanban","com.pyxis.greenhopper.jira:project-sidebar-plan-scrum","com.pyxis.greenhopper.jira:project-sidebar-work-scrum","com.pyxis.greenhopper.jira:project-sidebar-work-kanban","com.atlassian.jira.jira-projects-issue-navigator:embedded-issue-navigator-link","com.atlassian.jira.jira-projects-issue-navigator:sidebar-issue-navigator"];function f(a){a.id="sidebar"}function h(a){a.setAttribute("aria-label",d.I18n.getText("project.sidebar.label"))}function y(a){g(a).find(".aui-sidebar-toggle").attr("aria-label",d.I18n.getText("project.sidebar.toggle.button.ariaLabel"))}return{init:function(a){t.initAPI(new n({el:a.$el[0],isGlobalSidebar:r.claim("is-global-sidebar")}));u(m).each(p.addPrefix);c.register();!function(a){a.on("collapse-start",function(){var e=a.$el.find(".scope-filter-trigger");e.hasClass("aui-dropdown2-active")&&e.trigger("aui-button-invoke")})}(a);!function(){s.init({data:r.claim("project.type.warning.dialogs.data"),onProjectTypeChanged:function(){var a=i.getCurrentProjectKey();window.location.replace(j()+"/projects/"+a+"/summary")}});e.trace("project.types.warning.messages.init")}();b.init();l.init(r.claim("scope-filter-data"));t.getSidebar().done(function(a){f(a.el);h(a.el);!function(a){function e(){a.getAUISidebar().reflow()}setTimeout(e,200);setInterval(e,3e5)}(a);y(a.el);o.start(a)});if(g(".aui-sidebar-group-tier-one").length){var v=i.getCurrentProjectName();g(".aui-sidebar-group-tier-one .aui-nav-item").each(function(){var a=g(this).data("label"),e=d.I18n.getText("project.sidebar.of",a,v);g(this).attr("aria-label",e)})}},setSidebarId:f,setSidebarAriaLabel:h,setSidebarToggleButtonAriaLabel:y}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar', location = '/sidebar/sidebar-data.js' */
+define("jira/projects/sidebar/sidebar-data",["wrm/data"],function(a){"use strict";return{rapidViewId:a.claim("sidebar-rapid-view-id"),isGlobalBoard:a.claim("has-global-board-sidebar")}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:sidebar', location = '/sidebar/sidebar-init.js' */
+(k=>{k.set('project.sidebar.not.loaded.ajax.contact.admin.message','If the problem persists, contact your Jira admin.');k.set('project.sidebar.not.loaded.ajax.message','We couldn\u0027\u0027t load the project sidebar. {0} to try again.');k.set('project.sidebar.not.loaded.ajax.refresh.page.message','Refresh the page');})(WRM.I18n.km);
+require(["wrm/require","wrm/context-path","jira/api/projects","jira/issue","jira/util/logger","jira/projects/sidebar/expansion-manager","jira/ajs/ajax/smart-ajax","jira/projects/sidebar/sidebar-component-initializer","jira/projects/sidebar/sidebar-data"],function(e,r,a,t,i,n,o,s,d){"use strict";function c(){var e=function(){var e=!0===d.isGlobalBoard,r=t.getIssueKey(),i="projects/1.0/sidebar/project/"+a.getCurrentProjectKey();r&&(i="projects/1.0/sidebar/issue/"+r);e&&(i="greenhopper/1.0/sidebar/globalBoard");return i}(),i=function(){var e=new URLSearchParams,r=a.lazilyGetSelectedItemId();r&&e.append("selectedItem",r);var t=d.rapidViewId;t&&e.append("rapidViewId",t);return e}();return r()+"/rest/"+e+"?"+i.toString()}(function(){var r=a.getCurrentProjectType(),t=[];r&&t.push("wrc!jira.project.sidebar."+r);return e(t)})().then(function(){return o.makeRequest({url:c(),complete:function(e,r,a){if(a.successful){var t=a.data,i=document.querySelector(".aui-sidebar"),n=document.createRange();n.selectNode(i);i.replaceWith(n.createContextualFragment(t.html))}else o.buildDialogErrorContent(a)}})}).then(function(){var e=AJS.sidebar(".aui-sidebar");n(e);s.init(e);i.trace("jira.projects.sidebar.init",{dclFired:"complete"===document.readyState||"loaded"===document.readyState||"interactive"===document.readyState})}).catch(function(r){i.error("Error while rendering sidebar. Message:",r);e(["wr!jira.webresources:jira-formatter","wr!jira.webresources:messages","wr!jira.webresources:jira-analytics-amd"],function(){var e=require("jira/util/formatter"),r=require("jira/flag"),i=require("jira/analytics"),n=document.createElement("a");n.setAttribute("href",window.location.href);n.textContent=e.I18n.getText("project.sidebar.not.loaded.ajax.refresh.page.message");r.showWarningMsg("",e.I18n.getText("project.sidebar.not.loaded.ajax.message",n.outerHTML)+"<br />"+e.I18n.getText("project.sidebar.not.loaded.ajax.contact.admin.message"));i.send({name:"jira.projects.sidebar.render.error",properties:{projectId:a.getCurrentProjectId(),issueId:t.getIssueId()}})}).fail(function(){i.error("Failed to display sidebar error message due to error when loading WRM dependencies.")})})});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:report-page-assets', location = '/page/project/report/analytics.js' */
+define("jira/projects/page/report/analytics",["jira/analytics","jquery"],function(t,r){"use strict";return function(){r(".reports .reports__list__report").on("click",function(){var e=r(this);t.send({name:"jira.projects.report.clicked",data:{report:e.attr("data-report-key"),category:e.closest("ul").attr("data-category-key"),listPosition:e.closest("li").prevAll().length+1}})})}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:reports-link-storage', location = '/sidebar/reports/reports-link-storage.js' */
+define("jira/projects/sidebar/reports/link-storage",["jira/util/logger","jira/data/local-storage","jira/api/projects","jira/api/projects/sidebar"],function(e,r,t,i){"use strict";function o(e){var r=e.getSelectedScopeFilterId(),i="last.viewed.report."+t.getCurrentProjectKey();r&&(i+="."+r);return i}function a(e,r){e.setReportsItemLink(r)}return{storeLastViewedReportLink:function(t){i.getSidebar().done(function(i){if(i.isProjectSidebar()){var s=o(i);r.setItem(s,t);a(i,t)}e.trace("jira.projects.sidebar.reports.link.stored")})},restoreLastViewedReportLink:function(){i.getSidebar().done(function(t){if(t.isProjectSidebar()){var i=o(t),s=r.getItem(i);s&&a(t,s)}e.trace("jira.projects.sidebar.reports.link.restored")})}}});
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.jira.jira-projects-plugin:reports-link-init', location = '/sidebar/reports/reports-link-init.js' */
+require(["jira/projects/sidebar/reports/link-storage"],function(e){"use strict";e.restoreLastViewedReportLink()});AJS.namespace("JIRA.Projects.Sidebar.Reports",null,require("jira/projects/sidebar/reports/link-storage"));
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_2828', location = '2828.js' */
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[2828],{73253:(t,e,r)=>{var n,a;n=[r(97275),r(85150)],void 0===(a=function(t,e){var r={triggerPopStateEvent:function(){var t=new PopStateEvent("popstate",{});dispatchEvent(t)},push:function(t,r){var n=this.toUri(t);void 0===r&&(r=document.title),history.pushState(t,r,n),e(document).trigger("gh.virtualpageview"),this.triggerPopStateEvent()},replace:function(t,e){var r=this.toUri(t);void 0===e&&(e=document.title),history.replaceState(t,e,r),this.triggerPopStateEvent()},getViewState:function(){return history.state},getHashParams:function(){var t=window.location.href;return!(t.indexOf("#")<0)&&this.toViewState(t)},toViewState:function(t){if(t.lastIndexOf("?")<0)return{};var e=this.getStateFromUri(t);return delete e._suid,e},toUri:function(r){var n=t(document.location.href);return n.anchor="",n.queryKey=e.extend({},r),n.toString()},registerStateChangeListener:function(t){var r=window.location.href.split("#")[0];e(window).on("popstate",function(e){var n=window.location.href.split("#")[0];""!==window.location.hash&&r===n||(r=n,t())})},getStateFromUri:function(e){var r=t(e);return r.anchor&&(r=t(r.anchor)),r.queryKey}};window.define("jira-agile/rapid/state/State",[],function(){return r}),AJS.namespace("GH.State",null,r);var n=Array.from(arguments).map(function(t,e){return{empty:!t||0===Object.getOwnPropertyNames(t).length&&!t[Symbol.for("soyProxy")],index:e}}).filter(function(t){return t.empty}).map(function(t){return t.index+1});return n.length&&(window.__circulars=window.__circulars||0,window.__circulars+=n.length,console.error("[circ deps] in ","/jira-agile/rapid/state/State.js",n)),r}.apply(e,n))||(t.exports=a)},92828:(t,e,r)=>{var n,a;function i(t,e){return function(t){if(Array.isArray(t))return t}(t)||function(t,e){var r=null==t?null:"undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(null!=r){var n,a,i,o,u=[],s=!0,l=!1;try{if(i=(r=r.call(t)).next,0===e){if(Object(r)!==r)return;s=!1}else for(;!(s=(n=i.call(r)).done)&&(u.push(n.value),u.length!==e);s=!0);}catch(t){l=!0,a=t}finally{try{if(!s&&null!=r.return&&(o=r.return(),Object(o)!==o))return}finally{if(l)throw a}}return u}}(t,e)||function(t,e){if(t){if("string"==typeof t)return o(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?o(t,e):void 0}}(t,e)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function o(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}n=[r(61246),r(73253),r(43864)],void 0===(a=function(t,e,r){var n={dateFormat:"%Y-%m-%d",normalizeNumberParam:function(e,r){if(t.isUndefined(r)&&(r=null),void 0===e)return r;if(null===e)return r;var n=parseInt(e,10);return isFinite(n)?n:r},normalizeBooleanParam:function(e,r){return t.isUndefined(r)&&(r=null),null==e?r:"false"!==e&&Boolean(e)},normalizeDateParam:function(e,r){return t.isUndefined(r)&&(r=null),null==e?r:Date.parseDate(e,this.dateFormat)},normalizeNumberArrayParam:function(e){var r=[];if(t.isString(e)){var n=this.normalizeNumberParam(e);null!==n&&r.push(n)}else t.isArray(e)&&t.each(e,function(t){var e=this.normalizeNumberParam(t);null!==e&&r.push(e)},this);return r},normalizeStringParam:function(e,r){if(t.isUndefined(r)&&(r=null),t.isArray(e)&&e.length>0){var n=e[0];return""!==n?n:r}return t.isString(e)&&""!==e?e:r},removeEmptyParams:function(e){var r={};return t.each(e,function(e,n){t.isArray(e)?e.length>0&&(r[n]=e):t.isString(e)?t.isEmpty(e)||(r[n]=e):null==e||(r[n]=e)}),r},toUrlParameterString:function(e){var r="";return t.each(e,function(e,n){t.isArray(e)?t.each(e,function(t){r.length>0&&(r+="&"),r+=n+"="+encodeURIComponent(t)}):(r.length>0&&(r+="&"),r+=n+"="+encodeURIComponent(e))}),r},setHandlers:function(t){this.handlers=t},addHandler:function(t,e){return-1!==this.handlers.findIndex(function(e){return e.self===t.self})||this.handlers["prepend"===e?"unshift":"push"](t),this.handlers},handlers:[],getNormalizedUrlState:function(){var e=this.getCurrentUrlState(),r={};return t.each(this.handlers,function(t){t.isApplicable(r)&&t.getNormalizedFromUrl(e,r)}),r},toUrlState:function(e){var r={};return t.each(this.handlers,function(t){t.isApplicable(e)&&t.toUrl(e,r)}),r},deferredPushState:function(t){t<this.lastPushReplace||this.pushState()},lastPushReplace:0,pushState:function(){var n=i(this._preUpdate(),3),a=n[0],o=n[1],u=n[2];t.isEqual(a,o)?r.log("Not pushing, url state already up to date"):(r.log("pushing state  : "+JSON.stringify(u),r.Contexts.state),e.push(u))},replaceState:function(n){var a=i(this._preUpdate(),3),o=a[0],u=a[1],s=a[2];!t.isEqual(o,u)||n?(r.log("replacing state: "+JSON.stringify(s),r.Contexts.state),e.replace(s)):r.log("Not replacing, url state already up to date",r.Contexts.state)},_preUpdate:function(){this.lastPushReplace=(new Date).getTime();var t=this.getNormalizedRapidBoardState(),e=this.toUrlState(t),n=this.getNormalizedUrlState();return r.log("url normalized : "+JSON.stringify(n),r.Contexts.state),r.log("new normalized : "+JSON.stringify(t),r.Contexts.state),[t,n,e]},getNormalizedRapidBoardState:function(){var e={};return t.each(this.handlers,function(t){t.isApplicable(e)&&t.getNormalizedFromInternal(e)}),e},loadState:function(){var e=this.getNormalizedUrlState();t.each(this.handlers,function(t){t.isApplicable(e)&&t.updateInternalFromNormalized(e)})},getCurrentUrlState:function(){return e.toViewState(window.location.href)},hasUrlState:function(){return!t.isEmpty(this.getCurrentUrlState())},getViewStateRequestParameterString:function(){var t=this.getCurrentUrlState(),e=this.removeEmptyParams(t);return this.toUrlParameterString(e)}};AJS.namespace("GH.RapidBoard.UrlState",null,n);var a=Array.from(arguments).map(function(t,e){return{empty:!t||0===Object.getOwnPropertyNames(t).length&&!t[Symbol.for("soyProxy")],index:e}}).filter(function(t){return t.empty}).map(function(t){return t.index+1});return a.length&&(window.__circulars=window.__circulars||0,window.__circulars+=a.length,console.error("[circ deps] in ","/jira-agile/rapid/state/UrlState.js",a)),n}.apply(e,n))||(t.exports=a)},97275:(t,e)=>{var r;AJS.parseUri=function(t,e){function r(t){for(var e=r.options,n=e.parser[e.strictMode?"strict":"loose"].exec(t),a={},i=14;i--;)a[e.key[i]]=n[i]||"";return a[e.q.name]={},a[e.key[12]].replace(e.q.parser,function(t,r,n){r&&("object"==typeof a[e.q.name][r]?a[e.q.name][r].push(n):a[e.q.name][r]?a[e.q.name][r]=[a[e.q.name][r],n]:a[e.q.name][r]=n)}),a}r.options={strictMode:!!e,key:["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"],q:{name:"queryKey",parser:/(?:^|&)([^&=]*)=?([^&]*)/g},parser:{strict:/^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,loose:/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/}};var n=AJS.$("<a>",{href:t})[0].hostname,a=n.indexOf(":")>-1,i=n.indexOf("[")>-1&&n.indexOf("]")>-1;n=i?n:"["+n+"]";var o="hostname";return a&&(t=t.replace(n,o)),t=r(t),a&&(t.host=n,t.authority=t.authority.replace(o,t.host),t.source=t.source.replace(o,t.host)),t.toString=function(){var e=[];return AJS.$.each(t.queryKey,function(t,r){_.isObject(r)?AJS.$.each(r,function(r,n){e.push(t+"="+n)}):e.push(t+"="+r)}),t.protocol+"://"+t.authority+t.path+"?"+e.join("&")+"#"+t.anchor},t},void 0===(r=function(){return AJS.parseUri}.apply(e,[]))||(t.exports=r)}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_4204', location = '4204.js' */
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[4204],{7094:n=>{n.exports=require("jira/dialog/accessible-dialog")},44204:(n,e,i)=>{var t,r;t=[i(7094),i(88734),i(67068),i(22334),i(96365),i(85150),i(61246)],void 0===(r=function(n,e,i,t,r,o,a){var s={create:function(e){o("#"+e.id).remove(),e=a.defaults(e,{bindEscape:!0});var i=new n(e),t=i.show,r=function(){this.preShow(),t.call(i);var n=o("#"+e.id),r=n.find(".dialog-button-panel .aui-button");r.is(":enabled")&&r.trigger("focus"),n.addClass("ghx-dialog")}.bind(this);return a.extend(i,{dispose:this.generateCloseHandler(i),cancel:this.generateCloseHandler(i,e.onCancelFn),submit:this.generateCloseHandler(i,e.onConfirmFn),resetForms:this.generateResetFormsFn(i),show:r,disableControls:this.generateDisableControlsFn(i),enableControls:this.generateEnableControlsFn(i),showSpinner:this.generateShowSpinnerFn(i),hideSpinner:this.generateHideSpinnerFn(i)}),this.bindEscapeHandler(i,!e.bindEscape),this.bindKeyDownHandler(i,e.onKeyDownFn),i},addCancelButton:function(n){n.addCancel("Cancel",function(){n.cancel(n)})},bindEscapeHandler:function(n,t){t?i.bind("Dialog.beforeHide",function(i,t,r,o){o===n.id&&r===e.HIDE_REASON.escape&&i.preventDefault()}):o(document).on("keyup."+n.id,function(e){27===e.keyCode&&n.cancel(n)})},bindKeyDownHandler:function(n,e){o("#"+n.id).on("keydown",".dialog-button-panel .button-panel-cancel-link",function(n){if(e&&"function"==typeof e)e(n);else if(e)throw new Error("onKeyDown is undefined or not a function")})},generateCloseHandler:function(n,e){var i=this;return function(){return n.remove(),i.undim(),o(document).off("keyup."+n.id),AJS.unbind("remove.dialog"),e&&e(n),!1}},generateDisableControlsFn:function(n){return function(){o("#"+n.id+" button").prop("disabled",!0)}},generateEnableControlsFn:function(n){return function(){o("#"+n.id+" button").prop("disabled",!1).removeAttr("disabled")}},generateShowSpinnerFn:function(n){return function(){o("#"+n.id).find(".button-panel-cancel-link").css("visibility","hidden").before('<span class="ghx-spinner"/>')}},generateHideSpinnerFn:function(n){return function(){o("#"+n.id).find(".ghx-spinner").remove().end().find(".button-panel-cancel-link").css("visibility","visible")}},generateResetFormsFn:function(n){return function(){return document.querySelectorAll("#"+n.id+" form").forEach(function(n){return n.reset()})}},sanitizeAJSDim:function(){var n=AJS.dim;AJS.dim=function(){try{n.apply(this,arguments)}catch(n){}}},registerDialog:function(n,e,i){o(document).off("click",n).on("click",n,function(n){o(this).hasClass("disabled")||(n.preventDefault(),e(n,i))})},dim:function(){AJS.dim(),o(".aui-blanket").html('<div class="jira-spinner-container"><aui-spinner size="medium" class="jira-page-loading-indicator"></aui-spinner></div>')},undim:function(){AJS.undim(),o(".aui-blanket").empty()},preShow:function(){o(".aui-blanket").empty()}};r("GH.Dialog",s);var l=Array.from(arguments).map(function(n,e){return{empty:!n||0===Object.getOwnPropertyNames(n).length&&!n[Symbol.for("soyProxy")],index:e}}).filter(function(n){return n.empty}).map(function(n){return n.index+1});return l.length&&(window.__circulars=window.__circulars||0,window.__circulars+=l.length,console.error("[circ deps] in ","/jira-agile/rapid/ui/dialog/DialogUtil.js",l)),s}.apply(e,t))||(n.exports=r)}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_843', location = '843.js' */
+(self.webpackChunk=self.webpackChunk||[]).push([[843],{10722:(e,n,r)=>{e.exports=r},15572:(e,n,r)=>{"use strict";var i;void 0===(i=function(){return r(10722),GH.tpl.board.x}.apply(n,[]))||(e.exports=i)},34300:(e,n,r)=>{"use strict";var i,o;i=[r(49894),r(88262),r(82751),r(92828),r(55874),r(22334),r(79182),r(96365)],o=function(e,n,r,i,o,t,a,u){var c,p,d,g={toolsMenu:new r("RapidBoard.toolsmenu")},s={init:function(e,n,r){c=e,p=n,d=r},openBacklog:function(){return c()},openBoard:function(){return p()},openReports:function(){return d()},gotoRapidBoardPage:function(e,n){window.location.href=s.getRapidBoardPageUrl(e,n)},gotoRapidViewConfiguration:function(e,n){window.location.href=s.getRapidViewConfigurationUrl(e,n)},gotoManageViewsPage:function(){window.location.href=s.getManageViewsPageUrl()},copyRapidViewAndGotoConfiguration:function(e,r){g.toolsMenu.trigger("copy"),n.put({url:"/rapidview/"+e+"/copy"}).done(function(e){var n=t.format("Successfully copied board \u003cstrong\u003e{0}\u003c/strong\u003e to \u003cstrong\u003e{1}\u003c/strong\u003e.",a.escapeHtml(String(r)),a.escapeHtml(String(e.success.name)));o.addPageLoadMessage(n),s.gotoRapidViewConfiguration(e.success.id)})},getManageViewsPageUrl:function(){return n.CONTEXT_PATH+"/secure/ManageRapidViews.jspa"},getCurrentPageReturnUrl:function(){var e=i.getViewStateRequestParameterString();return encodeURIComponent("/secure/RapidBoard.jspa?"+e)},getRapidBoardPageUrl:function(n,r){var i=r?"&view="+r:"&useStoredSettings=true";return e.getCanonicRapidBoardPageUrl(n)+i},getRapidViewConfigurationUrl:function(e,r){var i=n.CONTEXT_PATH+"/secure/RapidView.jspa?rapidView="+e;return r&&(i=i+"&tab="+r),i}};u("GH.RapidBoardNavigation",s);var l=Array.from(arguments).map(function(e,n){return{empty:!e||0===Object.getOwnPropertyNames(e).length&&!e[Symbol.for("soyProxy")],index:n}}).filter(function(e){return e.empty}).map(function(e){return e.index+1});return l.length&&(window.__circulars=window.__circulars||0,window.__circulars+=l.length,console.error("[circ deps] in ","/jira-agile/rapid/rapid-board-navigation.js",l)),s}.apply(n,i),void 0===o||(e.exports=o)}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_843', location = 'includes/js/jira-agile/rapid/RapidBoard.soy' */
+// This file was automatically generated from RapidBoard.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace GH.tpl.board.x.
+ */
+
+if (typeof GH == 'undefined') { var GH = {}; }
+if (typeof GH.tpl == 'undefined') { GH.tpl = {}; }
+if (typeof GH.tpl.board == 'undefined') { GH.tpl.board = {}; }
+if (typeof GH.tpl.board.x == 'undefined') { GH.tpl.board.x = {}; }
+
+
+GH.tpl.board.x.renderNoViewsAnonymous = function(opt_data, opt_ignored) {
+  return '<div class="aui-message aui-message-info ghx-notify"><p><span class="aui-icon icon-generic"></span>' + soy.$$escapeHtml('No boards are currently available.') + '</p><p><span class="aui-icon icon-generic"></span>' + soy.$$filterNoAutoescape(AJS.format('Boards may be visible if you {0}log in{1}.','<a href="' + opt_data.loginUrl + '">','</a>')) + '</p></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderNoViewsAnonymous.soyTemplateName = 'GH.tpl.board.x.renderNoViewsAnonymous';
+}
+
+
+GH.tpl.board.x.renderNoViews = function(opt_data, opt_ignored) {
+  return '<div class="aui-message aui-message-info ghx-notify"><p><span class="aui-icon icon-generic"></span>' + soy.$$escapeHtml('No boards are currently available.') + '</p><p><span class="aui-icon icon-generic"></span>' + soy.$$filterNoAutoescape(AJS.format('{0}Create a new board{1}.','<a class="js-view-action-create">','</a>')) + '</p></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderNoViews.soyTemplateName = 'GH.tpl.board.x.renderNoViews';
+}
+
+
+GH.tpl.board.x.renderRapidBoard = function(opt_data, opt_ignored) {
+  return '<div id="ghx-header"><div id="ghx-modes-tools"><div id="ghx-view-modes"></div><span id="ghx-view-pluggable"></span><div id="ghx-view-tools"></div><div id="ghx-view-presentation"></div></div><div id="ghx-view-selector"></div></div><div id="ghx-content-main" class="ghx-content-main"><div id="ghx-errors"></div><div id="ghx-notify"></div><div id="ghx-rabid"><div id="ghx-operations"></div><div id="ghx-plan"></div><div id="ghx-report" class="ghx-chart"></div><div id="ghx-work" class="ghx-work"></div><div id="ghx-team"></div></div></div><div class="ghx-throbber"></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderRapidBoard.soyTemplateName = 'GH.tpl.board.x.renderRapidBoard';
+}
+
+
+GH.tpl.board.x.renderToolSections = function(opt_data, opt_ignored) {
+  var output = '';
+  var sectionList19 = opt_data.sections;
+  var sectionListLen19 = sectionList19.length;
+  for (var sectionIndex19 = 0; sectionIndex19 < sectionListLen19; sectionIndex19++) {
+    var sectionData19 = sectionList19[sectionIndex19];
+    output += '<div class="ghx-view-section ' + soy.$$escapeHtml(sectionData19.cssClass) + '"><button id="' + soy.$$escapeHtml(sectionData19.id) + '-button" class="aui-button aui-dropdown2-trigger" aria-controls="' + soy.$$escapeHtml(sectionData19.id) + '-content">' + soy.$$escapeHtml(sectionData19.label) + '</button><aui-dropdown-menu id="' + soy.$$escapeHtml(sectionData19.id) + '-content" hidden></aui-dropdown-menu></div>';
+  }
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderToolSections.soyTemplateName = 'GH.tpl.board.x.renderToolSections';
+}
+
+
+GH.tpl.board.x.renderSectionContent = function(opt_data, opt_ignored) {
+  var output = '';
+  var subItemList33 = opt_data.subItems;
+  var subItemListLen33 = subItemList33.length;
+  for (var subItemIndex33 = 0; subItemIndex33 < subItemListLen33; subItemIndex33++) {
+    var subItemData33 = subItemList33[subItemIndex33];
+    output += GH.tpl.board.x.renderSubItem({subItem: subItemData33});
+  }
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderSectionContent.soyTemplateName = 'GH.tpl.board.x.renderSectionContent';
+}
+
+
+GH.tpl.board.x.renderSubItem = function(opt_data, opt_ignored) {
+  var output = '';
+  if (opt_data.subItem.type == 'section' || opt_data.subItem.type == 'SECTION') {
+    output += '<aui-section id="' + soy.$$escapeHtml(opt_data.subItem.id) + '" class="' + soy.$$escapeHtml(opt_data.subItem.cssClass) + '">';
+    var subSubItemList45 = opt_data.subItem.subItems;
+    var subSubItemListLen45 = subSubItemList45.length;
+    for (var subSubItemIndex45 = 0; subSubItemIndex45 < subSubItemListLen45; subSubItemIndex45++) {
+      var subSubItemData45 = subSubItemList45[subSubItemIndex45];
+      output += GH.tpl.board.x.renderSubItem({subItem: subSubItemData45});
+    }
+    output += '</aui-section>';
+  } else if (opt_data.subItem.type == 'webPanel' || opt_data.subItem.type == 'WEB_PANEL') {
+    output += '<aui-item-link interactive><div ' + ((opt_data.subItem.id) ? 'id="' + soy.$$escapeHtml(opt_data.subItem.id) + '" ' : '') + 'class="' + soy.$$escapeHtml(opt_data.subItem.cssClass) + '">' + soy.$$filterNoAutoescape(opt_data.subItem.html) + '</div></aui-item-link>';
+  } else {
+    output += '<aui-item-link href="' + soy.$$escapeHtml(opt_data.subItem.url) + '"' + ((opt_data.subItem.id) ? 'id="' + soy.$$escapeHtml(opt_data.subItem.id) + '" ' : '') + 'class="' + soy.$$escapeHtml(opt_data.subItem.cssClass) + '"' + ((('' + opt_data.subItem.cssClass).indexOf('disabled') != -1) ? 'disabled' : '') + '>' + soy.$$escapeHtml(opt_data.subItem.label) + '</aui-item-link>';
+  }
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderSubItem.soyTemplateName = 'GH.tpl.board.x.renderSubItem';
+}
+
+
+GH.tpl.board.x.renderWelcomeProjectMessageKanban = function(opt_data, opt_ignored) {
+  return '<p>' + soy.$$filterNoAutoescape(AJS.format('You have created a Kanban board \x3ca href\x3d\x22{0}\x22\x3e{1}\x3c/a\x3e and a project \x3ca href\x3d\x22{2}\x22\x3e{3}\x3c/a\x3e.',GH.Ajax.CONTEXT_PATH + '/secure/RapidBoard.jspa?rapidView=' + opt_data.rapidView.id,opt_data.rapidView.name,GH.Ajax.CONTEXT_PATH + '/plugins/servlet/project-config/' + opt_data.project.key,opt_data.project.name)) + '</p>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderWelcomeProjectMessageKanban.soyTemplateName = 'GH.tpl.board.x.renderWelcomeProjectMessageKanban';
+}
+
+
+GH.tpl.board.x.renderWelcomeProjectMessageScrum = function(opt_data, opt_ignored) {
+  return '<p>' + soy.$$filterNoAutoescape(AJS.format('You have created a Scrum board \x3ca href\x3d\x22{0}\x22\x3e{1}\x3c/a\x3e and a project \x3ca href\x3d\x22{2}\x22\x3e{3}\x3c/a\x3e.',GH.Ajax.CONTEXT_PATH + '/secure/RapidBoard.jspa?rapidView=' + opt_data.rapidView.id,opt_data.rapidView.name,GH.Ajax.CONTEXT_PATH + '/plugins/servlet/project-config/' + opt_data.project.key,opt_data.project.name)) + '</p>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderWelcomeProjectMessageScrum.soyTemplateName = 'GH.tpl.board.x.renderWelcomeProjectMessageScrum';
+}
+
+
+GH.tpl.board.x.renderWelcomeProjectSampleMessageKanban = function(opt_data, opt_ignored) {
+  return '<p>' + soy.$$filterNoAutoescape(AJS.format('You have created a sample Kanban board \x3ca href\x3d\x22{0}\x22\x3e{1}\x3c/a\x3e and a sample project \x3ca href\x3d\x22{2}\x22\x3e{3}\x3c/a\x3e.',GH.Ajax.CONTEXT_PATH + '/secure/RapidBoard.jspa?rapidView=' + opt_data.rapidView.id,opt_data.rapidView.name,GH.Ajax.CONTEXT_PATH + '/plugins/servlet/project-config/' + opt_data.project.key,opt_data.project.name)) + '</p>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderWelcomeProjectSampleMessageKanban.soyTemplateName = 'GH.tpl.board.x.renderWelcomeProjectSampleMessageKanban';
+}
+
+
+GH.tpl.board.x.renderWelcomeProjectSampleMessageScrum = function(opt_data, opt_ignored) {
+  return '<p>' + soy.$$filterNoAutoescape(AJS.format('You have created a sample Scrum board \x3ca href\x3d\x22{0}\x22\x3e{1}\x3c/a\x3e and a sample project \x3ca href\x3d\x22{2}\x22\x3e{3}\x3c/a\x3e.',GH.Ajax.CONTEXT_PATH + '/secure/RapidBoard.jspa?rapidView=' + opt_data.rapidView.id,opt_data.rapidView.name,GH.Ajax.CONTEXT_PATH + '/plugins/servlet/project-config/' + opt_data.project.key,opt_data.project.name)) + '</p>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderWelcomeProjectSampleMessageScrum.soyTemplateName = 'GH.tpl.board.x.renderWelcomeProjectSampleMessageScrum';
+}
+
+
+GH.tpl.board.x.renderWelcomeViewMessageKanban = function(opt_data, opt_ignored) {
+  return '<p>' + soy.$$filterNoAutoescape(AJS.format('Kanban board \x3ca href\x3d\x22{0}\x22\x3e{1}\x3c/a\x3e has been created.',GH.Ajax.CONTEXT_PATH + '/secure/RapidBoard.jspa?rapidView=' + opt_data.rapidView.id,opt_data.rapidView.name)) + '</p>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderWelcomeViewMessageKanban.soyTemplateName = 'GH.tpl.board.x.renderWelcomeViewMessageKanban';
+}
+
+
+GH.tpl.board.x.renderWelcomeViewMessageScrum = function(opt_data, opt_ignored) {
+  return '<p>' + soy.$$filterNoAutoescape(AJS.format('Scrum board \x3ca href\x3d\x22{0}\x22\x3e{1}\x3c/a\x3e has been created.',GH.Ajax.CONTEXT_PATH + '/secure/RapidBoard.jspa?rapidView=' + opt_data.rapidView.id,opt_data.rapidView.name)) + '</p>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderWelcomeViewMessageScrum.soyTemplateName = 'GH.tpl.board.x.renderWelcomeViewMessageScrum';
+}
+
+
+GH.tpl.board.x.renderCreateViewMessage = function(opt_data, opt_ignored) {
+  return '<p>' + soy.$$filterNoAutoescape(AJS.format('View \x3ca href\x3d\x22{0}\x22\x3e{1}\x3c/a\x3e has been created.',GH.Ajax.CONTEXT_PATH + '/secure/RapidBoard.jspa?rapidView=' + opt_data.rapidView.id,opt_data.rapidView.name)) + '</p>';
+};
+if (goog.DEBUG) {
+  GH.tpl.board.x.renderCreateViewMessage.soyTemplateName = 'GH.tpl.board.x.renderCreateViewMessage';
+}
+
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_699', location = '699.js' */
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[699],{40699:(r,n,e)=>{var t,o;t=[e(12545),e(22334),e(85150)],void 0===(o=function(r,n,t){function o(r){return null==r?"":String(r).trim()}e(82098);var i={notBlank:function(r,n,e){return i.applyRules(r,n,e,function(){return o(t(r).val()).length>0})},maxLength:function(r,n,e,a){return i.applyRules(r,e,a,function(){return o(t(r).val()).length<=n})},isPositiveInteger:function(r,n,e){return i.applyRules(r,n,e,function(){return/^\d*$/.test(o(t(r).val()))})},applyRules:function(r,n,e,o){r=t(r);var a=e?t(e):r;return!!o.call(this)||(i.showContextualErrors(a,n),!1)},showContextualErrors:function(e,t,o,a,u){i.clearContextualErrors(e),e.after(r.renderContextualErrors({errors:[{message:n.I18n.getText(t,o,a,u)}]}))},clearContextualErrors:function(r){(r=t(r)).find(".ghx-error").remove(),r.siblings(".ghx-error").remove()}};window.define("jira-agile/rapid/validation",[],function(){return i}),AJS.namespace("GH.Validation",null,i);var a=Array.from(arguments).map(function(r,n){return{empty:!r||0===Object.getOwnPropertyNames(r).length&&!r[Symbol.for("soyProxy")],index:n}}).filter(function(r){return r.empty}).map(function(r){return r.index+1});return a.length&&(window.__circulars=window.__circulars||0,window.__circulars+=a.length,console.error("[circ deps] in ","/jira-agile/rapid/validation.js",a)),i}.apply(n,t))||(r.exports=o)}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_6348', location = '6348.js' */
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[6348],{6348:e=>{e.exports=require("jira/ajs/select/multi-select")}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_171', location = '171.js' */
+(self.webpackChunk=self.webpackChunk||[]).push([[171],{1157:(e,t,r)=>{e.exports=r},6849:(e,t)=>{"use strict";var r;!function(e,t){e.KeyGenerator=function(){var e=["THE","A","AN","AS","AND","OF","OR"],r={},n=function(e){return e.join("").length},o=function(e){return e&&1===e.length&&-1!==e.search("[AEIOUY]")};return r[199]="C",r[231]="c",r[252]="u",r[251]="u",r[250]="u",r[249]="u",r[233]="e",r[234]="e",r[235]="e",r[232]="e",r[226]="a",r[228]="a",r[224]="a",r[229]="a",r[225]="a",r[239]="i",r[238]="i",r[236]="i",r[237]="i",r[196]="A",r[197]="A",r[201]="E",r[230]="ae",r[198]="Ae",r[244]="o",r[246]="o",r[242]="o",r[243]="o",r[220]="U",r[255]="Y",r[214]="O",r[241]="n",r[209]="N",{generateKey:function(a,i){var c="number"==typeof(i=t.extend({},i)).desiredKeyLength?i.desiredKeyLength:4,s="number"==typeof i.maxKeyLength?i.maxKeyLength:1/0;if(!(a=null==a?"":String(a).trim()))return"";for(var l=[],u=0,d=a.length;u<d;u++){var p=r[a.charCodeAt(u)];l.push(p||a[u])}a=l.join("");var g,h=[];if(t.each(a.split(/\s+/),function(e,t){t&&(t=(t=t.replace(/[^a-zA-Z]/g,"")).toUpperCase()).length&&h.push(t)}),c&&n(h)>c&&(h=function(r){return t.grep(r,function(r,n){return-1===t.inArray(r,e)})}(h)),0==h.length)g="";else if(1==h.length){var f=h[0],m=function(e){var t,r=!1;for(t=0;t<e.length;t++)if(o(e[t]))r=!0;else if(r)return e.substring(0,t+1);return e}(f);g=s<f.length||Math.abs(f.length-c)>=Math.abs(m.length-c)?m:f}else{var w=n(h),v=function(e){var r="";return t.each(e,function(e,t){r+=t.charAt(0)}),r}(h);g=s<w||Math.abs(w-c)>=Math.abs(v.length-c)?v:h.join("")}return s&&g.length>s&&(g=g.substr(0,s)),g}}};var r=e.KeyGenerator();t.fn.generateFrom=function(e,n){var o,a,i,c,s,l=t(this).first();return e=e.first(),n=t.extend({},{desiredKeyLength:4,maxKeyLength:10,maxNameLength:30,timeoutMS:100,validationCallback:function(){},errorCallback:function(){}},n),o=function(){l.val(),l.val()&&l.data("lastGeneratedValue")!==l.val()&&l.data("autosuggest",!1),s()},a=function(e){i(e,o)},i=function(e,r){var o,a=t(e.target);o=function(){c(e),r(),a.is(":visible")&&a.data("checkHook",setTimeout(o,n.timeoutMS))},a.data("checkHook")||a.data("checkHook",setTimeout(o,0))},c=function(e){var r=t(e.target);clearTimeout(r.data("checkHook")),r.removeData("checkHook")},s=function(){var t;!1!==l.data("autosuggest")&&(t=r.generateKey(e.val(),{desiredKeyLength:n.desiredKeyLength,maxKeyLength:n.maxKeyLength}),l.data("lastGeneratedValue",t),l.val(t))},e.attr("maxlength",n.maxNameLength),l.attr("maxlength",n.maxKeyLength),l.css("text-transform","uppercase"),document.activeElement&&document.activeElement===e[0]&&a({target:e[0]}),e.focus(a),e.blur(c),this}}(window,jQuery),void 0===(r=function(){return window.KeyGenerator}.apply(t,[]))||(e.exports=r)},9474:(e,t,r)=>{"use strict";var n,o;n=[r(20999)],void 0===(o=function(){return r(1157),GH.tpl.startwizard}.apply(t,n))||(e.exports=o)},20999:(e,t,r)=>{"use strict";var n,o;n=[r(50692)],void 0===(o=function(e){return r(95105),r(22133),e(function(){return GH.tpl.rapid.view})}.apply(t,n))||(e.exports=o)},31126:(e,t,r)=>{"use strict";var n,o;n=[r(88262),r(52910),r(6348),r(79182),r(85150)],void 0===(o=function(e,t,r,n,o){var a=function(t){if(!t||!t.selector)throw new Error("Project picker requires a selector");this.$select=o(t.selector),t.currentProjectId&&(this.currentProjectId=t.currentProjectId,this.currentProject=null),this.multiselect=new r({element:this.$select,width:300,itemAttrDisplayed:"label",ajaxOptions:{url:e.buildRestUrl("/project.json"),formatResponse:this._processAjax.bind(this)}}),"function"==typeof t.change&&(this.$select.on("unselect",t.change),this.$select.on("change",t.change)),this.currentProjectId&&this.multiselect.requestSuggestions(!0).done(function(){this.currentProject&&this.multiselect.addItem(this._getProjectDescriptor(this.currentProject))}.bind(this))};a.prototype.show=function(){AJS.warn("ProjectPicker.show is deprecated. It is no longer needed as all initialisation occurs in the constructor")},a.prototype.hasValue=function(){return!!this.$select.val()},a.prototype.hasErrors=function(){return this.multiselect.$container.parent().find(".error").length>0},a.prototype.getValue=function(){return this.$select.val()},a.prototype.getElement=function(){return this.$select},a.prototype._findProject=function(e,t){return(e||[]).filter(function(e){return t&&e.id===t}.bind(this))[0]},a.prototype._findUnmatchingProjects=function(e,t){return(e||[]).filter(function(e){return!t||e.id!==t}.bind(this))},a.prototype._processAjax=function(e){if(!e||!e.projects||!e.projects.length)return[];this.currentProject=this._findProject(e.projects,this.currentProjectId);var t=this._findUnmatchingProjects(e.projects,this.currentProjectId).map(this._getProjectDescriptor.bind(this));return this.currentProject?[this._getProjectDescriptor(this.currentProject)].concat(t):t},a.prototype._getProjectDescriptor=function(e){if(!e)throw new Error("ProjectPicker.prototype._getProjectDescriptor requires a project");return new t({value:e.id+"",label:e.displayName,html:n.escapeHtml(String(e.displayName))})},AJS.namespace("GH.ProjectPicker",null,a);var i=Array.from(arguments).map(function(e,t){return{empty:!e||0===Object.getOwnPropertyNames(e).length&&!e[Symbol.for("soyProxy")],index:t}}).filter(function(e){return e.empty}).map(function(e){return e.index+1});return i.length&&(window.__circulars=window.__circulars||0,window.__circulars+=i.length,console.error("[circ deps] in ","/jira-agile/projects/project-picker.js",i)),a}.apply(t,n))||(e.exports=o)},40410:(e,t,r)=>{"use strict";var n,o;n=[r(88262),r(52910),r(58254),r(85150),r(61246)],void 0===(o=function(e,t,r,n,o){var a=function(e){this.selector=e.selector,this.fieldSelector=e.selector+"-field",this.blurHandler=e.blur,this.selectHandler=e.selected,this.stayActivated=e.stayActivated,this.focus=e.focus,this.ariaLabel=e.ariaLabel};a.prototype.show=function(a){var i=n(this.selector),c=new r({element:i,width:300,removeOnUnSelect:!0,itemAttrDisplayed:"label",errorMessage:"",ajaxOptions:{query:!0,url:e.buildRestUrl("/savedfilter/list.json"),formatResponse:function(r){if(r.errors){var a=e._convertJiraErrors(r.errors),c={searchName:this.selector};return e.handleContextualErrors(a,c),!1}i.siblings(".ghx-error").remove();var s=[];return n(r.filters).each(function(){s.push(new t({value:this.id.toString(),label:this.name,html:o.escape(String(this.name)),savedFilter:this}))}),s}},ariaLabel:this.ariaLabel});this.singleSelect=c;var s=this.removeSingleSelect;this.stayActivated||n(this.fieldSelector).on("blur",function(){s(c)}),o.isFunction(this.blurHandler)&&n(this.fieldSelector).on("blur",this.blurHandler),this.focus&&n(this.fieldSelector).trigger("focus").trigger("select"),a&&this.setSelection(a);var l=this.selectHandler;this.stayActivated?(i.on("selected",l),i.on("unselect",l)):(i.on("selected",function(e,t){s(c),l(e,t)}),i.on("unselect",function(e,t){s(c),l(e,t)}))},a.prototype.setSelection=function(e){this.singleSelect.setSelection(new t({value:e.id.toString(),label:e.name,html:o.escape(String(e.name)),savedFilter:e,selected:!0}))},a.prototype.removeSingleSelect=function(e){e.hideSuggestions(),e.disable()},a.prototype.getElement=function(){return this.singleSelect.$field},AJS.namespace("GH.SavedFilterPicker",null,a);var i=Array.from(arguments).map(function(e,t){return{empty:!e||0===Object.getOwnPropertyNames(e).length&&!e[Symbol.for("soyProxy")],index:t}}).filter(function(e){return e.empty}).map(function(e){return e.index+1});return i.length&&(window.__circulars=window.__circulars||0,window.__circulars+=i.length,console.error("[circ deps] in ","/jira-agile/rapid/ui/component/SavedFilterPicker.js",i)),a}.apply(t,n))||(e.exports=o)},52402:(e,t,r)=>{"use strict";var n,o;n=[r(15572),r(43864),r(21925),r(55874),r(72038),r(22334),r(79182)],void 0===(o=function(e,t,r,n,o,a,i){var c={setView:function(e,t,n,o){var a={id:e,name:t,type:n,subType:o};r.put("gh.createViewMessage",a,!0)},clear:function(){r.put("gh.createViewMessage",null,!0)},renderMessage:function(s){s&&t.log(s.type+" handled","GH.PersistentMessages.CreateViewMessage.renderMessage");var l=r.get("gh.createViewMessage",!0);if(l){var u,d;l.name=i.escapeHtml(String(l.name)),"advanced"===l.type?d=e.renderCreateViewMessage:"kanban"===l.subType?d=e.renderWelcomeViewMessageKanban:"scrum"===l.subType&&(d=e.renderWelcomeViewMessageScrum),u=d({rapidView:l,url:o(window.location.href)}),n.showSuccess(u,{title:"Success",timeout:1e4}),c.clear()}}};AJS.namespace("GH.PersistentMessages.CreateViewMessage",null,c);var s=Array.from(arguments).map(function(e,t){return{empty:!e||0===Object.getOwnPropertyNames(e).length&&!e[Symbol.for("soyProxy")],index:t}}).filter(function(e){return e.empty}).map(function(e){return e.index+1});return s.length&&(window.__circulars=window.__circulars||0,window.__circulars+=s.length,console.error("[circ deps] in ","/jira-agile/rapid/ui/persistent-messages/CreateViewMessage.js",s)),c}.apply(t,n))||(e.exports=o)},70171:(e,t,r)=>{"use strict";var n,o;function a(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var r=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=r){var n,o,a,i,c=[],s=!0,l=!1;try{if(a=(r=r.call(e)).next,0===t){if(Object(r)!==r)return;s=!1}else for(;!(s=(n=a.call(r)).done)&&(c.push(n.value),c.length!==t);s=!0);}catch(e){l=!0,o=e}finally{try{if(!s&&null!=r.return&&(i=r.return(),Object(i)!==i))return}finally{if(l)throw o}}return c}}(e,t)||function(e,t){if(e){if("string"==typeof e)return i(e,t);var r={}.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?i(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function i(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=Array(t);r<t;r++)n[r]=e[r];return n}n=[r(34300),r(44204),r(52402),r(98579),r(9474),r(31126),r(88262),r(82751),r(49894),r(40410),r(57308),r(40699),r(67068),r(20344),r(22334),r(85150),r(61246),r(7094),r(55874)],void 0===(o=function(e,t,n,o,i,c,s,l,u,d,p,g,h,f,m,w,v,j,y){function b(){var e=w("#ghx-create-boards-btn");if(e.length)return e;var t=w("#board-tools-section-button");return t.length?t:w()}r(6849);var x={dialog:void 0,model:void 0,stepsNameStack:void 0,pages:{},filterPicker:void 0,projectPicker:void 0};x.analytics=new l("gh.create.wizard"),x.wizardStepPreRenderCallbacks=[],x.wizardStepPostRenderCallbacks=[],x.wizardStepOnValidateCallbacks=[],x.wizardStepOnCreateCallbacks=[],x.steps={methodologySelection:{render:function(e){return{header:"Create an Agile board",content:i.renderMethodologySelectionStep({canCreateProject:e.config.canCreateProject})}},bind:function(e,t){w("#ghx-wizard-methodology-scrum").click(function(e){e.preventDefault(),t.sampleData=!1,x.selectMethodology("scrum",t)}),w("#ghx-wizard-methodology-kanban").click(function(e){e.preventDefault(),t.sampleData=!1,x.selectMethodology("kanban",t)}),w("#ghx-wizard-methodology-scrum-sample").click(function(e){e.preventDefault(),t.sampleData=!0,x.selectMethodology("scrum",t)}),w("#ghx-wizard-methodology-kanban-sample").click(function(e){e.preventDefault(),t.sampleData=!0,x.selectMethodology("kanban",t)})}},methodSelection:{render:function(e){var t=e.method;return t||(t=e.config.canCreateProject?"newProject":"existingProject"),{header:"Create an Agile board",content:i.renderMethodSelectionStep(v.extend({},e,{canCreateProject:e.config.canCreateProject,hasProjectsAccessible:e.config.hasProjectsAccessible,hasFiltersAccessible:e.config.hasFiltersAccessible,selectedOption:t}))}},bind:function(e){},next:function(e,t){var r=e.find("input[name=ghx-wizard-method]").filter(":checked").val();t.method=r;var n=w.Deferred();return"newProject"===r?n.resolve("projectCreation"):"existingProject"===r?n.resolve("projectSelection"):"existingFilter"===r?n.resolve("filterSelection"):n.reject(new Error("Unknown board creation method : "+r)),n.promise()}},projectCreation:{render:function(e){return e.prefix="project",x.renderProjectCreation({user:p.userConfig||x.model.config.userConfig,prefix:"project",sampleInfo:{projectName:"",projectKey:""}})},bind:function(e,t){x.bindProjectCreation(e,t)},completeActionName:"Create board",complete:function(e){return x.createProject(x.dialog,e)}},sampleProjectCreation:{render:function(e){return e.prefix="sample",x.renderProjectCreation({user:p.userConfig||x.model.config.userConfig,prefix:"sample",sampleInfo:e.sampleInfo})},bind:function(e,t){x.bindProjectCreation(e,t)},completeActionName:"Create board",complete:function(e){return x.createSampleProject(x.dialog,e)}},projectSelection:{render:function(){return{header:"Name this board",content:i.renderProjectSelectionStep()}},bind:function(e,t){x.bindProjectSelection(e,t)},completeActionName:"Create board",complete:function(e){return x.validateProjectSelection(e)}},filterSelection:{render:function(){return{header:"Name this board",content:i.renderFilterSelectionStep()}},bind:function(e,t){x.bindFilterSelection(e,t)},completeActionName:"Create board",complete:function(e){return x.validateFilterSelection(e)}}},x.show=function(){x.dialog||(x.dialog=t.create({width:840,height:400,id:"ghx-wizard-dialog",onCancelFn:function(){x.disposeWizard(),x.analytics.trigger("cancel")},$elementToFocusOnClose:b()}),x.model={},x.stepsNameStack=[],x.dialog.show(),x.analytics.trigger("start"),x.preventSubmitOnEnter())},x.preventSubmitOnEnter=function(){w("input").keydown(function(e){if(13===e.keyCode&&"ghx-wizard-filter-select-field"!==e.target.id)return e.preventDefault(),!1})},x.showStep=function(e){if(!v.has(x.steps,e))throw new Error("Unknown wizard step "+e);var t=x.dialog;if(x.pages[e])t.gotoPage(x.pages[e]),x.dialog.popup.element.find(".dialog-panel-body .aui-message-error").remove();else{var r=x.steps[e],n=r.render(x.model);v.each(x.wizardStepPreRenderCallbacks,function(t){t(e)});var o=j.OnPageLoadFocusBehavior.FirstInteractiveElement;"methodologySelection"===e&&(o=j.OnPageLoadFocusBehavior.Title),t.addPage(null,o),x.pages[e]=t.curpage,t.addHeader(n.header);var a=w(n.content);if(t.addPanel(null,a,"ghx-wizard-panel"),v.each(x.wizardStepPostRenderCallbacks,function(r){r(e,t)}),x.stepsNameStack.length>0&&t.addButton("Back",function(){var e=x.stepsNameStack.pop();x.showStep(e)},"aui-button"),v.has(r,"complete")){t.addButton(r.completeActionName,function(){"true"!==w(this).attr("aria-disabled")&&r.complete(x.model)},"aui-button aui-button-primary js-wizard-button-complete")}else if(v.has(r,"next")){t.addButton("Next",function(){if("true"!==w(this).attr("aria-disabled")){var n=r.next(a,x.model),o=function(e){console.log(e),t.updateHeight()},i=!0;v.each(x.wizardStepOnValidateCallbacks,function(r){r(e,t)||(i=!1)}),n.done(function(t){i?function(t){x.stepsNameStack.push(e),x.showStep(t)}(t):o("GH project create extension callback returned failure")}).fail(o)}},"aui-button aui-button-primary js-wizard-button-next")}t.addCancel("Cancel",function(){t.cancel()}),r.bind(a,x.model)}t.updateHeight(),x.preventSubmitOnEnter()},x.startWizard=function(){t.dim();var e=[new Promise(function(e,t){s.get({url:"/wizardConfig",deferErrorHandling:!0}).done(e).fail(t)})];return p&&p.userConfig||e.push(new Promise(function(e,t){s.get({url:"/userData/userConfig",deferErrorHandling:!0}).done(e).fail(t)})),Promise.all(e).then(function(e){x.show(event);var t=a(e,2),r=t[0],n=t[1];x.model.config=r,n&&(x.model.config.userConfig=n),x.showStep("methodologySelection")}).catch(function(){t.undim(),y.showError(void 0,"We\u0027re unable to create a board. Try again later.")})},x.disposeWizard=function(){x.dialog=void 0,x.pages={}},x.getCreateProjectRequest=function(e){var t=e.project;return{projectName:t.name,projectKey:t.key,projectLeadUserName:t.lead,boardName:e.boardName,preset:e.methodology,sampleData:e.sampleData}},x.createProject=function(t,r){x.populateProjectCreationProperties(r);var n=x.getCreateProjectRequest(r);t.disableControls(),t.showSpinner();var a={url:"/welcome/createProject",data:n,errorContextMap:{projectName:"#ghx-wizard-"+r.prefix+"-projectname",projectKey:"#ghx-wizard-"+r.prefix+"-projectkey",projectLead:"#ghx-wizard-"+r.prefix+"-projectlead"},timeout:12e4,deferErrorHandling:!0};return s.put(a).done(function(e){e.success.sample=r.sampleData,o.show(e.success);!function n(){0===x.wizardStepOnCreateCallbacks.length?(x.dialog.resetForms(),x.gotoCreatedView(e.success.rapidView.id,r.methodology)):x.wizardStepOnCreateCallbacks.pop()(t,n,r)}()}).fail(function(r){v.each(r.getGlobalErrors(),function(t){504===t.status&&(t.message=i.createProjectTimeout({manageBoardURL:e.getManageViewsPageUrl()}),t.noAutoescape=!0)}),s.handleContextualErrors(r,a.errorContextMap),s.handleGlobalErrors(r,a.errorContextMap),t.hideSpinner(),t.enableControls(),t.updateHeight()})},x.validateProjectSelection=function(e){x.dialog.disableControls(),x.dialog.showSpinner();var t=w("#ghx-wizard-project-board-name");return g.clearContextualErrors(x.projectPicker.getElement()),g.clearContextualErrors(t),s.post({url:"/rapidview/create/presets",data:{name:t.val(),projectIds:x.projectPicker.getValue(),preset:e.methodology},errorContextMap:{name:"#ghx-wizard-project-board-name",projectIds:x.projectPicker.selector}}).done(function(t){console.log("mode: "+e),x.handleCreate(t,"simple",e.methodology)}).fail(function(){x.dialog.enableControls(),x.dialog.hideSpinner(),x.dialog.updateHeight()})},x.validateFilterSelection=function(e){var t=w("#ghx-wizard-filter-view-name"),r=x.filterPicker.getElement(),n=w(x.filterPicker.selector);g.clearContextualErrors(t),g.clearContextualErrors(r);var o=n.val()?n.val()[0]:null;return x.dialog.disableControls(),x.dialog.showSpinner(),s.post({url:"/rapidview/create/advanced",data:{name:t.val(),filterId:o,methodology:e.methodology},errorContextMap:{name:"#ghx-wizard-filter-view-name",filterId:x.filterPicker.selector}}).done(function(t){x.handleCreate(t,"simple",e.methodology)}).fail(function(){x.dialog.hideSpinner(),x.dialog.enableControls(),x.dialog.updateHeight()})},x.handleCreate=function(e,t,r){var o=t!==r&&r;n.setView(e.success.id,e.success.name,t,o),x.analytics.trigger("complete"),x.gotoCreatedView(e.success.id,r)},x.gotoCreatedView=function(e,t){var r="scrum"===t?"planning":null;u.gotoDefaultRapidBoardPage(e,r)},x.selectMethodology=function(e,t){if(t.methodology=e,x.stepsNameStack.push("methodologySelection"),t.sampleData)s.get({url:"/welcome/sampledataproject?preset="+t.methodology},"sampledataproject").done(function(e){t.sampleInfo=e,x.showStep("sampleProjectCreation")}).fail(function(){x.showStep("sampleProjectCreation")});else{var r=t.config.canCreateProject,n=t.config.hasProjectsAccessible,o=t.config.hasFiltersAccessible;r||o?n||o?x.showStep("methodSelection"):x.showStep("projectCreation"):x.showStep("projectSelection")}},x.populateProjectCreationProperties=function(e){var t=w("#ghx-wizard-"+e.prefix+"-projectname"),r=w("#ghx-wizard-"+e.prefix+"-projectkey"),n=w("#ghx-wizard-"+e.prefix+"-projectlead");g.clearContextualErrors(t),g.clearContextualErrors(r),g.clearContextualErrors(n),e.project={name:t.val(),key:r.val().toUpperCase(),lead:w("#ghx-wizard-"+e.prefix+"-projectlead option:selected").val()}},x.createSampleProject=function(e,t){t.sampleData=!0,x.createProject(e,t)},x.renderProjectCreation=function(e){return{header:"New project with board",content:i.renderProjectCreationStep(e)}},x.bindProjectSelection=function(){x.projectPicker=new c({selector:"#ghx-wizard-choose-project",change:function(){x.dialog.updateHeight()},currentProjectId:JIRA.API&&JIRA.API.Projects?JIRA.API.Projects.getCurrentProjectId():null}),x.projectPicker.multiselect.keys.Return=function(e){e.preventDefault()},x.attachDependantButton({buttonIndex:1,selectors:["#ghx-wizard-project-board-name","#ghx-wizard-choose-project"]})},x.bindProjectCreation=function(e,t){w("#ghx-wizard-"+t.prefix+"-projectkey").generateFrom(w("#ghx-wizard-"+t.prefix+"-projectname"),{maxNameLength:64,maxKeyLength:64}),h.trigger(f.NEW_CONTENT_ADDED,[e]),e.trigger("contentRefresh"),x.attachDependantButton({buttonIndex:1,selectors:["#ghx-wizard-"+t.prefix+"-projectname","#ghx-wizard-"+t.prefix+"-projectkey","#ghx-wizard-"+t.prefix+"-projectlead"]})},x.bindFilterSelection=function(e,t){x.filterPicker=new d({selector:"#ghx-wizard-filter-select",selected:function(e,r){var n="";if(delete t.savedFilter,r&&r.properties){var o=r.properties.savedFilter;n=null!=o?i.renderPermissionInfo({savedFilter:o}):"",t.savedFilter=o}w("#ghx-create-permissioninfo-container").html(n),x.dialog.updateHeight()},stayActivated:!0}),x.filterPicker.show(t.savedFilter),x.filterPicker.singleSelect.keys.Return=function(e){e.preventDefault()},x.attachDependantButton({buttonIndex:1,selectors:["#ghx-wizard-filter-view-name","#ghx-wizard-filter-select"]})},x.attachDependantButton=function(e){var t=x.dialog,r=t.page[t.curpage].button[e.buttonIndex].item;x.dependantValidationListener({selectors:e.selectors,full:function(){r.attr("aria-disabled","false")},empty:function(){r.attr("aria-disabled","true")}})},x.dependantValidationListener=function(e){function t(){var t=v.filter(e.selectors,function(e){var t,r=w(e);return!(null!=(t=r.val())&&String(t).trim())});return v.isEmpty(t)?e.full():e.empty()}function r(){e.nowait?t():setTimeout(t,50)}v.isEmpty(e.selectors)||(e.full=e.full||w.noop(),e.empty=e.empty||w.noop(),e.nowait=e.nowait||!1,v.each(e.selectors,function(e){var t=w(e);t.on("input",r),t.on("change",r),t.on("selected",r),t.on("unselect",r)}),t())},x.registerWizardStepPreRenderCallback=function(e){x.wizardStepPreRenderCallbacks.push(e)},x.registerWizardStepPostRenderCallback=function(e){x.wizardStepPostRenderCallbacks.push(e)},x.registerWizardStepOnValidateCallback=function(e){x.wizardStepOnValidateCallbacks.push(e)},x.registerWizardStepOnCreateCallbacks=function(e){x.wizardStepOnCreateCallbacks.push(e)};var P=Array.from(arguments).map(function(e,t){return{empty:!e||0===Object.getOwnPropertyNames(e).length&&!e[Symbol.for("soyProxy")],index:t}}).filter(function(e){return e.empty}).map(function(e){return e.index+1});return P.length&&(window.__circulars=window.__circulars||0,window.__circulars+=P.length,console.error("[circ deps] in ","/jira-agile/rapid/ui/startwizard/WizardView.js",P)),x}.apply(t,n))||(e.exports=o)},72038:e=>{"use strict";e.exports=require("jira/libs/parse-uri")},95105:(e,t,r)=>{e.exports=r},98579:(e,t,r)=>{"use strict";var n,o;n=[r(15572),r(21925),r(55874),r(72038),r(22334),r(79182)],void 0===(o=function(e,t,r,n,o,a){var i={show:function(e){t.put("gh.welcomeMessage",e,!0)},renderMessage:function(){var i=t.get("gh.welcomeMessage",!0);if(i){var c;i.rapidView.name=a.escapeHtml(String(i.rapidView.name)),i.project.name=a.escapeHtml(String(i.project.name));var s=null;/kanban/.test(i.preset)?s=i.sample?e.renderWelcomeProjectSampleMessageKanban:e.renderWelcomeProjectMessageKanban:/scrum/.test(i.preset)&&(s=i.sample?e.renderWelcomeProjectSampleMessageScrum:e.renderWelcomeProjectMessageScrum),c=s({project:i.project,rapidView:i.rapidView,url:n(window.location.href)}),r.showSuccess(c,{title:"Success",timeout:1e4}),t.put("gh.welcomeMessage",null,!0)}}};AJS.namespace("GH.PersistentMessages.WelcomeMessage",null,i);var c=Array.from(arguments).map(function(e,t){return{empty:!e||0===Object.getOwnPropertyNames(e).length&&!e[Symbol.for("soyProxy")],index:t}}).filter(function(e){return e.empty}).map(function(e){return e.index+1});return c.length&&(window.__circulars=window.__circulars||0,window.__circulars+=c.length,console.error("[circ deps] in ","/jira-agile/rapid/ui/persistent-messages/WelcomeMessage.js",c)),i}.apply(t,n))||(e.exports=o)}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_171', location = 'includes/js/jira-agile/rapid/ui/startwizard/WizardView.soy' */
+// This file was automatically generated from WizardView.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace GH.tpl.startwizard.
+ */
+
+if (typeof GH == 'undefined') { var GH = {}; }
+if (typeof GH.tpl == 'undefined') { GH.tpl = {}; }
+if (typeof GH.tpl.startwizard == 'undefined') { GH.tpl.startwizard = {}; }
+
+
+GH.tpl.startwizard.renderMethodologySelectionStep = function(opt_data, opt_ignored) {
+  return '<form class="aui ghx-halved-vertical"><div class="aui-group"><div class="aui-item"><h2>' + soy.$$escapeHtml('Scrum') + '</h2><p>' + soy.$$escapeHtml('Scrum focuses on planning, committing and delivering time-boxed chunks of work called Sprints.') + '</p></div><div class="aui-item"><h2>' + soy.$$escapeHtml('Kanban') + '</h2><p>' + soy.$$escapeHtml('Kanban focuses on visualising your workflow and limiting work-in-progress to facilitate incremental improvements to your existing process.') + '</p></div></div><div class="aui-group ghx-button-group"><div class="aui-item"><button id="ghx-wizard-methodology-scrum" class="aui-button">' + soy.$$escapeHtml('Create a Scrum board') + '</button></div><div class="aui-item"><button id="ghx-wizard-methodology-kanban" class="aui-button">' + soy.$$escapeHtml('Create a Kanban board') + '</button></div></div>' + ((opt_data.canCreateProject) ? '<div class="aui-group"><div class="aui-item"><button id="ghx-wizard-methodology-scrum-sample" class="aui-button aui-button-link">' + soy.$$escapeHtml('Create a Scrum board with sample data') + '</button></div><div class="aui-item"><button id="ghx-wizard-methodology-kanban-sample" class="aui-button aui-button-link">' + soy.$$escapeHtml('Create a Kanban board with sample data') + '</button></div></div>' : '') + '</form>';
+};
+if (goog.DEBUG) {
+  GH.tpl.startwizard.renderMethodologySelectionStep.soyTemplateName = 'GH.tpl.startwizard.renderMethodologySelectionStep';
+}
+
+
+GH.tpl.startwizard.renderMethodSelectionStep = function(opt_data, opt_ignored) {
+  return '<div class="aui-group ghx-split" id="js-method-choice"><div class="aui-item"><form class="aui"><fieldset class="group ghx-space-saver">' + ((opt_data.canCreateProject) ? '<div class="radio"><input class="radio" type="radio" id="ghx-wizard-method-new-project" name="ghx-wizard-method" value="newProject" ' + ((opt_data.selectedOption == 'newProject') ? 'checked="checked"' : '') + '><label for="ghx-wizard-method-new-project">' + soy.$$escapeHtml('Board created with new Software project') + '</label><div class="description">' + soy.$$escapeHtml('A new board based on a new Software project') + '</div></div>' : '') + ((opt_data.hasProjectsAccessible) ? '<div class="radio"><input class="radio" type="radio" id="ghx-wizard-method-existing-project" name="ghx-wizard-method" value="existingProject" ' + ((opt_data.selectedOption == 'existingProject') ? 'checked="checked"' : '') + '><label for="ghx-wizard-method-existing-project">' + soy.$$escapeHtml('Board from an existing project') + '</label><div class="description">' + soy.$$escapeHtml('Boards can contain one or more projects.') + '</div></div>' : '') + ((opt_data.hasFiltersAccessible) ? '<div class="radio"><input class="radio" type="radio" id="ghx-wizard-method-existing-filter" name="ghx-wizard-method" value="existingFilter" ' + ((opt_data.selectedOption == 'existingFilter') ? 'checked="checked"' : '') + '><label for="ghx-wizard-method-existing-filter">' + soy.$$escapeHtml('Board from an existing Saved Filter') + '</label><div class="description">' + soy.$$escapeHtml('An advanced option using a JQL filter.') + '</div></div>' : '') + '</fieldset></form></div><div class="aui-item"></div></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.startwizard.renderMethodSelectionStep.soyTemplateName = 'GH.tpl.startwizard.renderMethodSelectionStep';
+}
+
+
+GH.tpl.startwizard.renderProjectSelectionStep = function(opt_data, opt_ignored) {
+  return '<div class="aui-group ghx-split"><div class="aui-item"><form class="aui ajs-dirty-warning-exempt"><fieldset><div class="field-group"><label for="ghx-wizard-project-board-name">' + soy.$$escapeHtml('Board name') + '<span class="aui-icon icon-required"></span></label><input class="text" type="text" id="ghx-wizard-project-board-name" maxlength="155"></div><div class="field-group"><label for="ghx-wizard-choose-project">' + soy.$$escapeHtml('Project(s)') + '<span class="aui-icon icon-required"></span></label><select id="ghx-wizard-choose-project" multiple="multiple" class="hidden"></select><div class="description">' + soy.$$escapeHtml('Select one or more projects to be included in this board.') + '</div></div></fieldset></form></div><div class="aui-item"></div></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.startwizard.renderProjectSelectionStep.soyTemplateName = 'GH.tpl.startwizard.renderProjectSelectionStep';
+}
+
+
+GH.tpl.startwizard.renderFilterSelectionStep = function(opt_data, opt_ignored) {
+  return '<div class="aui-group ghx-split"><div class="aui-item"><form class="aui"><fieldset><div class="field-group"><label for="ghx-wizard-filter-view-name">' + soy.$$escapeHtml('Board name') + '<span class="aui-icon icon-required"></span></label><input class="text" type="text" id="ghx-wizard-filter-view-name" name="name" maxlength="155"></div><div class="field-group" id="ghx-filter-picker"><label for="ghx-wizard-filter-select">' + soy.$$escapeHtml('Saved filter') + '<span class="aui-icon icon-required"></span></label><select id="ghx-wizard-filter-select" class="hidden"></select><div id="ghx-filter-error"></div></div><div id="ghx-create-permissioninfo-container"></div></fieldset></form></div><div class="aui-item ghx-alignwith-textgroup"><h3>' + soy.$$escapeHtml('Saved Filters') + '</h3><div class="description">' + soy.$$escapeHtml('Choose from a list of existing filters as a base for your new board. To create a new Saved Filter, save a search in the Issue Navigator.') + '</div></div></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.startwizard.renderFilterSelectionStep.soyTemplateName = 'GH.tpl.startwizard.renderFilterSelectionStep';
+}
+
+
+GH.tpl.startwizard.renderProjectCreationStep = function(opt_data, opt_ignored) {
+  return '<div class="aui-group ghx-split"><div class="aui-item"><form class="aui"><fieldset><div class="field-group"><label for="ghx-wizard-' + soy.$$escapeHtml(opt_data.prefix) + '-projectname">' + soy.$$escapeHtml('Project name') + '<span class="aui-icon icon-required"></span></label><input class="text" type="text" id="ghx-wizard-' + soy.$$escapeHtml(opt_data.prefix) + '-projectname" value="' + soy.$$escapeHtml(opt_data.sampleInfo.projectName) + '"></div><div class="field-group"><label for="ghx-wizard-' + soy.$$escapeHtml(opt_data.prefix) + '-projectkey">' + soy.$$escapeHtml('Project key') + '<span class="aui-icon icon-required"></span></label><input class="text short-field" type="text" id="ghx-wizard-' + soy.$$escapeHtml(opt_data.prefix) + '-projectkey" value="' + soy.$$escapeHtml(opt_data.sampleInfo.projectKey) + '"></div><div class="field-group"><label for="ghx-wizard-' + soy.$$escapeHtml(opt_data.prefix) + '-projectlead">' + soy.$$escapeHtml('Project lead') + '<span class="aui-icon icon-required"></span></label><select id="ghx-wizard-' + soy.$$escapeHtml(opt_data.prefix) + '-projectlead" class="js-default-user-picker hidden">' + ((opt_data.user) ? '<option' + ((opt_data.user.avatarUrl) ? ' style="background-image:url(\'' + soy.$$escapeHtml(opt_data.user.avatarUrl) + '\')"' : '') + 'selected="selected" value="' + soy.$$escapeHtml(opt_data.user.name) + '">' + soy.$$escapeHtml(opt_data.user.displayName) + '</option>' : '') + '</select><div class="description">' + soy.$$escapeHtml('Start typing to get a list of possible matches.') + '</div></div></fieldset></form></div><div class="aui-item ghx-alignwith-textgroup"><h3>' + soy.$$escapeHtml('Creating a project') + '</h3><div class="description">' + soy.$$escapeHtml('A board will be created with your project, and will be named after your project. You can rename your board in the board configuration screen.') + '</div></div></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.startwizard.renderProjectCreationStep.soyTemplateName = 'GH.tpl.startwizard.renderProjectCreationStep';
+}
+
+
+GH.tpl.startwizard.renderPermissionInfo = function(opt_data, opt_ignored) {
+  return '<div class="field-group"><label for="ghx-create-permissioninfo">' + soy.$$escapeHtml('Shares') + '</label>' + GH.tpl.rapid.view.renderPermissionEntries({permissionEntries: opt_data.savedFilter.permissionEntries}) + '</div><div class="field-group"><label>' + soy.$$escapeHtml('Owner') + '</label><span class="field-value">' + soy.$$escapeHtml(opt_data.savedFilter.owner.displayName) + '</span></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.startwizard.renderPermissionInfo.soyTemplateName = 'GH.tpl.startwizard.renderPermissionInfo';
+}
+
+
+GH.tpl.startwizard.createProjectTimeout = function(opt_data, opt_ignored) {
+  return '' + soy.$$filterNoAutoescape(AJS.format('The operation has timed out, the project and board might have been created already. You can confirm this by checking the \x3ca href\x3d\x22{0}\x22\x3eManage Boards\x3c/a\x3e page.',opt_data.manageBoardURL));
+};
+if (goog.DEBUG) {
+  GH.tpl.startwizard.createProjectTimeout.soyTemplateName = 'GH.tpl.startwizard.createProjectTimeout';
+}
+
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_171', location = 'includes/js/jira-agile/rapid/configuration/RapidView.soy' */
+// This file was automatically generated from RapidView.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace GH.tpl.rapid.view.
+ */
+
+if (typeof GH == 'undefined') { var GH = {}; }
+if (typeof GH.tpl == 'undefined') { GH.tpl = {}; }
+if (typeof GH.tpl.rapid == 'undefined') { GH.tpl.rapid = {}; }
+if (typeof GH.tpl.rapid.view == 'undefined') { GH.tpl.rapid.view = {}; }
+
+
+GH.tpl.rapid.view.renderConfigurationHeader = function(opt_data, opt_ignored) {
+  return '<div id="ghx-modes-tools">' + aui.buttons.button({text: 'Back to board', type: 'subtle', href: GH.Ajax.CONTEXT_PATH + '/secure/RapidBoard.jspa?rapidView=' + opt_data.rapidViewId + '&useStoredSettings=true', id: 'back-to-board', iconType: 'aui', iconText: 'Back to board', iconClass: 'aui-icon-small aui-iconfont-back-page'}) + '</div><h2>' + soy.$$escapeHtml('Configure') + ' <span id="js-nav-view-name">' + soy.$$escapeHtml(opt_data.name) + '</span></h2>';
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderConfigurationHeader.soyTemplateName = 'GH.tpl.rapid.view.renderConfigurationHeader';
+}
+
+
+GH.tpl.rapid.view.renderConfigurationTabs = function(opt_data, opt_ignored) {
+  var output = '<div id="ghx-config-header"></div>';
+  var param20 = '<nav class="aui-navgroup aui-navgroup-vertical" aria-label="' + soy.$$escapeHtml('Board Configuration') + '"><div class="aui-nav-heading"><strong>' + soy.$$escapeHtml('Configuration') + '</strong></div><ul id="ghx-config-nav" class="aui-nav">';
+  var configurationTabList26 = opt_data.configurationTabs;
+  var configurationTabListLen26 = configurationTabList26.length;
+  for (var configurationTabIndex26 = 0; configurationTabIndex26 < configurationTabListLen26; configurationTabIndex26++) {
+    var configurationTabData26 = configurationTabList26[configurationTabIndex26];
+    param20 += '<li data-tabitem="' + soy.$$escapeHtml(configurationTabData26.key) + '"><a href="' + soy.$$escapeHtml(GH.Ajax.CONTEXT_PATH) + '/secure/RapidView.jspa?rapidView=' + soy.$$escapeHtml(opt_data.rapidViewId) + '&amp;tab=' + soy.$$escapeHtml(configurationTabData26.key) + '">' + soy.$$escapeHtml(configurationTabData26.label) + '</a></li>';
+  }
+  param20 += '</ul></nav>';
+  var param19 = '' + aui.page.pagePanelNav({content: param20});
+  var param43 = '';
+  var configurationTabList44 = opt_data.configurationTabs;
+  var configurationTabListLen44 = configurationTabList44.length;
+  for (var configurationTabIndex44 = 0; configurationTabIndex44 < configurationTabListLen44; configurationTabIndex44++) {
+    var configurationTabData44 = configurationTabList44[configurationTabIndex44];
+    param43 += '<div class="ghx-page-panel-content-item" id="' + soy.$$escapeHtml(configurationTabData44.key) + '">' + soy.$$filterNoAutoescape(configurationTabData44.html) + '</div>';
+  }
+  param19 += aui.page.pagePanelContent({extraClasses: 'ghx-config-panel-content', content: param43});
+  output += aui.page.pagePanel({content: param19});
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderConfigurationTabs.soyTemplateName = 'GH.tpl.rapid.view.renderConfigurationTabs';
+}
+
+
+GH.tpl.rapid.view.renderViewNameEditForm = function(opt_data, opt_ignored) {
+  var output = '';
+  var label__soy55 = 'Board name';
+  output += '<label id="ghx-field-viewname-label">' + soy.$$escapeHtml(label__soy55) + '</label>' + GH.tpl.rapid.view.renderViewNameField({rapidViewName: opt_data.rapidViewName, canEdit: opt_data.canEdit, label: label__soy55});
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderViewNameEditForm.soyTemplateName = 'GH.tpl.rapid.view.renderViewNameEditForm';
+}
+
+
+GH.tpl.rapid.view.renderViewNameField = function(opt_data, opt_ignored) {
+  return '<span class="field-value ' + ((opt_data.canEdit) ? 'js-edit-rapidViewName' : '') + '" data-fieldname="viewname" data-fieldvalue="' + soy.$$escapeHtml(opt_data.rapidViewName) + '" data-ariaLabel="' + soy.$$escapeHtml(opt_data.label) + '"><span id="ghx-field-viewname" ' + ((opt_data.canEdit) ? 'class="ghx-editable"' : '') + ' aria-labelledby="ghx-field-viewname-label ghx-field-viewname"' + ((opt_data.canEdit) ? ' tabindex="0"' : '') + '>' + soy.$$escapeHtml(opt_data.rapidViewName) + '</span></span>';
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderViewNameField.soyTemplateName = 'GH.tpl.rapid.view.renderViewNameField';
+}
+
+
+GH.tpl.rapid.view.renderViewBoardAdminsEditForm = function(opt_data, opt_ignored) {
+  var output = '<label id="ghx-field-view-board-admins-label">' + soy.$$escapeHtml('Administrators') + '</label><span  class="field-value' + ((opt_data.canEdit) ? ' js-edit-rapidViewBoardAdmin' : '') + '" ><span id="ghx-field-view-board-admins-span" aria-labelledby="ghx-field-view-board-admins-label ghx-field-view-board-admins-span"' + ((opt_data.canEdit) ? ' class="ghx-editable" tabindex="0"' : '') + '>';
+  var itemList95 = opt_data.model;
+  var itemListLen95 = itemList95.length;
+  if (itemListLen95 > 0) {
+    for (var itemIndex95 = 0; itemIndex95 < itemListLen95; itemIndex95++) {
+      var itemData95 = itemList95[itemIndex95];
+      output += soy.$$escapeHtml(itemData95.displayName) + ((! (itemIndex95 == itemListLen95 - 1)) ? '<span>, </span>' : '');
+    }
+  } else {
+    output += '<span class="ghx-fa">' + soy.$$escapeHtml('None') + '</span>';
+  }
+  output += '</span></span><span id="ghx-field-view-board-admins">' + ((opt_data.canUsePicker) ? '<select id="ghx-board-admins" multiple="multiple" class="hidden" aria-hidden="true"></select>' : '') + '</span>';
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderViewBoardAdminsEditForm.soyTemplateName = 'GH.tpl.rapid.view.renderViewBoardAdminsEditForm';
+}
+
+
+GH.tpl.rapid.view.renderBoardAdminsEditNoPicker = function(opt_data, opt_ignored) {
+  var output = '<span class="ghx-margin-right"><strong>' + soy.$$escapeHtml('Groups') + '</strong>: <input class="text medium-field" id="ghx-board-admin-edit-groups" value="';
+  var itemList114 = opt_data.model.groupKeys;
+  var itemListLen114 = itemList114.length;
+  for (var itemIndex114 = 0; itemIndex114 < itemListLen114; itemIndex114++) {
+    var itemData114 = itemList114[itemIndex114];
+    output += soy.$$escapeHtml(itemData114.key) + ((! (itemIndex114 == itemListLen114 - 1)) ? ',' : '');
+  }
+  output += '" /></span><strong>' + soy.$$escapeHtml('Users') + '</strong>: <input class="text medium-field " id="ghx-board-admin-edit-users" value="';
+  var itemList123 = opt_data.model.userKeys;
+  var itemListLen123 = itemList123.length;
+  for (var itemIndex123 = 0; itemIndex123 < itemListLen123; itemIndex123++) {
+    var itemData123 = itemList123[itemIndex123];
+    output += soy.$$escapeHtml(itemData123.key) + ((! (itemIndex123 == itemListLen123 - 1)) ? ',' : '');
+  }
+  output += '" /><div class="description">' + soy.$$escapeHtml('Separate user keys and group names with commas.') + '</div>';
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderBoardAdminsEditNoPicker.soyTemplateName = 'GH.tpl.rapid.view.renderBoardAdminsEditNoPicker';
+}
+
+
+GH.tpl.rapid.view.renderConfigPermissionsWarning = function(opt_data, opt_ignored) {
+  return '' + ((opt_data.model.canEdit != true) ? '<div class="aui-message aui-message-warning"><p class="title"><span class="aui-icon icon-warning"></span><strong>' + soy.$$escapeHtml('Contact a Jira or Board Administrator to configure this board.') + '</strong></p></div>' : '');
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderConfigPermissionsWarning.soyTemplateName = 'GH.tpl.rapid.view.renderConfigPermissionsWarning';
+}
+
+
+GH.tpl.rapid.view.renderFilterDetails = function(opt_data, opt_ignored) {
+  var output = '<form class="aui" id="ghx-savedfilter-form"><div class="aui-message aui-message-warning hidden" id="unmapped-issues-warning"><p>' + soy.$$escapeHtml('Some issues in the Saved Filter will not be shown on the board.') + ' <a href="' + soy.$$escapeHtml(GH.Ajax.CONTEXT_PATH) + '/secure/RapidView.jspa?rapidView=' + soy.$$escapeHtml(opt_data.rapidViewId) + '&amp;tab=columns" id="js-view-columns">' + soy.$$escapeHtml('View unmapped statuses which contain these issues.') + '</a></p></div><div class="field-group"><label id="ghx-filter-change-label">' + soy.$$escapeHtml('Saved Filter') + '</label><span id="ghx-filter-change" aria-labelledby="ghx-filter-change-label ghx-filter-change" class="field-value' + ((opt_data.canEdit) ? ' ghx-editable ghx-ss' : '') + '"' + ((opt_data.canEdit) ? ' tabindex="0"' : '') + '>' + soy.$$escapeHtml(opt_data.savedFilter.name) + '</span><select id="ghx-filter-change-select" class="hidden" aria-hidden="true"></select><p class="ghx-additional"><a href="' + soy.$$escapeHtml(GH.Ajax.CONTEXT_PATH) + '/secure/IssueNavigator.jspa?mode=show&requestId=' + soy.$$escapeHtml(opt_data.savedFilter.id) + '">' + ((opt_data.savedFilter.canEdit) ? soy.$$escapeHtml('Edit Filter Query') : soy.$$escapeHtml('View Filter Query')) + '</a></p></div>' + GH.tpl.rapid.view.renderPermissionInfo(opt_data) + '<div class="field-group ghx-jql-preview"><label>' + soy.$$escapeHtml('Filter Query') + '</label><span class="field-value">' + ((opt_data.savedFilter.query) ? soy.$$escapeHtml(opt_data.savedFilter.query) : '') + '</span></div><div class="field-group"><label>' + soy.$$escapeHtml('Ranking') + '</label><span class="field-value">';
+  if (opt_data.savedFilter.isOrderedByRank) {
+    output += soy.$$escapeHtml('Using Rank');
+  } else {
+    if (! opt_data.savedFilter.orderByWarnings) {
+      output += soy.$$escapeHtml('Ranking is disabled, as the Filter Query is not ordered by Rank');
+    } else {
+      var warningList189 = opt_data.savedFilter.orderByWarnings.errorMessages;
+      var warningListLen189 = warningList189.length;
+      for (var warningIndex189 = 0; warningIndex189 < warningListLen189; warningIndex189++) {
+        var warningData189 = warningList189[warningIndex189];
+        output += soy.$$escapeHtml(warningData189) + '<br>';
+      }
+    }
+    output += (opt_data.savedFilter.canEdit && opt_data.savedFilter.canBeFixed) ? '<p><button class="aui-button js-update-filter-order-by">' + soy.$$escapeHtml('Add Rank') + '</button></p>' : '';
+  }
+  output += '</span></div>';
+  if (opt_data.savedFilter.queryProjects) {
+    output += '<div class="field-group"><label>' + soy.$$escapeHtml('Projects in board') + '</label><ul id="ghx-show-projects-in-board">';
+    if (opt_data.savedFilter.queryProjects.displayMessage) {
+      output += '<span class="field-value">' + soy.$$escapeHtml(opt_data.savedFilter.queryProjects.displayMessage) + '</span>';
+    } else {
+      var avatarSize__soy210 = 'small';
+      var projectList211 = opt_data.savedFilter.queryProjects.projects;
+      var projectListLen211 = projectList211.length;
+      for (var projectIndex211 = 0; projectIndex211 < projectListLen211; projectIndex211++) {
+        var projectData211 = projectList211[projectIndex211];
+        output += '<li>' + aui.avatar.avatar({isProject: 'true', size: '' + soy.$$escapeHtml(avatarSize__soy210), avatarImageUrl: soy.$$escapeHtml("") + '/secure/projectavatar?size=' + soy.$$escapeHtml(avatarSize__soy210) + '&pid=' + soy.$$escapeHtml(projectData211.id), extraClasses: 'jira-system-avatar', accessibilityText: '' + soy.$$escapeHtml(AJS.format('Project Avatar for {0}',projectData211.name))}) + '<strong>' + soy.$$escapeHtml(projectData211.name) + '</strong><p>';
+        var viewProjectPermissionText__soy231 = 'View permission';
+        output += ((projectData211.isValidEditProjectConfigAction) ? '<a href="' + soy.$$escapeHtml("") + '/plugins/servlet/project-config/' + soy.$$escapeHtml(projectData211.key) + '/permissions">' + soy.$$escapeHtml(viewProjectPermissionText__soy231) + '</a>' : '<a class="disabled">' + soy.$$escapeHtml(viewProjectPermissionText__soy231) + '</a><span class="aui-icon aui-icon-small aui-iconfont-info" title="' + soy.$$escapeHtml('You are not allowed to view this Project Permission') + '"></span>') + '</p></li>';
+      }
+    }
+    output += '</ul></div>';
+  }
+  output += (opt_data.isSubqueriesConfigurable) ? '<div class="field-group ghx-jql"><label id="ghx-sub-jql-label" for="ghx-sub-jql">' + soy.$$escapeHtml('Kanban board sub-filter') + '</label><div id="js-sub-container-work">' + GH.tpl.rapid.view.renderSubQueryView({section: 'board.kanban.work', queryValue: opt_data.subqueries[0], canEdit: opt_data.canEdit}) + '</div><div class="description">' + soy.$$escapeHtml('Further filtering of issues for unreleased work.') + '</div></div>' : '';
+  if (opt_data.isOldDoneIssuesCutoffConfigurable) {
+    output += '<div class="field-group ghx-show-old-limit"><label for="ghx-limit-days">' + soy.$$escapeHtml('Hide completed issues older than') + '</label><select id="ghx-limit-days" class="select">';
+    var optionList267 = opt_data.oldDoneIssuesCutoffOptions;
+    var optionListLen267 = optionList267.length;
+    for (var optionIndex267 = 0; optionIndex267 < optionListLen267; optionIndex267++) {
+      var optionData267 = optionList267[optionIndex267];
+      output += '<option value="' + soy.$$escapeHtml(optionData267.value) + '" ' + ((opt_data.oldDoneIssuesCutoff == optionData267.value) ? 'selected="selected"' : '') + '>' + soy.$$escapeHtml(optionData267.label) + '</option>';
+    }
+    output += '</select><div class="description">' + soy.$$escapeHtml('Speed up your board by hiding issues you\x27re no longer working on.') + '</div></div>';
+  }
+  output += '</form>';
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderFilterDetails.soyTemplateName = 'GH.tpl.rapid.view.renderFilterDetails';
+}
+
+
+GH.tpl.rapid.view.renderSubQueryView = function(opt_data, opt_ignored) {
+  return '<span id="ghx-sub-work" class="field-value' + ((opt_data.canEdit) ? ' js-editable ghx-editable ghx-jql' : '') + '" aria-labelledby="ghx-sub-jql-label ghx-sub-work"' + ((opt_data.canEdit) ? ' tabindex="0"' : '') + '>' + ((opt_data.queryValue) ? soy.$$escapeHtml(opt_data.queryValue) : (opt_data.canEdit) ? '<em>' + soy.$$escapeHtml('Add Sub-Filter') + '</em>' : soy.$$escapeHtml('No sub-filter')) + '</span>';
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderSubQueryView.soyTemplateName = 'GH.tpl.rapid.view.renderSubQueryView';
+}
+
+
+GH.tpl.rapid.view.renderSubQueryControls = function(opt_data, opt_ignored) {
+  return '<textarea class="js-jql-autocomplete-field textarea" id="ghx-sub-jql" data-section="' + soy.$$escapeHtml(opt_data.section) + '" cols="20" rows="2">' + soy.$$escapeHtml(opt_data.queryValue) + '</textarea><span id="ghx-sub-jql-errormsg" class="icon jqlgood js-jql-autocomplete-error"><span></span></span><button class="aui-button js-subquery-submit">' + soy.$$escapeHtml('Update') + '</button><button class="aui-button js-subquery-cancel">' + soy.$$escapeHtml('Cancel') + '</button>';
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderSubQueryControls.soyTemplateName = 'GH.tpl.rapid.view.renderSubQueryControls';
+}
+
+
+GH.tpl.rapid.view.renderPermissionInfo = function(opt_data, opt_ignored) {
+  return '<div class="field-group"><label for="ghx-create-permissioninfo">' + soy.$$escapeHtml('Shares') + '</label>' + GH.tpl.rapid.view.renderPermissionEntries({permissionEntries: opt_data.savedFilter.permissionEntries}) + ((opt_data.savedFilter.canEdit) ? '<p class="ghx-additional"><a href="' + soy.$$escapeHtml(GH.Ajax.CONTEXT_PATH) + '/secure/EditFilter!default.jspa?filterId=' + soy.$$escapeHtml(opt_data.savedFilter.id) + '">' + soy.$$escapeHtml('Edit Filter Shares') + '</a></p>' : '</div><div class="field-group"><label>' + soy.$$escapeHtml('Owner') + '</label><span class="field-value">' + soy.$$filterNoAutoescape(opt_data.savedFilter.owner.renderedLink) + '</span>') + '</div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderPermissionInfo.soyTemplateName = 'GH.tpl.rapid.view.renderPermissionInfo';
+}
+
+
+GH.tpl.rapid.view.renderPermissionEntries = function(opt_data, opt_ignored) {
+  var output = '';
+  if (opt_data.permissionEntries.length > 0) {
+    output += '<span class="field-value"><ul id="ghx-create-permissioninfo">';
+    var permissionEntryList341 = opt_data.permissionEntries;
+    var permissionEntryListLen341 = permissionEntryList341.length;
+    for (var permissionEntryIndex341 = 0; permissionEntryIndex341 < permissionEntryListLen341; permissionEntryIndex341++) {
+      var permissionEntryData341 = permissionEntryList341[permissionEntryIndex341];
+      output += '<li>';
+      var permissionValueList343 = permissionEntryData341.values;
+      var permissionValueListLen343 = permissionValueList343.length;
+      for (var permissionValueIndex343 = 0; permissionValueIndex343 < permissionValueListLen343; permissionValueIndex343++) {
+        var permissionValueData343 = permissionValueList343[permissionValueIndex343];
+        output += '<span>' + soy.$$filterNoAutoescape(permissionValueData343.name) + '</span>';
+      }
+      output += '</li>';
+    }
+    output += '</ul></span>';
+  } else {
+    output += '<span class="field-value">' + soy.$$escapeHtml('No shares') + '</span>';
+  }
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderPermissionEntries.soyTemplateName = 'GH.tpl.rapid.view.renderPermissionEntries';
+}
+
+
+GH.tpl.rapid.view.deleteForm = function(opt_data, opt_ignored) {
+  return '<section role="dialog" class="aui-dialog2 aui-dialog2-small gh-confirm-delete-dialog"><header class="aui-dialog2-header"><h2 class="aui-dialog2-header-main">' + soy.$$escapeHtml('Delete') + '</h2><button type="button" class="aui-close-button" aria-label="' + soy.$$escapeHtml('Close') + '"></button></header><div class="aui-dialog2-content"><p>' + soy.$$filterNoAutoescape(opt_data.message) + '</p></div><footer class="aui-dialog2-footer"><div class="aui-dialog2-footer-actions"><form>' + aui.buttons.button({tagName: 'button', type: 'primary', extraAttributes: {type: 'submit'}, text: 'Confirm'}) + aui.buttons.button({tagName: 'button', type: 'link', extraAttributes: {type: 'button'}, extraClasses: 'cancel', text: 'Cancel'}) + '</form></div></footer></section>';
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.deleteForm.soyTemplateName = 'GH.tpl.rapid.view.deleteForm';
+}
+
+
+GH.tpl.rapid.view.confirmForm = function(opt_data, opt_ignored) {
+  return '<h2 class="dialog-title">' + soy.$$escapeHtml('Confirmation') + '</h2><form class="aui" action="#" method="post"><div class="form-body"><p>' + soy.$$filterNoAutoescape(opt_data.message) + '</p></div><div class="form-footer buttons-container"><div class="buttons"><input id="submit" class="button" type="submit" value="' + soy.$$escapeHtml('Confirm') + '" /><a role="button" href="#" class="cancel">' + soy.$$escapeHtml('Cancel') + '</a></div></div></form></div>';
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.confirmForm.soyTemplateName = 'GH.tpl.rapid.view.confirmForm';
+}
+
+
+GH.tpl.rapid.view.renderGlobalErrors = function(opt_data, opt_ignored) {
+  var output = '<div class="ghx-error-image"></div><div class="ghx-errors-details">';
+  var errorList390 = opt_data.errors;
+  var errorListLen390 = errorList390.length;
+  for (var errorIndex390 = 0; errorIndex390 < errorListLen390; errorIndex390++) {
+    var errorData390 = errorList390[errorIndex390];
+    output += '<p>' + ((errorData390.noAutoescape) ? soy.$$filterNoAutoescape(errorData390.message) : soy.$$escapeHtml(errorData390.message)) + '</p>';
+  }
+  output += '</div><a class="aui-button" href="' + soy.$$escapeHtml(GH.Ajax.CONTEXT_PATH) + '/secure/RapidBoard.jspa?rapidView=' + soy.$$escapeHtml(opt_data.rapidViewId) + '&amp;useStoredSettings=true">' + soy.$$escapeHtml('Back to board') + '</a>';
+  return output;
+};
+if (goog.DEBUG) {
+  GH.tpl.rapid.view.renderGlobalErrors.soyTemplateName = 'GH.tpl.rapid.view.renderGlobalErrors';
+}
+
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_3862', location = '3862.js' */
+(self.webpackChunk=self.webpackChunk||[]).push([[3862],{63862:(e,k,p)=>{e.exports=p}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_9570', location = '9570.js' */
+(self.webpackChunk=self.webpackChunk||[]).push([[9570],{99570:(e,k,p)=>{e.exports=p}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_119', location = '119.js' */
+(self.webpackChunk=self.webpackChunk||[]).push([[119],{10310:(r,e,t)=>{r.exports=t},39703:(r,e,t)=>{r.exports=t},52310:(r,e,t)=>{r.exports=t},53339:(r,e,t)=>{r.exports=t},58409:(r,e,t)=>{r.exports=t},61428:(r,e,t)=>{r.exports=t},75211:(r,e,t)=>{r.exports=t},80119:(r,e,t)=>{"use strict";var o;void 0===(o=function(){t(85967),t(92226),t(63862),t(99570),t(61428),t(52310),t(10310),t(75211),t(58409),t(53339),t(39703);var r=Array.from(arguments).map(function(r,e){return{empty:!r||0===Object.getOwnPropertyNames(r).length&&!r[Symbol.for("soyProxy")],index:e}}).filter(function(r){return r.empty}).map(function(r){return r.index+1});r.length&&(window.__circulars=window.__circulars||0,window.__circulars+=r.length,console.error("[circ deps] in ","/jira-agile/rapid/gh-rapid-styles.js",r))}.apply(e,[]))||(r.exports=o)},92226:(r,e,t)=>{r.exports=t}}]);
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.pyxis.greenhopper.jira:split_sidebar', location = 'sidebar.js' */
+(self.webpackChunk=self.webpackChunk||[]).push([[1061],{13658:(e,r,t)=>{e.exports=t},51863:(e,r,t)=>{"use strict";var a,n,s;a=t(70171),n=t(6990),s=t(85150),t(13658),t(80119),n(function(){s("body").on("click",".js-create-board",function(e){e.preventDefault(),a.startWizard()})})}},e=>{e.O(0,[5150,1246,2334,3038,1986,2098,692,4115,1925,2545,2335,1886,8262,5967,2133,9182,2751,8254,6365,7068,8734,2910,2828,4204,344,843,699,6348,171,6990,3862,9570,119],()=>{return r=51863,e(e.s=r);var r});e.O()}]);
+}catch(e){WRMCB(e)};

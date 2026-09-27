@@ -1,0 +1,13 @@
+WRMCB=function(e){var c=console;if(c&&c.log&&c.error){c.log('Error running batched script.');c.error(e);}}
+;
+try {
+/* module-key = 'com.atlassian.plugins.atlassian-plugins-webresource-plugin:format', location = 'js/data/format.js' */
+(function(){function h(m,...r){const n=/'(?!')/g,t=/^\d+$/,u=/^(\d+),\s*number\s*$/,v=/^(\d+),\s*choice\s*,\s*(.+)/,w=/^(\d+)\s*([#<])(.+)/,x=/\|\s*/,y=function(a,c){if(null!==a.match(t))return a=parseInt(a,10),c.length>a?c[a]:"";var d=a.match(u);if(null!==d)return a=parseInt(d[1],10),c.length>a?c[a]:"";var b=a.match(v);if(null!==b){d=parseInt(b[1],10);d=c.length>d?c[d]:null;if(null===d)return"";b=b[2].split(x);let e=!1,f=null,k="";for(let l=0;l<b.length;l++){const g=b[l].match(w);if(null==g){e=!0;
+continue}const p=parseInt(g[1],10);if(d===p&&"#"===g[2]){k=g[3];break}if(d<=p){k=f?f:g[3];break}l===b.length-1&&(k=g[3]);f=g[3]}e&&console&&console.error&&console.error('The format "'+a+'" from message "'+m+'" is invalid.');return h(k,...c)}return""},q=function(a){var c=!1;let d=-1,b=0;for(let e=0;e<a.length;e++){const f=a.charAt(e);"'"===f&&(c=!c);if(!c)if("{"===f)0===b&&(d=e),b++;else if("}"===f&&0<b&&(b--,0===b))return c=[],c.push(a.substring(0,e+1)),c.push(a.substring(0,d)),c.push(a.substring(d+
+1,e)),c}return null};return function(a,c){let d="";if(!a)return d;let b=q(a);for(;b;)a=a.substring(b[0].length),d+=b[1].replace(n,""),d+=y(b[2],c),b=q(a);return d+=a.replace(n,"")}(m,r)}"function"===typeof define&&define("wrm/format",function(){return h});WRM.format=h;AJS.format=h})();
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.atlassian.plugins.atlassian-plugins-webresource-plugin:format', location = 'js/data/i18n.js' */
+(function(){const b={km:new Map,format:WRM.format,getText(a,...c){if(!b.km.has(a))return console.debug(`No translation found for '${a}'. Have you included the "jsI18n" transformation in your web-resource configuration?`),a;a=b.km.get(a);return b.format.apply(null,[a,...c])}};"function"===typeof define&&define("wrm/i18n",()=>b);WRM.I18n=b;AJS.I18n=b})();
+}catch(e){WRMCB(e)};

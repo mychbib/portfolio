@@ -24,28 +24,160 @@
 
 <main id="main">
 
-<section class="section compact">
-  <div class="shell project-hero-grid">
-    <div class="page-hero">
-      <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../work.html">Work</a> / Fermi spectral model</div>
-      <span class="eyebrow">LUPM · Fermi / NASA</span>
-      <h1>A physically motivated model for GRB MeV spectra.</h1>
-      <p class="lede">Parametrising spectra produced by a detailed internal-shock model and comparing this model with commonly used descriptions of GRB spectra.</p>
+  <section class="section compact">
+    <div class="shell project-hero-grid">
+  
+      <div class="page-hero">
+  
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> /
+          <a href="../work.html">Work</a> /
+          Fermi spectral model
+        </div>
+  
+        <span class="eyebrow">
+          LUPM · Fermi / NASA · GRB spectroscopy
+        </span>
+  
+        <h1>
+          A physically motivated alternative to the Band function.
+        </h1>
+  
+        <p class="lede">
+          Developing a compact spectral-fitting function derived from
+          internal-shock synchrotron simulations, and confronting it directly
+          with Fermi observations of bright gamma-ray bursts.
+        </p>
+  
+        <div class="project-facts">
+          <span class="tag">Fermi / GBM</span>
+          <span class="tag">GRBs</span>
+          <span class="tag">Spectral fitting</span>
+          <span class="tag">Internal shocks</span>
+          <span class="tag">Synchrotron</span>
+          <span class="tag">Simulations</span>
+        </div>
+  
+      </div>
+  
+  
+      <figure class="figure reveal">
+  
+        <div class="media-frame contain">
+  
+          <img
+            class="vt-model"
+            src="../assets/media/Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png"
+            data-media="Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png"
+            alt="Comparison of spectral-fit quality for several GRB spectral models">
+  
+        </div>
+  
+        <figcaption>
+          Comparison of the statistical performance of several spectral models
+          across the bright Fermi/GBM GRB sample.
+        </figcaption>
+  
+      </figure>
+  
     </div>
-    <figure class="figure reveal"><div class="media-frame contain"><img class="vt-model" src="../assets/media/Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png" data-media="Updated_Good_Arranged_bursts_Pgstat_models_withoutBadchi2_Asym_ALL_65Bursts_separated.png" alt="PGstat comparison of five spectral models"></div><figcaption>Difference in PGstat for five models across the GRB sample. Credit stated in the original site: Figure 5 from M. Yassine et al., 2020, A&amp;A.</figcaption></figure>
-  </div>
-</section>
-<section class="section compact">
-  <div class="shell prose-grid">
-    <aside class="reveal"><span class="eyebrow">Physical modelling</span></aside>
-    <div class="prose reveal">
-      <p>Collaborators at IAP developed a detailed numerical model of relativistic jets based on the internal-shock scenario, including synchrotron radiation and inverse Compton scattering as the main radiative processes, to explain the broadband prompt emission of gamma-ray bursts.</p>
-      <p>I simulated observations of the spectra provided by the internal-shock model using the GBM and LAT responses. To parametrise the theoretical spectra, I proposed an analytical function with four parameters. I applied this physically motivated model to the analysis of a large sample of GRBs observed by GBM and also studied the sample with the Band function, commonly used to fit GRB MeV spectra.</p>
+  </section>
+  
+  
+  <section class="section compact">
+    <div class="shell prose-grid">
+  
+      <aside class="reveal">
+        <span class="eyebrow">Physical modelling</span>
+      </aside>
+  
+      <div class="prose reveal">
+  
+        <h2>Connecting theoretical GRB spectra with observations</h2>
+  
+        <p>
+          The prompt emission of gamma-ray bursts is commonly described with
+          empirical functions such as the Band model. My work aimed to bring
+          more physical information into spectral fitting by using synthetic
+          spectra produced by a detailed internal-shock model in which
+          synchrotron radiation dominates the MeV emission.
+        </p>
+  
+        <p>
+          I used these simulated spectra to develop a four-parameter fitting
+          function, called the Internal Shock Synchrotron Model (ISSM) function.
+          The objective was to retain the characteristic spectral shape predicted
+          by the physical model while providing a compact function that could be
+          fitted efficiently to real GRB observations.
+        </p>
+  
+  
+        <h2>From simulations to Fermi data</h2>
+  
+        <p>
+          To validate the method, I simulated how the theoretical spectra would
+          be observed by the Fermi instruments and fitted the resulting count
+          spectra. The ISSM function was then applied to a sample of 74 bright
+          gamma-ray bursts detected by Fermi/GBM and compared with commonly used
+          phenomenological spectral models.
+        </p>
+  
+  
+        <div class="notice">
+          <strong>Key result.</strong>
+          With the same number of free parameters as the Band function, the ISSM
+          function provided a good description of 81% of the bright GRB sample,
+          compared with 59% for the Band function.
+        </div>
+  
+  
+        <h2>What the comparison revealed</h2>
+  
+        <p>
+          Beyond fit quality, the analysis allowed the observed spectral shapes
+          to be compared directly with predictions from the internal-shock
+          synchrotron model. The observed GRB spectra were systematically broader
+          than the synthetic synchrotron spectra, providing a quantitative test
+          of the physical scenario and pointing toward possible improvements in
+          the modelling of shock microphysics and radiative processes.
+        </p>
+  
+  
+        <h3>Related publication</h3>
+  
+        <article class="publication reveal">
+  
+          <div class="year">2020</div>
+  
+          <div>
+            <h3>
+              M. Yassine, F. Piron, F. Daigne, R. Mochkovitch,
+              F. Longo, N. Omodei and G. Vianello —
+              <em>
+                A new fitting function for GRB MeV spectra based on the
+                internal shock synchrotron model
+              </em>
+            </h3>
+  
+            <p>
+              A&amp;A, 640, A91 (2020) · First-author publication
+            </p>
+          </div>
+  
+          <a href="https://arxiv.org/abs/2004.03987"
+             target="_blank"
+             rel="noreferrer">
+            Reference ↗
+          </a>
+  
+        </article>
+  
+      </div>
+  
     </div>
-  </div>
-</section>
-
-</main>
+  </section>
+  
+  </main>
 
 <footer class="site-footer">
   <div class="shell footer-row">

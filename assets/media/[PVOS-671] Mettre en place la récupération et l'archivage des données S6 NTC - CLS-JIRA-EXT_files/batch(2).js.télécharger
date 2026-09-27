@@ -1,0 +1,47 @@
+WRMCB=function(e){var c=console;if(c&&c.log&&c.error){c.log('Error running batched script.');c.error(e);}}
+;
+try {
+/* module-key = 'com.valiantys.jira.plugins.SQLFeed:nfeed.inline-edit', location = '/templates/soy/token-util.soy' */
+// This file was automatically generated from token-util.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace NFeed.Templates.TokenUtils.
+ */
+
+if (typeof NFeed == 'undefined') { var NFeed = {}; }
+if (typeof NFeed.Templates == 'undefined') { NFeed.Templates = {}; }
+if (typeof NFeed.Templates.TokenUtils == 'undefined') { NFeed.Templates.TokenUtils = {}; }
+
+
+NFeed.Templates.TokenUtils.atlToken = function(opt_data, opt_ignored) {
+  return '<script>function _getMeta(metaName) {const metas = document.getElementsByTagName(\'meta\'); for (let i = 0; i < metas.length; i++) {if (metas[i].getAttribute(\'name\') === metaName) {return metas[i].getAttribute(\'content\');}}return \'\';}<\/script>';
+};
+if (goog.DEBUG) {
+  NFeed.Templates.TokenUtils.atlToken.soyTemplateName = 'NFeed.Templates.TokenUtils.atlToken';
+}
+
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'com.valiantys.jira.plugins.SQLFeed:nfeed.inline-edit', location = '/templates/soy/runtime/inline-edit.soy' */
+// This file was automatically generated from inline-edit.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace NFeed.Templates.InlineEditing.
+ */
+
+if (typeof NFeed == 'undefined') { var NFeed = {}; }
+if (typeof NFeed.Templates == 'undefined') { NFeed.Templates = {}; }
+if (typeof NFeed.Templates.InlineEditing == 'undefined') { NFeed.Templates.InlineEditing = {}; }
+
+
+NFeed.Templates.InlineEditing.dialog = function(opt_data, opt_ignored) {
+  return '<section role="dialog" class="aui-layer aui-dialog2 aui-dialog2-large nfeed-inline-dialog" aria-hidden="true" data-aui-focus-selector=".aui-dialog2 .form-body #' + soy.$$escapeHtml(opt_data.fieldId) + '"><header class="aui-dialog2-header"><h2 class="aui-dialog2-header-main">' + soy.$$escapeHtml('Edit fields') + '</h2><a class="aui-dialog2-header-close"><span class="aui-icon aui-icon-small aui-iconfont-close-dialog">' + soy.$$escapeHtml('Close') + '</span></a></header><div class="aui-dialog2-content"><form class="aui nfeed-inline-edit"><div class="form-body"><div class="content">' + soy.$$filterNoAutoescape(opt_data.htmlContent) + '</div></div></form></div><footer class="aui-dialog2-footer"><div class="aui-dialog2-footer-actions"><button class="aui-button aui-button-primary nfeed-inline-update">' + soy.$$escapeHtml('Update') + '</button><button class="aui-button aui-button-link nfeed-inline-cancel">' + soy.$$escapeHtml('Cancel') + '</button></div></footer></section>';
+};
+if (goog.DEBUG) {
+  NFeed.Templates.InlineEditing.dialog.soyTemplateName = 'NFeed.Templates.InlineEditing.dialog';
+}
+
+}catch(e){WRMCB(e)};

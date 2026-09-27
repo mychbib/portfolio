@@ -417,13 +417,23 @@ button, input, textarea { font: inherit; }
 }
 
 /* première vidéo : plus haute, côté gauche */
-.video-top {
+.hero-video-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-video-card {
+  width: 88%;
+}
+
+.video-top,
+.video-bottom {
   align-self: flex-start;
 }
 
-/* deuxième : légèrement plus basse et à droite */
 .video-bottom {
-  align-self: flex-end;
   margin-top: 50px;
 }
 
@@ -529,4 +539,15 @@ button, input, textarea { font: inherit; }
 
 .scientific-reference a:hover {
   text-decoration: underline;
+}
+
+.project-card .media-frame.devops-media {
+  aspect-ratio: 16 / 9;
+  background: #ffffff;
+}
+
+.project-card .media-frame.devops-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
