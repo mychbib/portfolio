@@ -581,10 +581,10 @@ button, input, textarea { font: inherit; }
     font-size: clamp(4.5rem, 7vw, 7rem);
   }
 
-.home-page .hero-copy .lead {
+/* .home-page .hero-copy .lead {
     color: #173047;
     font-weight: 600;
-  }
+  } */
 
   .home-page .hero-mini-intro {
     color: #173047;
